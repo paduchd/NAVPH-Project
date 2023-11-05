@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18827617, g: 0.19113809, b: 0.19109794, a: 1}
+  m_IndirectSpecularColor: {r: 0.1882762, g: 0.19113821, b: 0.19109797, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6979,7 +6979,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650121318}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 368fb7937acab4c07b62be2cd98f0fc5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7005,6 +7005,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2583e4ab96be78045897414f76de56ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1650121323
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650121318}
+  m_Material: {fileID: 13400000, guid: 5d4ad75d91c134a8ebc133fa7d18397c, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.591677, y: 0.02, z: 9.829809}
+  m_Center: {x: -0.02318978, y: -2.7724087, z: 0.2164224}
 --- !u!4 &1650252688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2743396a59a2dc43baa7a2d5414c1ff, type: 3}
@@ -7948,6 +7969,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1650121322}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1650121323}
   m_SourcePrefab: {fileID: 100100000, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
 --- !u!4 &1916082498 stripped
 Transform:
@@ -8572,7 +8596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034045587}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.018189492, y: 0.000000001075221, z: 1.9560957e-11, w: 0.9998346}
+  m_LocalRotation: {x: -0.018189492, y: -0.000000001075221, z: -1.9560957e-11, w: 0.9998346}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
