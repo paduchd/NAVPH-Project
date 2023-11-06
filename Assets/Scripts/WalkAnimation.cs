@@ -4,38 +4,61 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-	private Animator mAnimator;
+    private Animator movementAnimator;
+    bool walking = false;
+    bool running = false;
+    bool idle = true;
     
     void Start()
     {
-        mAnimator = GetComponent<Animator>();
+        movementAnimator = GetComponent<Animator>();
     }
 
     
     void Update()
     {
-        if(mAnimator != null)
-		{
-            if(Input.GetKeyDown(KeyCode.W))
-			{
-				mAnimator.SetTrigger("TrForward");
-			}
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !Input.GetKey(KeyCode.LeftShift))
+        {
+            walking = true;
+            running = false;
+            idle = false;
+        }
+        else if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift))
+        {
+            walking = false;
+            running = true;
+            idle = false;
+        }
+        else
+        {
+            walking = false;
+            running = false;
+            idle = true;
+        }
 
-			if(Input.GetKeyDown(KeyCode.S))
-			{
-				mAnimator.SetTrigger("TrBackwards");
-			}
-			
-			if(Input.GetKeyDown(KeyCode.LeftShift))
-			{
-				mAnimator.SetTrigger("TrRun");
-			}
-			
-			if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-			{
-				mAnimator.SetTrigger("TrIdle");
-			}
-		}
-
+        movementAnimator.SetBool("walking", walking);
+        movementAnimator.SetBool("running", running);
+        movementAnimator.SetBool("idle", idle);
+        
+        // if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) && !Input.GetKeyDown(KeyCode.LeftShift))
+        // {
+        //     movementAnimator.SetBool("walking", true);
+        // }
+        // else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        // {
+        //     movementAnimator.SetBool("walking", true);
+        // }
+        // else if (Input.GetKeyDown(KeyCode.LeftShift))
+        // {
+        //     movementAnimator.SetBool("running", true);
+        // }
+        // else if (Input.GetKey(KeyCode.LeftShift))
+        // {
+        //     movementAnimator.SetBool("running", true);
+        // }
+        // else if (Input.GetKeyUp(KeyCode.LeftShift))
+        // {
+        //     movementAnimator.SetBool("running", false);
+        // }
     }
 }

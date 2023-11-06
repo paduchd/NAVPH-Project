@@ -7,14 +7,13 @@ public class PlayerCam : MonoBehaviour
     [Header("References")]
     public Transform orientation;
     public Transform player;
-    public Transform playerObj;
+    public Transform playerObject;
     public Rigidbody rb;
-
     public float rotationSpeed;
-
     public Transform lookAt;
-
     public GameObject thirdPersonCam;
+	public float horizontal;
+	public float vertical;
 
     private void Start()
     {
@@ -24,12 +23,17 @@ public class PlayerCam : MonoBehaviour
 
     private void Update()
     {
-        Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
-        orientation.forward = viewDir.normalized;
+        Vector3 orientationDirection = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        orientation.forward = orientationDirection.normalized;
+        
+		horizontal = Input.GetAxis("Horizontal");
+		vertical = Input.GetAxis("Vertical");
 
-        Vector3 dirToLookAt = lookAt.position - new Vector3(transform.position.x, lookAt.position.y, transform.position.z);
-        orientation.forward = dirToLookAt.normalized;
+		Vector3 direction = orientation.forward * vertical *-1 + orientation.right * horizontal * -1;
 
-        playerObj.forward = dirToLookAt.normalized * -1;
+		if(direction.magnitude > 0f)
+		{
+			playerObject.forward = Vector3.Slerp(playerObject.forward, direction.normalized, Time.deltaTime * rotationSpeed);
+		}
     }
 }
