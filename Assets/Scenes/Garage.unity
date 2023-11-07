@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18827617, g: 0.19113809, b: 0.19109794, a: 1}
+  m_IndirectSpecularColor: {r: 0.1882762, g: 0.19113821, b: 0.19109797, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1724,7 +1724,7 @@ GameObject:
   - component: {fileID: 456848366}
   - component: {fileID: 456848365}
   - component: {fileID: 456848369}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Garage floor
   m_TagString: GarageFloor
   m_Icon: {fileID: 0}
@@ -3352,7 +3352,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: -0.03632495, y: -0, z: -0, w: 0.99934006}
-  m_LocalPosition: {x: -5.02, y: 4.283, z: -1.6}
+  m_LocalPosition: {x: -5.02, y: 4.609, z: -1.297}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3891,7 +3891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 4b5b8c20f69410c419b254122ed09fb8, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4b5b8c20f69410c419b254122ed09fb8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5002,7 +5002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256622917}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.03632495, y: 1e-45, z: -0, w: 0.99934006}
+  m_LocalRotation: {x: -0.03632495, y: -1e-45, z: -0, w: 0.99934006}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6345,7 +6345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 25ee871378dad684ea5f1d941e68f148, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 25ee871378dad684ea5f1d941e68f148, type: 3}
       propertyPath: m_LocalScale.x
@@ -6993,8 +6993,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.691677, y: 5.0680323, z: 9.929809}
-  m_Center: {x: -0.023189783, y: -0.23839265, z: 0.21642238}
+  m_Size: {x: 2.7, y: 5.3, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1650121322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7026,8 +7026,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.591677, y: 0.02, z: 9.829809}
-  m_Center: {x: -0.02318978, y: -2.7724087, z: 0.2164224}
+  m_Size: {x: 2.6, y: 0.02, z: 9.9}
+  m_Center: {x: 0, y: -2.65, z: 0}
 --- !u!4 &1650252688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2743396a59a2dc43baa7a2d5414c1ff, type: 3}
@@ -7908,15 +7908,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.252
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.24024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7948,11 +7948,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4292154010595695564, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -58.94
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       propertyPath: m_Name
-      value: PlayerObj
+      value: Racoon
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       propertyPath: m_IsActive
@@ -8096,6 +8096,8 @@ GameObject:
   - component: {fileID: 1941412503}
   - component: {fileID: 1941412502}
   - component: {fileID: 1941412504}
+  - component: {fileID: 1941412506}
+  - component: {fileID: 1941412507}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8139,7 +8141,7 @@ Transform:
   m_GameObject: {fileID: 1941412501}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.326, z: 0.303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8161,15 +8163,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2.5
   groundDrag: 1
+  airMultiplier: 1
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  orientation: {fileID: 618684493}
+--- !u!114 &1941412506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941412501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac5ab90946b941fd8da4fb927bb5fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpKey: 32
   jumpForce: 4
   jumpCooldown: 0.8
-  airMultiplier: 0
-  jumpKey: 32
-  playerHeight: 0.2
-  whatIsGround:
+  playerMovement: {fileID: 1941412504}
+--- !u!114 &1941412507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941412501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f691a54e4a1f74d6a8f8976791c9d7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layerMask:
     serializedVersion: 2
-    m_Bits: 72
-  orientation: {fileID: 618684493}
+    m_Bits: 128
 --- !u!1 &1973345868
 GameObject:
   m_ObjectHideFlags: 0
@@ -8302,7 +8331,7 @@ Transform:
   m_GameObject: {fileID: 1973345868}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.02, y: 4.283, z: -1.6}
+  m_LocalPosition: {x: -5.02, y: 4.609, z: -1.297}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
