@@ -8,14 +8,14 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private Stamina playerStamina;
     
-    private bool readyToJump;
+    private bool readyToJump = true;
     private new Rigidbody rigidbody;
     
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        readyToJump = true;
     }
     
     private void Update()
@@ -25,19 +25,22 @@ public class PlayerJump : MonoBehaviour
     
     private void Jump()
     {
-        if (Input.GetKey(jumpKey) && readyToJump && playerMovement.IsPlayerGrounded())
+        bool enoughStamina = playerStamina.CanJump();
+        
+        if (Input.GetKey(jumpKey) && readyToJump && playerMovement.IsGrounded() && enoughStamina)
         {
             readyToJump = false;
-
             rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
             rigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
-            Invoke(nameof(ResetJump), jumpCooldown);
+            
+            playerStamina.JumpDrain();
+            
+            Invoke(nameof(ResetJumpCooldown), jumpCooldown);
         }
         
     }
 
-    private void ResetJump()
+    private void ResetJumpCooldown()
     {
         readyToJump = true;
     }

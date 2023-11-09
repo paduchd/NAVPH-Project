@@ -13,7 +13,6 @@ public class NewBehaviourScript : MonoBehaviour
     {
         movementAnimator = GetComponent<Animator>();
     }
-
     
     void Update()
     {

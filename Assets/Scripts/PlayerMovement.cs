@@ -10,10 +10,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float airMultiplier;
     [SerializeField] LayerMask groundLayerMask;
     [SerializeField] private Transform orientation;
-    
-    private bool grounded;
+    [SerializeField] private Stamina playerStamina;
+
+    private bool isGrounded = true;
+    private bool isRunning = false;
     private Rigidbody rigitbody;
     private bool gr;
+    
+    public bool IsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public bool IsRunning()
+    {
+        return isRunning;
+    }
 
     void Start()
     {
@@ -23,35 +35,48 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
-        gr = grounded;
-        grounded = Physics.Raycast(transform.position, Vector3.down,0.25f,groundLayerMask);
+        gr = isGrounded;
+        isGrounded = Physics.Raycast(transform.position, Vector3.down,0.25f,groundLayerMask);
         
-        if (gr != grounded)
+        if (gr != isGrounded)
         {
-            Debug.Log(grounded);
+            Debug.Log(isGrounded);
         }
         
         SetMovementSpeed();
         SpeedControl();
         SetGroundDrag();
     }
-
-    public bool IsPlayerGrounded()
-    {
-        return grounded;
-    }
     
     private void SetMovementSpeed()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-            moveSpeed *= 2;
-        else if(Input.GetKeyUp(KeyCode.LeftShift))
-            moveSpeed /= 2;
+        bool isStationary = Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Horizontal") == 0;
+
+        bool runOnCooldown = playerStamina.CanRun();
+        if (Input.GetKey(KeyCode.LeftShift) && !isStationary && !runOnCooldown)
+        {
+            if(!isRunning)
+            {
+                isRunning = true;
+                moveSpeed *= 2;
+            }
+            
+        }
+        else
+        {
+            if (isRunning)
+            {
+                isRunning = false;
+                moveSpeed /= 2;
+            }
+            
+        }
+        
     }
 
     private void SetGroundDrag()
     {
-        if (grounded)
+        if (isGrounded)
             rigitbody.drag = groundDrag;
         else
             rigitbody.drag = 0;
@@ -72,10 +97,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 moveDirection = GetMovementDirection();
 
-        if (grounded)
+        if (isGrounded)
             rigitbody.AddForce(moveDirection.normalized * (moveSpeed * 10f), ForceMode.Force);
 
-        else if(!grounded)
+        else if(!isGrounded)
             rigitbody.AddForce(moveDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode.Force);
     }
 
