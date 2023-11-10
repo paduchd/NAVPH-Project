@@ -85,6 +85,7 @@ MonoBehaviour:
     m_Bits: 128
   orientation: {fileID: 4750442981141487478}
   playerStamina: {fileID: 6993085260329888222}
+  movementAnimator: {fileID: 1939948368372546758}
 --- !u!114 &6312320017872697222
 MonoBehaviour:
   m_ObjectHideFlags: 0

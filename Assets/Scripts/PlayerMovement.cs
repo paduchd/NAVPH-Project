@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask groundLayerMask;
     [SerializeField] private Transform orientation;
     [SerializeField] private Stamina playerStamina;
+    [SerializeField] private MovementAnimations movementAnimator;
 
     private bool isGrounded = true;
     private bool isRunning = false;
@@ -53,21 +54,32 @@ public class PlayerMovement : MonoBehaviour
         bool isStationary = Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Horizontal") == 0;
 
         bool runOnCooldown = playerStamina.CanRun();
+        
         if (Input.GetKey(KeyCode.LeftShift) && !isStationary && !runOnCooldown)
         {
-            if(!isRunning)
+            if(!isRunning) //shift pressed and movement pressed first time
             {
                 isRunning = true;
                 moveSpeed *= 2;
             }
+            movementAnimator.AnimateRunning();
             
         }
         else
         {
-            if (isRunning)
+            if (isRunning) //shift or movement unpressed or runOnCooldow for first time
             {
                 isRunning = false;
                 moveSpeed /= 2;
+            }
+            
+            if(isStationary)
+            {
+                movementAnimator.AnimateIdle();
+            }
+            else
+            {
+                movementAnimator.AnimateWalking();
             }
             
         }
