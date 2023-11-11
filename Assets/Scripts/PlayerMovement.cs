@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float groundDrag;
-    [SerializeField] private float airMultiplier;
+    [Header("Movement attributes")]
+    [SerializeField] private float movementSpeed = 2f;
+    [SerializeField] private float runningSpeedMultiplier = 1.5f;
+    [SerializeField] private float groundDrag = 1f;
+    [SerializeField] private float airMultiplier = 1f;
+    
+    [Header("Script imports")]
     [SerializeField] LayerMask groundLayerMask;
     [SerializeField] private Transform orientation;
     [SerializeField] private Stamina playerStamina;
@@ -60,19 +63,17 @@ public class PlayerMovement : MonoBehaviour
             if(!isRunning) //shift pressed and movement pressed first time
             {
                 isRunning = true;
-                moveSpeed *= 2;
+                movementSpeed *= runningSpeedMultiplier;
             }
             movementAnimator.AnimateRunning();
-            
         }
         else
         {
             if (isRunning) //shift or movement unpressed or runOnCooldow for first time
             {
                 isRunning = false;
-                moveSpeed /= 2;
+                movementSpeed /= runningSpeedMultiplier;
             }
-            
             if(isStationary)
             {
                 movementAnimator.AnimateIdle();
@@ -81,9 +82,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 movementAnimator.AnimateWalking();
             }
-            
         }
-        
     }
 
     private void SetGroundDrag()
@@ -110,22 +109,21 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDirection = GetMovementDirection();
 
         if (isGrounded)
-            rigitbody.AddForce(moveDirection.normalized * (moveSpeed * 10f), ForceMode.Force);
+            rigitbody.AddForce(moveDirection.normalized * (movementSpeed * 10f), ForceMode.Force);
 
         else if(!isGrounded)
-            rigitbody.AddForce(moveDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode.Force);
+            rigitbody.AddForce(moveDirection.normalized * (movementSpeed * 10f * airMultiplier), ForceMode.Force);
     }
 
     private void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rigitbody.velocity.x, 0f, rigitbody.velocity.z);
 
-        if (flatVel.magnitude > moveSpeed)
+        if (flatVel.magnitude > movementSpeed)
         {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            Vector3 limitedVel = flatVel.normalized * movementSpeed;
             rigitbody.velocity = new Vector3(limitedVel.x, rigitbody.velocity.y, limitedVel.z);
         }
     }
-
-   
+    
 }
