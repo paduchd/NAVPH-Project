@@ -6,11 +6,11 @@ using TMPro;
 public class BoxTrapController : MonoBehaviour
 {
     public string textString;
-    public TextMeshProUGUI textElement;
+    //public TextMeshProUGUI textElement;
     
     void Start()
     {
-        textElement.text = textString;
+        //textElement.text = textString;
     }
 
     
@@ -24,7 +24,7 @@ public class BoxTrapController : MonoBehaviour
         if(col.gameObject.tag == "GarageFloor")
         {
             Debug.Log("Box collided with the ground");
-            textElement.text = "You have alerted your kidnappers!\nQuickly find a way out!";
+            //textElement.text = "You have alerted your kidnappers!\nQuickly find a way out!";
         }
     }
 }
