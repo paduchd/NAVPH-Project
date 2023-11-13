@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6312320017872697222}
   - component: {fileID: 8686761990311389763}
   - component: {fileID: 6993085260329888222}
+  - component: {fileID: 2691945041930939039}
+  - component: {fileID: 2484297383220927553}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -77,7 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0222b4911b50b479e0813b338d6ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
+  movementSpeed: 2.5
+  runningSpeedMultiplier: 1.5
   groundDrag: 1
   airMultiplier: 1
   groundLayerMask:
@@ -138,6 +141,40 @@ MonoBehaviour:
   jumpCost: 20
   staminaProgressUI: {fileID: 0}
   playerMovement: {fileID: 8815513340903793807}
+--- !u!114 &2691945041930939039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444895891735599053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543260590dfc44232ac05442a482fb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashKey: 306
+  orientation: {fileID: 7006666836003538196}
+  dashForce: 200
+  dashUpwardForce: 2
+  dashCooldown: 0.25
+--- !u!114 &2484297383220927553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444895891735599053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543260590dfc44232ac05442a482fb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashKey: 306
+  orientation: {fileID: 7006666836003538196}
+  dashForce: 50
+  dashUpwardForce: 2
+  dashCooldown: 0.25
 --- !u!1 &4090897228927312360
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,13 +278,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9209059526886148007}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8248052203995074676}
@@ -257,6 +295,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 503474760332247483}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6812764055231688658}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7446272316489354764}
   m_SourcePrefab: {fileID: 100100000, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
 --- !u!4 &7006666836003538196 stripped
 Transform:
@@ -268,27 +312,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
   m_PrefabInstance: {fileID: 7401128464729580287}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &9209059526886148007
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7671740067310739374}
-  m_Material: {fileID: 13400000, guid: 368fb7937acab4c07b62be2cd98f0fc5, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.7, y: 5.3, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &8248052203995074676
 Animator:
   serializedVersion: 5
@@ -329,7 +352,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7671740067310739374}
-  m_Material: {fileID: 13400000, guid: 5d4ad75d91c134a8ebc133fa7d18397c, type: 2}
+  m_Material: {fileID: 13400000, guid: 368fb7937acab4c07b62be2cd98f0fc5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -341,5 +364,51 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.6, y: 0.02, z: 9.9}
-  m_Center: {x: 0, y: -2.65, z: 0}
+  m_Size: {x: 2.6, y: 4, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &6812764055231688658
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671740067310739374}
+  m_Material: {fileID: 13400000, guid: 5d4ad75d91c134a8ebc133fa7d18397c, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.4138224
+  m_Height: 10.023414
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.35679537, z: 0.23477341}
+--- !u!136 &7446272316489354764
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671740067310739374}
+  m_Material: {fileID: 13400000, guid: 5d4ad75d91c134a8ebc133fa7d18397c, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.4138224
+  m_Height: 10.023414
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.35679537, z: 0.23477341}
