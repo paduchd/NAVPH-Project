@@ -20,7 +20,6 @@ public class SceneSwitch : MonoBehaviour
     public GameObject UICanvas;
     public GameObject LoadingCanvas;
     public Image LoadingBar;
-    private bool SceneReady = false;
     
     void Start()
     {
