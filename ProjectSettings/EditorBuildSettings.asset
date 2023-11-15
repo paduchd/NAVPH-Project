@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sewers.unity
     guid: bfeef8dc712fcd9419395dc012bf7e4a
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 6acc8510b1922584dbd51c0e0c5cc984
   m_configObjects: {}
