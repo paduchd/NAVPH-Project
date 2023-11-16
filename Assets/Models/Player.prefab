@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6312320017872697222}
   - component: {fileID: 8686761990311389763}
   - component: {fileID: 6993085260329888222}
-  - component: {fileID: 2691945041930939039}
   - component: {fileID: 2484297383220927553}
+  - component: {fileID: 6396586336188200979}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -141,23 +141,6 @@ MonoBehaviour:
   jumpCost: 20
   staminaProgressUI: {fileID: 0}
   playerMovement: {fileID: 8815513340903793807}
---- !u!114 &2691945041930939039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444895891735599053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 543260590dfc44232ac05442a482fb0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashKey: 306
-  orientation: {fileID: 7006666836003538196}
-  dashForce: 200
-  dashUpwardForce: 2
-  dashCooldown: 0.25
 --- !u!114 &2484297383220927553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +158,23 @@ MonoBehaviour:
   dashForce: 50
   dashUpwardForce: 2
   dashCooldown: 0.25
+--- !u!114 &6396586336188200979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444895891735599053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b728dab63a59c4595a655720060d699b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 5
+  healthBarController: {fileID: 0}
+  damageOverlay: {fileID: 0}
+  damageFadeTime: 3
 --- !u!1 &4090897228927312360
 GameObject:
   m_ObjectHideFlags: 0

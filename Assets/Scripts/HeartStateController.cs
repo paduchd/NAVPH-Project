@@ -13,30 +13,25 @@ public class HeartStateController : MonoBehaviour
     private Animator heartAnimator;
     private string ISPULSING = "IsPulsing";
     
-
     private void Awake()
     {
         heartImage = GetComponent<Image>();
         heartAnimator = GetComponent<Animator>();
     }
     
-    public void SetImage(HeartState state)
+    public void SetHeartState(HeartState state)
     {
         if (state == HeartState.Empty)
         {
             heartImage.sprite = emptyHeart;
-            heartAnimator.SetBool(ISPULSING,false);
-            
+            heartAnimator.SetBool(ISPULSING,true);
+            //for reseting animation from beginning if already playing
+            heartAnimator.Play("HeartPulsing",-1, 0f); 
         } 
         else if (state == HeartState.Full)
         {
             heartImage.sprite = fullHeart;
             heartAnimator.SetBool(ISPULSING,false);
-        }
-        else if (state == HeartState.Pulsing)
-        {
-            heartImage.sprite = emptyHeart;
-            heartAnimator.SetBool(ISPULSING,true);
         }
     }
 }
@@ -44,5 +39,4 @@ public enum HeartState
 {
     Empty = 0,
     Full = 1,
-    Pulsing = 2
 }
