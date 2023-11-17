@@ -173,6 +173,7 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 5
   healthBarController: {fileID: 0}
+  healTime: 5
   damageOverlay: {fileID: 0}
   damageFadeTime: 3
 --- !u!1 &4090897228927312360

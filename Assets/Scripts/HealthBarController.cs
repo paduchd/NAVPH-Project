@@ -34,8 +34,6 @@ public class HealthBarController : MonoBehaviour
 
     public void UpdateHeartStates()
     {
-        Debug.Log(playerHealth.currentHealth);
-        Debug.Log(hearts.Count);
         for (int i = 0; i < playerHealth.currentHealth; i++)
         {
             hearts[i].SetHeartState(HeartState.Full);
