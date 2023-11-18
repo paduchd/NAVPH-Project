@@ -9,6 +9,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float jumpCooldown;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Stamina playerStamina;
+    [SerializeField] private MovementAnimations movementAnimator;
     
     private bool readyToJump = true;
     private new Rigidbody rigidbody;
@@ -29,6 +30,8 @@ public class PlayerJump : MonoBehaviour
         
         if (Input.GetKey(jumpKey) && readyToJump && playerMovement.IsGrounded() && enoughStamina)
         {
+            movementAnimator.AnimateJump();
+            
             readyToJump = false;
             rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
             rigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);

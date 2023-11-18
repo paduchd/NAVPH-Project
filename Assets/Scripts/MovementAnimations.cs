@@ -41,6 +41,16 @@ public class MovementAnimations : MonoBehaviour
         idle = false;
         SetAnimations();
     }
+    
+    public void AnimateJump()
+    {
+        movementAnimator.SetTrigger("jump");
+    }
+
+    public void AnimateDash()
+    {
+        movementAnimator.SetTrigger("dash");
+    }
 
     private void SetAnimations()
     {
