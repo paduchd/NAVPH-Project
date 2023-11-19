@@ -27,16 +27,15 @@ public class Stamina : MonoBehaviour
     
     private void Update()
     {
-        if (!playerMovement.IsRunning())
+        if(playerMovement.GetMovementState() == PlayerMovement.MovementState.Running)
+        {
+            RunningDrain();
+            
+        }
+        else
         {
             StaminaRegen();
         }
-
-        if (playerMovement.IsRunning())
-        {
-            RunningDrain();
-        }
-        
     }
 
     private void StaminaRegen()

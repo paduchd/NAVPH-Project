@@ -15,22 +15,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform orientation;
     [SerializeField] private Stamina playerStamina;
     [SerializeField] private MovementAnimations movementAnimator;
-
-    private bool isGrounded = true;
-    private bool isRunning = false;
-    private Rigidbody rigitbody;
-    private bool gr;
     
-    public bool IsGrounded()
+    private Rigidbody rigitbody;
+    private MovementState playerMovementState;
+    private bool isGrounded;
+    
+    public enum MovementState
     {
-        return isGrounded;
+        Idle = 0,
+        Walking = 1,
+        Running = 2,
     }
-
-    public bool IsRunning()
-    {
-        return isRunning;
-    }
-
+    
     void Start()
     {
         rigitbody = GetComponent<Rigidbody>();
@@ -38,51 +34,61 @@ public class PlayerMovement : MonoBehaviour
     }
     
     private void Update()
-    {
-        gr = isGrounded;
+    {   //set ground state
         isGrounded = Physics.Raycast(transform.position, Vector3.down,0.25f,groundLayerMask);
         
-        if (gr != isGrounded)
-        {
-            Debug.Log(isGrounded);
-        }
-        
-        SetMovementSpeed();
+        SetMovementState();
         SpeedControl();
         SetGroundDrag();
     }
     
-    private void SetMovementSpeed()
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+    
+    public MovementState GetMovementState()
+    {
+        return playerMovementState;
+    }
+
+    public bool IsGrounded()
+    {
+        return isGrounded;
+    }
+    
+    private void SetMovementState()
     {
         bool isStationary = Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Horizontal") == 0;
-
         bool runOnCooldown = playerStamina.CanRun();
         
-        if (Input.GetKey(KeyCode.LeftShift) && !isStationary && !runOnCooldown)
+        //running
+        if (!isStationary && Input.GetKey(KeyCode.LeftShift) && !runOnCooldown)
         {
-            if(!isRunning) //shift pressed and movement pressed first time
+            if (playerMovementState == MovementState.Walking)
             {
-                isRunning = true;
                 movementSpeed *= runningSpeedMultiplier;
             }
+            playerMovementState = MovementState.Running;
             movementAnimator.AnimateRunning();
-        }
-        else
+            
+        //walking
+        } else if (!isStationary)
         {
-            if (isRunning) //shift or movement unpressed or runOnCooldow for first time
+            if (playerMovementState == MovementState.Running)
             {
-                isRunning = false;
                 movementSpeed /= runningSpeedMultiplier;
             }
-            if(isStationary)
-            {
-                movementAnimator.AnimateIdle();
-            }
-            else
-            {
-                movementAnimator.AnimateWalking();
-            }
+            playerMovementState = MovementState.Walking;
+            movementAnimator.AnimateWalking();
         }
+        //idle
+        else
+        {
+            playerMovementState = MovementState.Idle;
+            movementAnimator.AnimateIdle();
+        }
+        
     }
 
     private void SetGroundDrag()
@@ -93,25 +99,18 @@ public class PlayerMovement : MonoBehaviour
             rigitbody.drag = 0;
     }
     
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
     private Vector3 GetMovementDirection()
     {
         return orientation.forward * Input.GetAxisRaw("Vertical") + orientation.right * Input.GetAxisRaw("Horizontal");
     }
     
-
     private void MovePlayer()
     {
         Vector3 moveDirection = GetMovementDirection();
 
         if (isGrounded)
             rigitbody.AddForce(moveDirection.normalized * (movementSpeed * 10f), ForceMode.Force);
-
-        else if(!isGrounded)
+        else
             rigitbody.AddForce(moveDirection.normalized * (movementSpeed * 10f * airMultiplier), ForceMode.Force);
     }
 
