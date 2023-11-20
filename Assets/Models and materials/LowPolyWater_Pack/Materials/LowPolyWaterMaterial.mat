@@ -107,7 +107,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ShoreTex:
         m_Texture: {fileID: 2800000, guid: 5fbcffe9c2077f04186883cb39275fcc, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 1, y: 1}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
@@ -188,7 +188,7 @@ Material:
     - WaveSpeed: {r: 1.086165, g: 4.440575, b: 12.105146, a: -3.0206447}
     - _AnimationDirection: {r: 0, g: 0, b: 0, a: 0}
     - _AnimationTiling: {r: 0.04582553, g: 0.0182, b: 0.045714468, a: 0.027129691}
-    - _BaseColor: {r: 0.09813382, g: 0.26415092, b: 0.095692396, a: 1}
+    - _BaseColor: {r: 0, g: 0.7947221, b: 1, a: 1}
     - _BumpDirection: {r: 5, g: 5, b: 5, a: -10}
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
     - _BumpTiling: {r: 0.01, g: 0.01, b: 0.01, a: 0.01}
@@ -210,7 +210,7 @@ Material:
     - _GSpeed: {r: -3, g: 2, b: 1, a: 3}
     - _GSteepness: {r: 7, g: 2, b: 6, a: 2}
     - _HorizonColor: {r: 0.052907113, g: 0.24486735, b: 0.2835821, a: 1}
-    - _InvFadeParemeter: {r: 0.67, g: 0.17, b: 27.39, a: 9.18}
+    - _InvFadeParemeter: {r: 0.67, g: 0.17, b: 27.39, a: 59.55}
     - _MainTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectionColor: {r: 0.5794164, g: 0.6849238, b: 0.76119405, a: 0.43137255}
     - _ReflectionTex_ST: {r: 1, g: 1, b: 0, a: 0}
@@ -223,7 +223,7 @@ Material:
     - _ShoreColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShorePerturbation: {r: 0, g: 0, b: 0, a: 0}
     - _ShoreTiling: {r: 1, g: 1, b: 0.1, a: 0.1}
-    - _SpecColor: {r: 0.13379653, g: 0.2924528, b: 0.08663224, a: 1}
+    - _SpecColor: {r: 0, g: 0.6138928, b: 1, a: 1}
     - _SpecularColor: {r: 0.91791046, g: 0.91791046, b: 0.91791046, a: 1}
     - _UnderwaterColor: {r: 0.6950323, g: 0.89552236, b: 0.7502397, a: 1}
     - _WaveOffset: {r: -0, g: -0, b: -0, a: -0}
