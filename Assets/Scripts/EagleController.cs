@@ -66,9 +66,8 @@ public class EagleController : MonoBehaviour
         Debug.Log("playerHidden: " + playerHidden + "canAttack: " + canAttack);
         if(col.gameObject.tag == "Player" && playerHidden == false && canAttack == true)
         {
-            player.GetComponent<PlayerHealth>().TakeDamage(2);
+            col.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(2,transform);
         }
-        
         canAttack = false;
         countdownTime = 10;
     }

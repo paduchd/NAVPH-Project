@@ -177,6 +177,7 @@ MonoBehaviour:
   healTime: 5
   damageOverlay: {fileID: 0}
   damageFadeTime: 3
+  knockbackForce: 8
 --- !u!1 &4090897228927312360
 GameObject:
   m_ObjectHideFlags: 0

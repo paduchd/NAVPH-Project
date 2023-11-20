@@ -13,19 +13,25 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float healTime = 5.0f; //seconds it take to heal 1 hearth
     private float timeSinceLastHeal = 0.0f;
     
-    
     [Header("Damage parameters")]
     [SerializeField] private Image damageOverlay;
     [SerializeField] private float damageFadeTime = 3.0f; // Time it takes for the overlay to fade out
-    private float currentFadeTime = 0.0f;
-    private bool isTakingDamage = false;
-    
-    
+    [SerializeField] private float knockbackForce = 8f;
+    private float currentFadeTime;
+    private bool isTakingDamage;
+    private Rigidbody playerRigitbody;
+
+
+    private void Start()
+    {
+        playerRigitbody = GetComponent<Rigidbody>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            TakeDamage(2);
+            //TakeDamage(2,null);
         }
         
         if (isTakingDamage)
@@ -37,10 +43,16 @@ public class PlayerHealth : MonoBehaviour
     }
     
     
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount,Transform attackerTransform)
     {
         currentHealth -= amount;
         timeSinceLastHeal = 0; //reset healing
+        
+        //knockback player
+        Vector3 knockbackDirection = transform.position - attackerTransform.position;
+        knockbackDirection.Normalize();
+        playerRigitbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+        
         ShowDamageOverlay();
         if (currentHealth <= 0)
         {
