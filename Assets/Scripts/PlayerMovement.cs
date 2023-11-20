@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rigitbody;
     private MovementState playerMovementState;
     private bool isGrounded;
+    private bool speedBoosted = false;
     
     public enum MovementState
     {
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigitbody = GetComponent<Rigidbody>();
         rigitbody.freezeRotation = true;
+        playerMovementState = MovementState.Idle;
     }
     
     private void Update()
@@ -65,9 +67,10 @@ public class PlayerMovement : MonoBehaviour
         //running
         if (!isStationary && Input.GetKey(KeyCode.LeftShift) && !runOnCooldown)
         {
-            if (playerMovementState == MovementState.Walking)
+            if (!speedBoosted)
             {
                 movementSpeed *= runningSpeedMultiplier;
+                speedBoosted = true;
             }
             playerMovementState = MovementState.Running;
             movementAnimator.AnimateRunning();
@@ -75,9 +78,10 @@ public class PlayerMovement : MonoBehaviour
         //walking
         } else if (!isStationary)
         {
-            if (playerMovementState == MovementState.Running)
+            if (speedBoosted)
             {
                 movementSpeed /= runningSpeedMultiplier;
+                speedBoosted = false;
             }
             playerMovementState = MovementState.Walking;
             movementAnimator.AnimateWalking();
