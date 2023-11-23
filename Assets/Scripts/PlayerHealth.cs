@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     [SerializeField] private HealthBarController healthBarController;
     [SerializeField] private float healTime = 5.0f; //seconds it take to heal 1 hearth
-    private float timeSinceLastHeal = 0.0f;
+    private float  timeSinceLastHeal = 0.0f;
     
     [Header("Damage parameters")]
     [SerializeField] private Image damageOverlay;

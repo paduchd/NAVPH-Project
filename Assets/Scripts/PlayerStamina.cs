@@ -4,27 +4,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Stamina : MonoBehaviour
+public class PlayerStamina : MonoBehaviour
 {
-    [Header("Stamina Paramaters")] [SerializeField]
-    public float currentStamina = 100f;
+    [Header("Stamina Paramaters")] 
+    private float currentStamina = 100f;
     [SerializeField] private float maxStamina = 100f;
 
     [Header("Stamina Regen & Drain Parameters")] 
     [Range(0, 50)] [SerializeField] private float runningCost = 10f;
     [SerializeField] private float runCooldown = 1f;
-    [Range(0, 50)] [SerializeField] private float staminaRegen = 10f;
+    [Range(0, 50)] [SerializeField] private float staminaRegenRate = 10f;
     [SerializeField] private float jumpCost = 20;
     
-    [Header("Stamina UI Elements")] 
-    [SerializeField] private Image staminaProgressUI = null;
+    [Header("Stamina Bar UI Elements")] 
+    [SerializeField] private Image staminaBarSlider;
+    [SerializeField] private Image staminaBarBackground;
     //[SerializeField] private CanvasGroup staminaBarCanvasGroup = null;
 
     [Header("Player movement")] 
     [SerializeField] private PlayerMovement playerMovement;
 
     private bool runOnCooldown;
-    
+
+    private void Start()
+    {
+        currentStamina = maxStamina;
+        staminaBarBackground.rectTransform.sizeDelta = new Vector2((458 * maxStamina) / 100 , staminaBarBackground.rectTransform.sizeDelta.y);
+    }
+
     private void Update()
     {
         if(playerMovement.GetMovementState() == PlayerMovement.MovementState.Running)
@@ -34,24 +41,36 @@ public class Stamina : MonoBehaviour
         }
         else
         {
-            StaminaRegen();
+            Regen();
         }
     }
+    
+    public void IncreaseMax(float amount)
+    {
+        //update new max staminabar width
+        float newMaxStamina = maxStamina + amount;
+        staminaBarBackground.rectTransform.sizeDelta = new Vector2((458 * newMaxStamina) / 100 , staminaBarBackground.rectTransform.sizeDelta.y);
+        
+        maxStamina += amount;
+        UpdateSliderUI();
+    }
 
-    private void StaminaRegen()
+    private void Regen()
     {
         if (currentStamina <= maxStamina - 0.01)
         {
-            currentStamina += staminaRegen * Time.deltaTime;
-            UpdateStaminaUI();
+            currentStamina += staminaRegenRate * Time.deltaTime;
+            UpdateSliderUI();
         }
     }
-
+    
+    //running
     private void RunningDrain()
     {
         currentStamina -= runningCost * Time.deltaTime;
-        UpdateStaminaUI();
+        UpdateSliderUI();
     }
+    
     public bool CanRun()
     {
         if (currentStamina <= 0 & !runOnCooldown)
@@ -68,12 +87,13 @@ public class Stamina : MonoBehaviour
         runOnCooldown = false;
     }
     
+    //jumping
     public void JumpDrain()
     {
         currentStamina -= jumpCost;
-        UpdateStaminaUI();
+        UpdateSliderUI();
     }
-
+    
     public bool CanJump()
     {
         if (jumpCost <= currentStamina)
@@ -82,10 +102,12 @@ public class Stamina : MonoBehaviour
         }
         return false;
     }
-
     
-    private void UpdateStaminaUI()
+    //UI
+    private void UpdateSliderUI()
     {
-        staminaProgressUI.fillAmount = currentStamina / maxStamina;
+        staminaBarSlider.fillAmount = currentStamina / maxStamina;
     }
+
+   
 }

@@ -50,9 +50,5 @@ public class HealthBarController : MonoBehaviour
         CreateHearts();
         UpdateHeartStates();
     }
-
-    private void Update()
-    {
-        
-    }
+    
 }

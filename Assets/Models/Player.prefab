@@ -134,13 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45792fb38355b4ab59984689c769d06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStamina: 100
-  maxStamina: 100
+  maxStamina: 0
   runningCost: 10
   runCooldown: 1
-  staminaRegen: 10
+  staminaRegenRate: 10
   jumpCost: 20
-  staminaProgressUI: {fileID: 0}
+  staminaBarSlider: {fileID: 0}
+  staminaBarBackground: {fileID: 0}
   playerMovement: {fileID: 8815513340903793807}
 --- !u!114 &2484297383220927553
 MonoBehaviour:

@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Script imports")]
     [SerializeField] LayerMask groundLayerMask;
     [SerializeField] private Transform orientation;
-    [SerializeField] private Stamina playerStamina;
+    [SerializeField] private PlayerStamina playerStamina;
     [SerializeField] private MovementAnimations movementAnimator;
     
     private Rigidbody rigitbody;

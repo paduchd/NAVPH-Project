@@ -8,7 +8,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private Stamina playerStamina;
+    [SerializeField] private PlayerStamina playerStamina;
     [SerializeField] private MovementAnimations movementAnimator;
     
     private bool readyToJump = true;
