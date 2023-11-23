@@ -63,7 +63,6 @@ public class EagleController : MonoBehaviour
     
     private void OnTriggerEnter(Collider col)
     {
-        Debug.Log("playerHidden: " + playerHidden + "canAttack: " + canAttack);
         if(col.gameObject.tag == "Player" && playerHidden == false && canAttack == true)
         {
             col.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(2,transform);
