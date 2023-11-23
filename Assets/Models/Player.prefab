@@ -106,6 +106,7 @@ MonoBehaviour:
   jumpCooldown: 0.8
   playerMovement: {fileID: 8815513340903793807}
   playerStamina: {fileID: 6993085260329888222}
+  movementAnimator: {fileID: 1939948368372546758}
 --- !u!114 &8686761990311389763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +177,7 @@ MonoBehaviour:
   healTime: 5
   damageOverlay: {fileID: 0}
   damageFadeTime: 3
+  knockbackForce: 8
 --- !u!1 &4090897228927312360
 GameObject:
   m_ObjectHideFlags: 0
