@@ -37,28 +37,54 @@ public class EagleController : MonoBehaviour
     
     void Update()
     {
+        if (canAttack)
+        {
+            UpdateTimer();
+        }
+
+        if (canAttack && countdownTime <= 0)
+        {
+            AttackPlayer();
+        }
+
+        if (!canAttack)
+        {
+            ReturnToScouting();
+        }
+    }
+
+    private void UpdateTimer()
+    {
         min = Mathf.FloorToInt((countdownTime - Time.deltaTime) / 60);
         sec = Mathf.FloorToInt((countdownTime - Time.deltaTime) % 60);
-        timer.text = string.Format("The eagle is attacking! Hide in a bush before the timer ends!\n{0:00}:{1:00}", min, sec);
+        timer.text = string.Format("The eagle preparing for an attack! Hide in a bush before the timer ends!\n{0:00}:{1:00}", min, sec);
         countdownTime -= Time.deltaTime;
+    }
 
-        if (countdownTime <= 0)
-        {
-            timer.text = "";
-            playerPosition = player.transform.position;
-            transform.LookAt(player.transform);
-            transform.position = Vector3.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
-        }
+    private void ResetTimer()
+    {
+        countdownTime = 10;
+    }
 
-        if (canAttack == false)
-        {
-            transform.LookAt(startingPosition);
-            transform.position = Vector3.MoveTowards(transform.position, startingPosition, speed * Time.deltaTime);
-            if (transform.position == startingPosition)
+    private void AttackPlayer()
+    {
+        timer.text = "The eagle is attacking!";
+
+        playerPosition = player.transform.position;
+        transform.LookAt(player.transform);
+        transform.position = Vector3.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
+    }
+
+    private void ReturnToScouting()
+    {
+        transform.LookAt(startingPosition);
+        transform.position = Vector3.MoveTowards(transform.position, startingPosition, speed * Time.deltaTime);
+
+        if (transform.position == startingPosition)
             {
                 canAttack = true;
+                ResetTimer();
             }
-        }
     }
     
     private void OnTriggerEnter(Collider col)
@@ -67,12 +93,8 @@ public class EagleController : MonoBehaviour
         {
             col.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(2,transform);
         }
-        canAttack = false;
-        countdownTime = 10;
-    }
 
-    private void resetTimer()
-    {
-        countdownTime = 10;
+        timer.text = "";
+        canAttack = false;
     }
 }
