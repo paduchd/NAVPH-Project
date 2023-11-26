@@ -9,7 +9,7 @@ public class FoodController : MonoBehaviour
     [SerializeField] private PlayerStamina playerStamina;
     private bool eaten;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player") && !eaten)
         {
@@ -19,5 +19,4 @@ public class FoodController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
