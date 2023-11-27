@@ -134,7 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45792fb38355b4ab59984689c769d06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 100
+  maxReplishableStamina: 100
+  maxStamina: 20
   runningCost: 10
   runCooldown: 1
   staminaRegenRate: 10
@@ -142,6 +143,8 @@ MonoBehaviour:
   dashCost: 50
   staminaBarSlider: {fileID: 0}
   staminaBarBackground: {fileID: 0}
+  staminaOverlay: {fileID: 0}
+  overlayFadeTime: 1.5
   playerMovement: {fileID: 8815513340903793807}
 --- !u!114 &2484297383220927553
 MonoBehaviour:
