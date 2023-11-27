@@ -8,6 +8,7 @@ public class EagleController : MonoBehaviour
     [Header("Variables")]
     public float speed;
     public float countdownTime;
+    public int playerDamage;
     
     [Header("Components")]
     public GameObject player;
@@ -63,7 +64,7 @@ public class EagleController : MonoBehaviour
 
     private void ResetTimer()
     {
-        countdownTime = 10;
+        countdownTime = 20;
     }
 
     private void AttackPlayer()
@@ -91,7 +92,7 @@ public class EagleController : MonoBehaviour
     {
         if(col.gameObject.tag == "Player" && playerHidden == false && canAttack == true)
         {
-            col.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(2,transform);
+            col.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(playerDamage,transform);
         }
 
         timer.text = "";

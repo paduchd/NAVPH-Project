@@ -139,6 +139,7 @@ MonoBehaviour:
   runCooldown: 1
   staminaRegenRate: 10
   jumpCost: 20
+  dashCost: 50
   staminaBarSlider: {fileID: 0}
   staminaBarBackground: {fileID: 0}
   playerMovement: {fileID: 8815513340903793807}
@@ -156,9 +157,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashKey: 306
   orientation: {fileID: 7006666836003538196}
-  dashForce: 50
-  dashUpwardForce: 2
-  dashCooldown: 0.25
+  dashForce: 250
+  dashUpwardForce: 2.5
+  dashCooldown: 10
+  playerStamina: {fileID: 6993085260329888222}
+  movementAnimator: {fileID: 1939948368372546758}
+  playerMovement: {fileID: 8815513340903793807}
 --- !u!114 &6396586336188200979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +308,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7446272316489354764}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6503554598088314248}
   m_SourcePrefab: {fileID: 100100000, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
 --- !u!4 &7006666836003538196 stripped
 Transform:
@@ -393,6 +400,29 @@ CapsuleCollider:
   m_Direction: 2
   m_Center: {x: 0, y: -0.35679537, z: 0.23477341}
 --- !u!136 &7446272316489354764
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671740067310739374}
+  m_Material: {fileID: 13400000, guid: 5d4ad75d91c134a8ebc133fa7d18397c, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.4138224
+  m_Height: 10.023414
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.35679537, z: 0.23477341}
+--- !u!136 &6503554598088314248
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
