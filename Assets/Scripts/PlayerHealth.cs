@@ -43,15 +43,18 @@ public class PlayerHealth : MonoBehaviour
     }
     
     
-    public void TakeDamage(int amount,Transform attackerTransform)
+    public void TakeDamage(int amount,Transform attackerTransform = null)
     {
         currentHealth -= amount;
         timeSinceLastHeal = 0; //reset healing
         
         //knockback player
-        Vector3 knockbackDirection = transform.position - attackerTransform.position;
-        knockbackDirection.Normalize();
-        playerRigitbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+        if (attackerTransform != null)
+        {
+            Vector3 knockbackDirection = transform.position - attackerTransform.position;
+            knockbackDirection.Normalize();
+            playerRigitbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+        }
         
         ShowDamageOverlay();
         if (currentHealth <= 0)
