@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+    [Header("Parameters")]
     [SerializeField] private KeyCode dashKey = KeyCode.LeftControl;
     [SerializeField] private Transform orientation;
     [SerializeField] private float dashForce = 20;
     [SerializeField] private float dashUpwardForce = 0;
     [SerializeField] private float dashCooldown = 0.25f;
+
+    [Header("Components")]
+    [SerializeField] private PlayerStamina playerStamina;
+    [SerializeField] private MovementAnimations movementAnimator;
+    [SerializeField] private PlayerMovement playerMovement;
     private Rigidbody rigidbody;
 
     private bool readyToDash = true;
@@ -27,14 +33,17 @@ public class PlayerDash : MonoBehaviour
 
     private void Dash()
     {
-        if (Input.GetKey(dashKey) && readyToDash)
+        bool enoughStamina = playerStamina.CanDash();
+
+        if (Input.GetKey(dashKey) && readyToDash && enoughStamina && playerMovement.IsGrounded())
         {
             readyToDash = false; 
             Vector3 dashForceVector = -orientation.forward * dashForce + orientation.up * dashUpwardForce;
             rigidbody.AddForce(dashForceVector,ForceMode.Impulse);
+
+            playerStamina.DashDrain();
         
             Invoke(nameof(ResetDash),dashCooldown);
-            
         }
         
     }

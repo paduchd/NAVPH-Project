@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
+    [Header("Parameters")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
+
+    [Header("Components")]
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerStamina playerStamina;
     [SerializeField] private MovementAnimations movementAnimator;

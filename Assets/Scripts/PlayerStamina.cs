@@ -16,6 +16,7 @@ public class PlayerStamina : MonoBehaviour
     [SerializeField] private float runCooldown = 1f;
     [Range(0, 50)] [SerializeField] private float staminaRegenRate = 10f;
     [SerializeField] private float jumpCost = 20;
+    [SerializeField] private float dashCost = 50;
     
     [Header("Stamina Bar UI Elements")] 
     [SerializeField] private Image staminaBarSlider;
@@ -134,6 +135,22 @@ public class PlayerStamina : MonoBehaviour
     public bool CanJump()
     {
         if (jumpCost <= currentStamina)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    //dashing
+    public void DashDrain()
+    {
+        currentStamina -= dashCost;
+        UpdateSliderUI();
+    }
+
+    public bool CanDash()
+    {
+        if(dashCost <= currentStamina)
         {
             return true;
         }
