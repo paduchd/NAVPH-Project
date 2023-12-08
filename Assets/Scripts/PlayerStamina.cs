@@ -32,7 +32,7 @@ public class PlayerStamina : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
 
     private bool runOnCooldown;
-
+    
     private void Start()
     {
         //initialize stamina and max replishable stamina

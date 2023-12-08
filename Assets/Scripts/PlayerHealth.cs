@@ -9,16 +9,11 @@ public class PlayerHealth : MonoBehaviour
     [Header("Health parameters")]
     public int maxHealth = 5;
     public int currentHealth;
-    [SerializeField] private HealthBarController healthBarController;
     [SerializeField] private float healTime = 5.0f; //seconds it take to heal 1 hearth
     private float  timeSinceLastHeal = 0.0f;
     
     [Header("Damage parameters")]
-    [SerializeField] private Image damageOverlay;
-    [SerializeField] private float damageFadeTime = 3.0f; // Time it takes for the overlay to fade out
     [SerializeField] private float knockbackForce = 8f;
-    private float currentFadeTime;
-    private bool isTakingDamage;
     private Rigidbody playerRigitbody;
 
 
@@ -29,14 +24,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.B))
         {
-            //TakeDamage(2,null);
-        }
-        
-        if (isTakingDamage)
-        {
-            DamageOverlayFading();
+            TakeDamage(1);
         }
         
         HealOverTime();
@@ -56,43 +46,15 @@ public class PlayerHealth : MonoBehaviour
             playerRigitbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
         }
         
-        ShowDamageOverlay();
+        PlayerEventManager.TriggerOnDamaged();
+        
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             //death logic
         }
-        healthBarController.UpdateHeartStates();
-        
     }
     
-    private void ShowDamageOverlay()
-    {
-        isTakingDamage = true;
-        currentFadeTime = 0.0f;
-        damageOverlay.gameObject.SetActive(true);
-    }
-    
-    private void DamageOverlayFading()
-    {
-        currentFadeTime += Time.deltaTime;
-
-        // Calculate the alpha value based on time and fade duration
-        float alpha = 0.3f - Mathf.Clamp01(currentFadeTime / damageFadeTime);
-
-        // Update the alpha value of the color
-        Color overlayColor = damageOverlay.color;
-        overlayColor.a = alpha;
-        damageOverlay.color = overlayColor;
-
-        // Check if the fade is complete
-        if (currentFadeTime >= damageFadeTime)
-        {
-            isTakingDamage = false;
-            damageOverlay.gameObject.SetActive(false);
-        }
-    }
-
     private void HealOverTime()
     {
         // Only heal over time if the player is alive and dont have full health
@@ -104,7 +66,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 timeSinceLastHeal = 0.0f;
                 currentHealth += 1; 
-                healthBarController.UpdateHeartStates();
+                PlayerEventManager.TriggerOnHealthIncrease();
             }
         }
         

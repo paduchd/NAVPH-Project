@@ -8,9 +8,27 @@ public class HealthBarController : MonoBehaviour
 {
     [SerializeField] private GameObject heartPrefab;
     [SerializeField] private PlayerHealth playerHealth;
+    private List<HeartStateController> hearts;
+    private int oldCurrentHealth;
 
-    private List<HeartStateController> hearts = new List<HeartStateController>();
+    private void Start()
+    {
+        CreateHearts();
+        UpdateHeartStates();
+    }
 
+    private void OnEnable()
+    {
+        PlayerEventManager.OnHealthIncrease += UpdateHeartStates;
+        PlayerEventManager.OnDamaged += UpdateHeartStates;
+    }
+
+    private void OnDisable()
+    {
+        PlayerEventManager.OnHealthIncrease += UpdateHeartStates;
+        PlayerEventManager.OnDamaged += UpdateHeartStates;
+    }
+    
     private void CreateHearts()
     {
         ClearBar();
@@ -19,6 +37,7 @@ public class HealthBarController : MonoBehaviour
             GameObject newHeart = Instantiate(heartPrefab, transform, true);
             HeartStateController heartState = newHeart.GetComponent<HeartStateController>();
             hearts.Add(heartState);
+            Debug.Log("Added");
         }
         
     }
@@ -44,11 +63,4 @@ public class HealthBarController : MonoBehaviour
             hearts[i].SetHeartState(HeartState.Empty);
         }
     }
-
-    private void Start()
-    {
-        CreateHearts();
-        UpdateHeartStates();
-    }
-    
 }

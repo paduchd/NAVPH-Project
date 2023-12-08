@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
@@ -18,6 +19,8 @@ public class PlayerDash : MonoBehaviour
     private Rigidbody rigidbody;
 
     private bool readyToDash = true;
+    
+    
     
     // Start is called before the first frame update
     void Start()
