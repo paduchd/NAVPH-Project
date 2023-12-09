@@ -12,4 +12,8 @@ public class PlayerEventManager : MonoBehaviour
 
     public static void TriggerOnHealthIncrease() => OnHealthIncrease?.Invoke();
     
+    public static event Action<bool> OnFoodEaten;
+    public static void TriggerOnFoodEaten(bool staminaIncreased) => OnFoodEaten?.Invoke(staminaIncreased);
+
+
 }

@@ -4,12 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DamageOverlay : MonoBehaviour
+public class FadingOverlay : MonoBehaviour
 {
     [SerializeField] private float damageFadeTime = 3.0f;
     private Image imageOverlay;
     private float currentFadeTime;
-
+    [SerializeField] private OverlayMode overlayMode;
+    
+    private enum OverlayMode
+    {
+        Stamina = 0,
+        Damage = 1,
+    }
+    
     private void OnEnable()
     {
         PlayerEventManager.OnDamaged += StartFading;

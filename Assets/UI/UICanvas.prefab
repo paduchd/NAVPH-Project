@@ -145,13 +145,14 @@ GameObject:
   - component: {fileID: 3918740531827690468}
   - component: {fileID: 4069422572012904301}
   - component: {fileID: 1892089350482966906}
+  - component: {fileID: 419850877924192009}
   m_Layer: 5
-  m_Name: DamageOverlay
+  m_Name: FadingOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3918740531827690468
 RectTransform:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805648076865469301}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -209,6 +210,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &419850877924192009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805648076865469301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325fa975ec03e4e47af7e5cc6374f786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageFadeTime: 3
 --- !u!1 &3654794376632965304
 GameObject:
   m_ObjectHideFlags: 0
