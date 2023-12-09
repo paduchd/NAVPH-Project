@@ -30,5 +30,8 @@ public class PlayerEventManager : MonoBehaviour
     public static event Action<bool> OnFoodEaten;
     public static void TriggerOnFoodEaten(bool staminaIncreased) => OnFoodEaten?.Invoke(staminaIncreased);
 
+    public static event Action OnStaminaUpdate;
+    public static void TriggerOnStaminaUpdate() => OnStaminaUpdate?.Invoke();
+
 
 }

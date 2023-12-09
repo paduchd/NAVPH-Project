@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class FadingOverlay : MonoBehaviour
 {
-    [SerializeField] private float damageFadeTime = 3.0f;
+    [SerializeField] private float fadeTime = 3.0f;
+    [Range(0, 1)] [SerializeField] private float startAlphaValue = 0.3f;
     private Image imageOverlay;
     private float currentFadeTime;
     [SerializeField] private OverlayMode overlayMode;
@@ -19,17 +20,35 @@ public class FadingOverlay : MonoBehaviour
     
     private void OnEnable()
     {
-        PlayerEventManager.OnDamaged += StartFading;
+        if (overlayMode == OverlayMode.Stamina)
+        {
+            PlayerEventManager.OnFoodEaten += StartFading;
+        } 
+        else if (overlayMode == OverlayMode.Damage)
+        {
+            PlayerEventManager.OnDamaged += StartFading;
+            
+        }
     }
-
+    
     private void OnDisable()
     {
-        PlayerEventManager.OnDamaged -= StartFading;
+        if (overlayMode == OverlayMode.Stamina)
+        {
+            PlayerEventManager.OnFoodEaten += StartFading;
+        } 
+        else if (overlayMode == OverlayMode.Damage)
+        {
+            PlayerEventManager.OnDamaged += StartFading;
+        }
     }
     
     void Start()
     {
         imageOverlay = GetComponent<Image>();
+        Color overlayColor = imageOverlay.color;
+        overlayColor.a = startAlphaValue;
+        imageOverlay.color = overlayColor;
     }
     
     void Update()
@@ -37,6 +56,15 @@ public class FadingOverlay : MonoBehaviour
         if (imageOverlay.enabled)
         {
             DamageOverlayFading();
+        }
+    }
+
+    private void StartFading(bool staminaIncreased)
+    {
+        if (staminaIncreased)
+        {
+            currentFadeTime = 0.0f;
+            imageOverlay.enabled = true;
         }
     }
 
@@ -51,7 +79,7 @@ public class FadingOverlay : MonoBehaviour
         currentFadeTime += Time.deltaTime;
 
         // Calculate the alpha value based on time and fade duration
-        float alpha = 0.3f - Mathf.Clamp01(currentFadeTime / damageFadeTime);
+        float alpha = startAlphaValue - Mathf.Clamp01(currentFadeTime / fadeTime);
 
         // Update the alpha value of the color
         Color overlayColor = imageOverlay.color;
@@ -59,7 +87,7 @@ public class FadingOverlay : MonoBehaviour
         imageOverlay.color = overlayColor;
 
         // Check if the fade is complete
-        if (currentFadeTime >= damageFadeTime)
+        if (currentFadeTime >= fadeTime)
         {
             imageOverlay.enabled = false;
         }

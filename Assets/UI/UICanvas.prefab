@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Find a way out of the garage!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 1892089350482966906}
   - component: {fileID: 419850877924192009}
   m_Layer: 5
-  m_Name: FadingOverlay
+  m_Name: DamageOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,6 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageFadeTime: 3
+  startAlphaValue: 0.3
+  overlayMode: 1
 --- !u!1 &3654794376632965304
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,13 +312,14 @@ GameObject:
   - component: {fileID: 2982476058148077404}
   - component: {fileID: 2938678542689011436}
   - component: {fileID: 2327908574469263561}
+  - component: {fileID: 1430777493012023209}
   m_Layer: 5
   m_Name: StaminaOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2982476058148077404
 RectTransform:
   m_ObjectHideFlags: 0
@@ -351,13 +354,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4295244899856558034}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.28627452, g: 0.5019608, b: 0.33581454, a: 0.16470589}
+  m_Color: {r: 0.28627452, g: 0.5019608, b: 0.33581454, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -374,6 +377,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1430777493012023209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295244899856558034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325fa975ec03e4e47af7e5cc6374f786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageFadeTime: 3
+  startAlphaValue: 0.15
+  overlayMode: 0
 --- !u!1 &5226733840419186873
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +479,7 @@ GameObject:
   - component: {fileID: 1519396122452503237}
   - component: {fileID: 4946445804911607216}
   - component: {fileID: 3747240029702549427}
+  - component: {fileID: 1203855287850894332}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -557,6 +576,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1203855287850894332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553912652275799752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41de776ff7ea3a547a21a7cf9e9dde38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escapeTime: 90
+  countdownUI: {fileID: 1854640930538986130}
+  objective: {fileID: 3840647921264942969}
 --- !u!1 &5745652382332271567
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +851,7 @@ GameObject:
   - component: {fileID: 702385151188422625}
   - component: {fileID: 3127414151110644731}
   - component: {fileID: 3839960151523553638}
+  - component: {fileID: 3232450523619237001}
   m_Layer: 5
   m_Name: StaminaBar
   m_TagString: Untagged
@@ -864,6 +899,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &3232450523619237001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7256134545777017207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e8e4458f2694da7b925204b299f49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaBarSlider: {fileID: 7238060351766420476}
+  staminaBarBackground: {fileID: 8406497875557350278}
+  playerStamina: {fileID: 0}
 --- !u!1 &8323697143410757677
 GameObject:
   m_ObjectHideFlags: 0

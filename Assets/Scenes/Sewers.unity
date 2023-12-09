@@ -2240,14 +2240,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6396586336188200979, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
-      propertyPath: damageOverlay
-      value: 
-      objectReference: {fileID: 597648024}
-    - target: {fileID: 6396586336188200979, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
-      propertyPath: healthBarController
-      value: 
-      objectReference: {fileID: 1500095526}
     - target: {fileID: 6993085260329888222, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: staminaBarSlider
       value: 
@@ -10689,17 +10681,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 64dee0ad9d9136e4ba9aa64c6db30b7e, type: 3}
   m_PrefabInstance: {fileID: 1721005535}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &597648024 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1892089350482966906, guid: 7315845846a724fbbadcce122efbd340, type: 3}
-  m_PrefabInstance: {fileID: 687238452}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &603584865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12200,17 +12181,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3840647921264942969, guid: 7315845846a724fbbadcce122efbd340, type: 3}
-      propertyPath: m_text
-      value: Find the exit
-      objectReference: {fileID: 0}
+    - target: {fileID: 3232450523619237001, guid: 7315845846a724fbbadcce122efbd340, type: 3}
+      propertyPath: playerStamina
+      value: 
+      objectReference: {fileID: 1604988581}
     - target: {fileID: 5553912652275799752, guid: 7315845846a724fbbadcce122efbd340, type: 3}
       propertyPath: m_Name
       value: UICanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8323697143410757677, guid: 7315845846a724fbbadcce122efbd340, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8993492804968358989, guid: 7315845846a724fbbadcce122efbd340, type: 3}
       propertyPath: playerHealth
@@ -27163,17 +27140,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7387706064836869012, guid: d70984c54df7c7942af57ccd85a551a3, type: 3}
---- !u!114 &1500095526 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8993492804968358989, guid: 7315845846a724fbbadcce122efbd340, type: 3}
-  m_PrefabInstance: {fileID: 687238452}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e68a975b7b8546289d7f0e3f2a05c1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1506357900
 GameObject:
   m_ObjectHideFlags: 0
@@ -28968,6 +28934,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b728dab63a59c4595a655720060d699b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1604988581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6993085260329888222, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
+  m_PrefabInstance: {fileID: 112592237}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45792fb38355b4ab59984689c769d06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1612118370
