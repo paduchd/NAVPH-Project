@@ -52,6 +52,7 @@ public class HealthBarController : MonoBehaviour
     }
 
     public void UpdateHeartStates()
+    
     {
         for (int i = 0; i < playerHealth.currentHealth; i++)
         {

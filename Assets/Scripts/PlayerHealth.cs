@@ -46,13 +46,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             playerRigitbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
         }
         
-        PlayerEventManager.TriggerOnDamaged();
-        
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             //death logic
         }
+        
+        PlayerEventManager.TriggerOnDamaged();
     }
     
     private void HealOverTime()
