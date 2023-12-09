@@ -6,6 +6,11 @@ TagManager:
   tags:
   - GarageFloor
   - Bush
+  - EndShelf
+  - GarageEnd
+  - SewersEnd
+  - OutskirtsEnd
+  - JunkyardEnd
   layers:
   - Default
   - TransparentFX
