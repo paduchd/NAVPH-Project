@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EndTimer : MonoBehaviour
 {
-	public GameObject box;
-
-	private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        box.GetComponent<BoxTrapController>().DisableTimer();
+        PlayerEventManager.TriggerOnPlayerTimerEscape();
     }
 }
