@@ -15,11 +15,14 @@ public class PlayerAttack : MonoBehaviour
     private Enemy currentSingleAttackTarget;
 
     [SerializeField] private float singleAttackCooldown;
+    [SerializeField] private float aoeAttackCooldown;
     private float currentSingleAttackCooldown;
+    private float currentAOEAttackCooldown;
 
     private void Start()
     {
         currentSingleAttackCooldown = singleAttackCooldown;
+        currentAOEAttackCooldown = aoeAttackCooldown;
         currentAOETargets = new List<Enemy>();
     }
 
@@ -33,37 +36,75 @@ public class PlayerAttack : MonoBehaviour
 
         if (other.CompareTag("Enemy") && AOEAttackCollider.bounds.Intersects(other.bounds))
         {
-            Debug.Log("Enemy in AOE");
-            currentAOETargets.Add(other.GetComponent<Enemy>());
+            Enemy enemy = other.GetComponent<Enemy>();
+            Debug.Log(currentAOETargets.Count);
+            if (!currentAOETargets.Contains(enemy))
+            {
+                currentAOETargets.Add(other.GetComponent<Enemy>());
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && CanAttack())
-        { 
-            currentSingleAttackTarget?.TakeDamage(5);
-            currentSingleAttackCooldown -= Time.deltaTime;
-        }
-        else if (Input.GetMouseButtonDown(0) && !CanAttack())
+        if (Input.GetMouseButtonDown(0) && CanSingleAttack())
         {
-            Debug.Log("On cooldown!");
+            if (currentSingleAttackTarget != null)
+            {
+                currentSingleAttackTarget?.TakeDamage(5);
+                currentSingleAttackCooldown -= Time.deltaTime;
+            }
+        }
+        else if (Input.GetMouseButtonDown(0) && !CanSingleAttack())
+        {
+            Debug.Log("ST cooldown!");
         }
 
-        if (!CanAttack() && currentSingleAttackCooldown > 0)
+        if (!CanSingleAttack() && currentSingleAttackCooldown > 0)
         {
             currentSingleAttackCooldown -= Time.deltaTime;
         }
-        else if (!CanAttack() && currentSingleAttackCooldown <= 0)
+        else if (!CanSingleAttack() && currentSingleAttackCooldown <= 0)
         {
             currentSingleAttackCooldown = singleAttackCooldown;
         }
         
+        if (Input.GetMouseButtonDown(1) && CanAOEAttack())
+        {
+            foreach (var target in currentAOETargets)
+            {
+                Debug.Log("Giving damage");
+                if (target != null)
+                {
+                    target.TakeDamage(5);
+                    currentAOEAttackCooldown -= Time.deltaTime;   
+                }
+            }
+        }
+        else if (Input.GetMouseButtonDown(1) && !CanAOEAttack())
+        {
+            Debug.Log("AOE Cooldown!");
+        }
+        
+        if (!CanAOEAttack() && currentAOEAttackCooldown > 0)
+        {
+            currentAOEAttackCooldown -= Time.deltaTime;
+        }
+        else if (!CanAOEAttack() && currentAOEAttackCooldown <= 0)
+        {
+            currentAOEAttackCooldown = aoeAttackCooldown;
+        }
+        
     }
 
-    private bool CanAttack()
+    private bool CanSingleAttack()
     {
         return currentSingleAttackCooldown == singleAttackCooldown;
+    }
+
+    private bool CanAOEAttack()
+    {
+        return currentAOEAttackCooldown == aoeAttackCooldown;
     }
 }
