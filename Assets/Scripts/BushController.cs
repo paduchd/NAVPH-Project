@@ -8,17 +8,17 @@ public class BushController : MonoBehaviour
     
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "Player")
+        if(col.gameObject.CompareTag("Player"))
         {
-            eagle.GetComponent<EagleController>().HidePlayer();
+            eagle.GetComponent<Eagle>().HidePlayer();
         }
     }
     
     private void OnTriggerExit(Collider col)
     {
-        if(col.gameObject.tag == "Player")
+        if(col.gameObject.CompareTag("Player"))
         {
-            eagle.GetComponent<EagleController>().ShowPlayer();
+            eagle.GetComponent<Eagle>().ShowPlayer();
         }
     }
 }
