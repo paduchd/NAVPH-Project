@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -49,7 +50,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            //death logic
+
+            SceneManager.LoadScene("GameOver");
         }
         
         PlayerEventManager.TriggerOnDamaged();

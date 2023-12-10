@@ -19,6 +19,7 @@ public class StaminaBarController : MonoBehaviour
     private void OnDisable()
     {
         PlayerEventManager.OnStaminaUpdate -= UpdateSliderWidth;
+        PlayerEventManager.OnFoodEaten -= UpdateBackgroundWidth;
     }
 
     private void Start()

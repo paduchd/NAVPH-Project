@@ -7,17 +7,17 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
 	{
-		SceneManager.LoadScene("Garage");
+		SceneSwitchEventManager.TriggerGarageSwitch();
 	}
 
 	public void StartSewers()
 	{
-		SceneManager.LoadScene("Sewers");
+		SceneSwitchEventManager.TriggerSewersSwitch();
 	}
 
 	public void StartOutskirts()
 	{
-		SceneManager.LoadScene("Outskirts");
+		SceneSwitchEventManager.TriggerOutskirtsSwitch();
 	}
 
 	public void StartJunkyard()

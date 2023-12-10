@@ -18,7 +18,30 @@ public class SceneSwitcher : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEventManager.OnGarageEscape += SwitchToSewers;
+        SceneSwitchEventManager.GarageSwitch += SwitchToGarage;
+        SceneSwitchEventManager.SewersSwitch += SwitchToSewers;
+        SceneSwitchEventManager.OutskirtsSwitch += SwitchToOutskirts;
+        //SceneSwitchEventManager.JunkyardSwitch += SwitchToJunkyard;
+    }
+    
+    private void OnDisable()
+    {
+        SceneSwitchEventManager.GarageSwitch -= SwitchToGarage;
+        SceneSwitchEventManager.SewersSwitch -= SwitchToSewers;
+        SceneSwitchEventManager.OutskirtsSwitch -= SwitchToOutskirts;
+        //SceneSwitchEventManager.JunkyardSwitch += SwitchToJunkyard;
+    }
+
+    private void SwitchToGarage()
+    {
+        title.text = "Garage";
+        objective.text = "Find a way out of the garage!";
+        description.text = "You are a raccoon and have been kidnapped from your home - the junkyard. You wake up in a strange garage with only one way out. Use the environment and objects in the garage to reach the exit and to get closer to getting back home!";
+            
+        uiCanvas.gameObject.SetActive(false);
+        loadingCanvas.gameObject.SetActive(true);
+            
+        StartCoroutine(Load());
     }
 
     private void SwitchToSewers()
@@ -33,6 +56,18 @@ public class SceneSwitcher : MonoBehaviour
         StartCoroutine(Load());
     }
     
+    private void SwitchToOutskirts()
+    {
+        title.text = "Outskirts";
+        objective.text = "Find food to replenish your energy!";
+        description.text = "After running through sewers the whole night you became exhausted. You don't have any energy left and therefore you can't run, jump or attack. Search the area for pieces of food which slowly replenish your stamina. Beware! An angry eagle is scouting the area and will try to attack you from time to time. Hide in bushes to counter its attacks.";
+            
+        uiCanvas.gameObject.SetActive(false);
+        loadingCanvas.gameObject.SetActive(true);
+            
+        StartCoroutine(Load());
+    }
+
     IEnumerator Load()
     {
         AsyncOperation sceneLoader = SceneManager.LoadSceneAsync(title.text);
@@ -47,6 +82,7 @@ public class SceneSwitcher : MonoBehaviour
                 loadIndicator.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
+                    GameOverScreenController.CurrentSceneName = title.text;
                     sceneLoader.allowSceneActivation = true;
                 }
             }
