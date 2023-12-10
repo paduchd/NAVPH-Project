@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour, IDamageable
 
     [SerializeField] private float attackCooldown;
 
+    [SerializeField] private Collider attackCollider;
+    
+
     private bool isAttacking;
     private float currentAttackCooldown;
     private PlayerHealth enemyPlayerHealth;
@@ -32,9 +35,18 @@ public class Enemy : MonoBehaviour, IDamageable
             Destroy(this.GameObject());
     }
 
+    private bool PlayerInAttackCollider()
+    {
+        if (enemyPlayerHealth == null)
+            return false;
+
+        // this is needed because the collider is on the children gameobject, not the one enemyplayerhealth script is attached to
+        return attackCollider.bounds.Intersects(enemyPlayerHealth.GameObject().GetComponentInChildren<Collider>().bounds);
+    }
+    
     public void Update()
     {
-        if (isAttacking && currentAttackCooldown <= 0)
+        if (isAttacking && currentAttackCooldown <= 0 && PlayerInAttackCollider())
         {
             enemyPlayerHealth.TakeDamage(damage, transform);
             currentAttackCooldown = attackCooldown;
@@ -53,6 +65,7 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             enemyPlayerHealth = other.transform.parent.GetComponent<PlayerHealth>();
             Debug.Log(enemyPlayerHealth);
+            isAttacking = true;
         }
         
     }

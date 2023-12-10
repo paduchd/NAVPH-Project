@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
     public Collider SingleAttackCollider;
     public Collider AOEAttackCollider;
 
-    private Enemy[] currentAOETargets;
+    private List<Enemy> currentAOETargets;
     private Enemy currentSingleAttackTarget;
 
     [SerializeField] private float singleAttackCooldown;
@@ -20,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         currentSingleAttackCooldown = singleAttackCooldown;
+        currentAOETargets = new List<Enemy>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,8 +30,12 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("Enemy in single attack!");
             currentSingleAttackTarget = other.GetComponent<Enemy>();
         }
-        // if(other.CompareTag("Enemy") && AOEAttackCollider.bounds.Intersects(other.bounds))
-        //     Debug.Log("Enemy in AOE");
+
+        if (other.CompareTag("Enemy") && AOEAttackCollider.bounds.Intersects(other.bounds))
+        {
+            Debug.Log("Enemy in AOE");
+            currentAOETargets.Add(other.GetComponent<Enemy>());
+        }
     }
 
     // Update is called once per frame
