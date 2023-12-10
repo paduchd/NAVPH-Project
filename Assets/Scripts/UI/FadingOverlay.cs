@@ -35,11 +35,11 @@ public class FadingOverlay : MonoBehaviour
     {
         if (overlayMode == OverlayMode.Stamina)
         {
-            PlayerEventManager.OnFoodEaten += StartFading;
+            PlayerEventManager.OnFoodEaten -= StartFading;
         } 
         else if (overlayMode == OverlayMode.Damage)
         {
-            PlayerEventManager.OnDamaged += StartFading;
+            PlayerEventManager.OnDamaged -= StartFading;
         }
     }
     

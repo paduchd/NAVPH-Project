@@ -25,8 +25,8 @@ public class HealthBarController : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerEventManager.OnHealthIncrease += UpdateHeartStates;
-        PlayerEventManager.OnDamaged += UpdateHeartStates;
+        PlayerEventManager.OnHealthIncrease -= UpdateHeartStates;
+        PlayerEventManager.OnDamaged -= UpdateHeartStates;
     }
     
     private void CreateHearts()

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelEndController : MonoBehaviour
 {
@@ -10,19 +11,19 @@ public class LevelEndController : MonoBehaviour
         if (col.gameObject.CompareTag("GarageEnd"))
         {
             Debug.Log("Player escaped the garage");
-            PlayerEventManager.TriggerOnGarageEscape();
+            SceneSwitchEventManager.TriggerSewersSwitch();
         }
 
         if (col.gameObject.CompareTag("SewersEnd"))
         {
             Debug.Log("Player escaped the sewers");
-            PlayerEventManager.TriggerOnSewersEscape();
+            SceneSwitchEventManager.TriggerOutskirtsSwitch();
         }
 
         if (col.gameObject.CompareTag("OutskirtsEnd"))
         {
             Debug.Log("Player escaped the outskirts");
-            PlayerEventManager.TriggerOnOutskirtsEscape();
+            SceneSwitchEventManager.TriggerJunkyardSwitch();
         }
     }
 }
