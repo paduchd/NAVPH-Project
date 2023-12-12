@@ -12,15 +12,24 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public int currentHealth;
     [SerializeField] private float healTime = 5.0f; //seconds it take to heal 1 hearth
     private float  timeSinceLastHeal = 0.0f;
+    private bool playerIsDead;
     
     [Header("Damage parameters")]
     [SerializeField] private float knockbackForce = 8f;
     private Rigidbody playerRigitbody;
+    
+    
+    [Header("Death parameters")]
+    [SerializeField] private float slowMotionTimeScale = 0.1f;
+    private float StartFixedDeltaTime;
+    private float StartTimeScale;
 
-
+    
     private void Start()
     {
         playerRigitbody = GetComponent<Rigidbody>();
+        StartFixedDeltaTime = Time.fixedDeltaTime;
+        StartTimeScale = Time.timeScale;
     }
 
     private void Update()
@@ -50,8 +59,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-
-            SceneManager.LoadScene("GameOver");
+            StartCoroutine(PlayerDeath());
         }
         
         PlayerEventManager.TriggerOnDamaged();
@@ -73,5 +81,25 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
         
     }
+
+    IEnumerator PlayerDeath()
+    {
+        PlayerEventManager.TriggerOnDeath();
+        
+        //slow time
+        Time.timeScale = slowMotionTimeScale;
+        Time.fixedDeltaTime = StartFixedDeltaTime * slowMotionTimeScale;
+        
+        yield return new WaitForSeconds(0.2f);
+        
+        //time to normal
+        Time.timeScale = StartTimeScale;
+        Time.fixedDeltaTime = StartFixedDeltaTime;
+        SceneManager.LoadScene("GameOver");
+    }
+
+    
+    
+    
     
 }

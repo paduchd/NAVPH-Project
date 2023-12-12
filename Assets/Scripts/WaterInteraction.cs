@@ -6,6 +6,7 @@ using UnityEngine;
 public class WaterInteraction : MonoBehaviour
 {
     // Start is called before the first frame update
+    private bool inWater;
     private bool touchedWater;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private int damageToPlayer = 2;
@@ -14,7 +15,7 @@ public class WaterInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (playerHealth.currentHealth > 0 & touchedWater)
+        if (playerHealth.currentHealth > 0 & inWater)
         {
             time += Time.deltaTime;
 
@@ -30,8 +31,20 @@ public class WaterInteraction : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player") && !touchedWater)
         {
-            playerHealth.TakeDamage(damageToPlayer);
+            inWater = true;
             touchedWater = true;
+            playerHealth.TakeDamage(damageToPlayer);
+        }
+    }
+    
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            time = 0;
+            inWater = false;
+            touchedWater = false;
         }
     }
 }

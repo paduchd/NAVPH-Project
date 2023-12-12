@@ -28,5 +28,8 @@ public class PlayerEventManager : MonoBehaviour
     public static event Action OnStaminaUpdate;
     public static void TriggerOnStaminaUpdate() => OnStaminaUpdate?.Invoke();
 
+    public static event Action OnDeath;
+    public static void TriggerOnDeath() => OnDeath?.Invoke();
+
 
 }
