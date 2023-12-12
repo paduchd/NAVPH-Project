@@ -15,18 +15,28 @@ public class ValveInteraction : MonoBehaviour
 
     private bool Activated = false;
 
+    private bool isDisabled = true;
+
 
     // Update is called once per frame
     // OnTriggerStay can be used as well, however it would require collider size and shape change
     void Update()
     {
         // Interaction check
-        if(IsInInteractionRange && !Activated && Input.GetKeyDown(KeyCode.E)){
+        if(IsInInteractionRange && !Activated && !isDisabled &&Input.GetKeyDown(KeyCode.E)){
             Activated = true;
             Vector3 WaterPosition = Water.gameObject.transform.position;
             WaterPosition.y += 0.2f;
             Water.gameObject.transform.position = WaterPosition;
+            ObjectiveManager.Instance.UpdateTaskObjectiveProgress();
         }
+
+        if (isDisabled && ObjectiveManager.Instance.objectives.Find(objective => !objective.completed).description ==
+            "Loosen the valves")
+        {
+            isDisabled = false;
+        }
+        
     }
 
 
