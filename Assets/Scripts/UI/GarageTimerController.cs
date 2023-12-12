@@ -46,7 +46,6 @@ namespace UI
 
         private void OnBoxFallEvent()
         {
-            Debug.Log("Box fell down!");
             countdown = escapeTime;
             isBoxDown = true;
             PlayerEventManager.OnBoxFall -= OnBoxFallEvent;

@@ -9,7 +9,6 @@ public class GarageBoxController : MonoBehaviour
     {
         if(col.gameObject.CompareTag("GarageFloor"))
         {
-            Debug.Log("Box collided with the ground");
             PlayerEventManager.TriggerOnBoxFall();
         }
     }

@@ -1,24 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BushController : MonoBehaviour
 {
     public GameObject eagle;
+
+    public static event Action OnBushEnter;
+    public static void TriggerOnBushEnter() => OnBushEnter?.Invoke();
     
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "Player")
+        if(col.gameObject.CompareTag("Player"))
         {
-            eagle.GetComponent<EagleController>().HidePlayer();
+            TriggerOnBushEnter();
+            eagle.GetComponent<Eagle>().HidePlayer();
         }
     }
     
     private void OnTriggerExit(Collider col)
     {
-        if(col.gameObject.tag == "Player")
+        if(col.gameObject.CompareTag("Player"))
         {
-            eagle.GetComponent<EagleController>().ShowPlayer();
+            TriggerOnBushEnter();
+            eagle.GetComponent<Eagle>().ShowPlayer();
         }
     }
 }
