@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     
     [Header("Death parameters")]
     [SerializeField] private float slowMotionTimeScale = 0.1f;
+    [SerializeField] private MovementAnimations movementAnimator;
     private float StartFixedDeltaTime;
     private float StartTimeScale;
 
@@ -59,6 +60,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            movementAnimator.AnimateDeath();
             StartCoroutine(PlayerDeath());
         }
         

@@ -27,9 +27,6 @@ public class PlayerCam : MonoBehaviour
 	
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        
         postProcessLayer = GetComponent<PostProcessLayer>();
         postProcessVolume = GetComponent<PostProcessVolume>();
     }

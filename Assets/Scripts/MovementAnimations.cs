@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementAnimations : MonoBehaviour
@@ -47,9 +45,19 @@ public class MovementAnimations : MonoBehaviour
         movementAnimator.SetTrigger("jump");
     }
 
-    public void AnimateDash()
+    public void AnimateAttack()
     {
-        movementAnimator.SetTrigger("dash");
+        movementAnimator.SetTrigger("attack");
+    }
+    
+    public void AnimateAoe()
+    {
+        movementAnimator.SetTrigger("aoe");
+    }
+
+    public void AnimateDeath()
+    {
+        movementAnimator.SetTrigger("death");
     }
 
     private void SetAnimations()
@@ -57,30 +65,5 @@ public class MovementAnimations : MonoBehaviour
         movementAnimator.SetBool(WALKING, walking);
         movementAnimator.SetBool(RUNNING, running);
         movementAnimator.SetBool(IDLE, idle);
-    }
-    
-    void Update()
-    {
-        
-        // if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) && !Input.GetKeyDown(KeyCode.LeftShift))
-        // {
-        //     movementAnimator.SetBool("walking", true);
-        // }
-        // else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        // {
-        //     movementAnimator.SetBool("walking", true);
-        // }
-        // else if (Input.GetKeyDown(KeyCode.LeftShift))
-        // {
-        //     movementAnimator.SetBool("running", true);
-        // }
-        // else if (Input.GetKey(KeyCode.LeftShift))
-        // {
-        //     movementAnimator.SetBool("running", true);
-        // }
-        // else if (Input.GetKeyUp(KeyCode.LeftShift))
-        // {
-        //     movementAnimator.SetBool("running", false);
-        // }
     }
 }

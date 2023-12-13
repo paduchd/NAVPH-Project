@@ -280,6 +280,7 @@ MonoBehaviour:
   healTime: 5
   knockbackForce: 8
   slowMotionTimeScale: 0.1
+  movementAnimator: {fileID: 1939948368372546758}
 --- !u!114 &2200258317708027580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +327,7 @@ MonoBehaviour:
   AOEAttackCollider: {fileID: 6535493302587584320}
   singleAttackCooldown: 3
   aoeAttackCooldown: 3
+  movementAnimator: {fileID: 1939948368372546758}
 --- !u!1 &3755177735325246327
 GameObject:
   m_ObjectHideFlags: 0

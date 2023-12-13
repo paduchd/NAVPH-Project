@@ -82,7 +82,7 @@ public class SceneSwitcher : MonoBehaviour
                 loadIndicator.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    GameOverScreenController.CurrentSceneName = title.text;
+                    //GameOverScreenController.CurrentSceneName = title.text;
                     sceneLoader.allowSceneActivation = true;
                 }
             }

@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private float singleAttackCooldown;
     [SerializeField] private float aoeAttackCooldown;
+    [SerializeField] private MovementAnimations movementAnimator;
     private float currentSingleAttackCooldown;
     private float currentAOEAttackCooldown;
 
@@ -50,6 +51,8 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && CanSingleAttack())
         {
+            movementAnimator.AnimateAttack();
+            
             if (currentSingleAttackTarget != null)
             {
                 currentSingleAttackTarget?.TakeDamage(5);
@@ -72,6 +75,8 @@ public class PlayerAttack : MonoBehaviour
         
         if (Input.GetMouseButtonDown(1) && CanAOEAttack())
         {
+            movementAnimator.AnimateAoe();
+            
             foreach (var target in currentAOETargets)
             {
                 Debug.Log("Giving damage");
