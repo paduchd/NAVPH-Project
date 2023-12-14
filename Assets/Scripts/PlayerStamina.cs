@@ -13,10 +13,13 @@ public class PlayerStamina : MonoBehaviour
     
     [Header("Stamina Regen & Drain Parameters")] 
     [Range(0, 50)] [SerializeField] private float runningCost = 10f;
-    [SerializeField] private float runCooldown = 1f;
+    
     [Range(0, 50)] [SerializeField] private float staminaRegenRate = 10f;
     [SerializeField] private float jumpCost = 20;
     [SerializeField] private float dashCost = 50;
+    [SerializeField] private float singleAttackCost = 30;
+    [SerializeField] private float aoeAttackCost = 40;
+    [SerializeField] private float runCooldown = 1f;
     
     [Header("Player movement")] 
     [SerializeField] private PlayerMovement playerMovement;
@@ -104,13 +107,6 @@ public class PlayerStamina : MonoBehaviour
         runOnCooldown = false;
     }
     
-    //jumping
-    public void JumpDrain()
-    {
-        currentStamina -= jumpCost;
-        PlayerEventManager.TriggerOnStaminaUpdate();
-    }
-    
     public bool CanJump()
     {
         if (jumpCost <= currentStamina)
@@ -119,14 +115,7 @@ public class PlayerStamina : MonoBehaviour
         }
         return false;
     }
-
-    //dashing
-    public void DashDrain()
-    {
-        currentStamina -= dashCost;
-        PlayerEventManager.TriggerOnStaminaUpdate();
-    }
-
+    
     public bool CanDash()
     {
         if(dashCost <= currentStamina)
@@ -136,10 +125,61 @@ public class PlayerStamina : MonoBehaviour
         return false;
     }
     
-  
+    public bool CanSingleAttack()
+    {
+        if(singleAttackCost <= currentStamina)
+        {
+            return true;
+        }
+        return false;
+    }
     
+    public bool CanAoeAttack()
+    {
+        if(aoeAttackCost <= currentStamina)
+        {
+            return true;
+        }
+        return false;
+    }
     
+    public void DrainStamina(MovementType movementType)
+    {
+        float staminaToDrain;
+        switch (movementType)
+        {
+            case MovementType.Jump:
+                staminaToDrain = jumpCost;
+                break;
+
+            case MovementType.Dash:
+                staminaToDrain = dashCost;
+                break;
+
+            case MovementType.AoeAttack:
+                staminaToDrain = aoeAttackCost;
+                break;
+            
+            case MovementType.SingleAttack:
+                staminaToDrain = singleAttackCost;
+                break;
+
+            default:
+                staminaToDrain = 0;
+                break;
+        }
+        
+        currentStamina -= staminaToDrain;
+        PlayerEventManager.TriggerOnStaminaUpdate();
+    }
     
+    public enum MovementType
+    {
+        Jump = 0,
+        Dash = 1,
+        SingleAttack = 2,
+        AoeAttack = 3,
+    }
     
 
    

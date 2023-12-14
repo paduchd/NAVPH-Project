@@ -20,8 +20,6 @@ public class PlayerDash : MonoBehaviour
 
     private bool readyToDash = true;
     
-    
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +42,7 @@ public class PlayerDash : MonoBehaviour
             Vector3 dashForceVector = -orientation.forward * dashForce + orientation.up * dashUpwardForce;
             rigidbody.AddForce(dashForceVector,ForceMode.Impulse);
 
-            playerStamina.DashDrain();
+            playerStamina.DrainStamina(PlayerStamina.MovementType.Dash);
         
             Invoke(nameof(ResetDash),dashCooldown);
         }

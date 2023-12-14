@@ -99,9 +99,5 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         Time.fixedDeltaTime = StartFixedDeltaTime;
         SceneManager.LoadScene("GameOver");
     }
-
-    
-    
-    
     
 }

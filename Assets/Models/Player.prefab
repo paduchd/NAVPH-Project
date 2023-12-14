@@ -238,10 +238,12 @@ MonoBehaviour:
   maxReplishableStamina: 100
   maxStamina: 100
   runningCost: 10
-  runCooldown: 1
   staminaRegenRate: 10
   jumpCost: 20
   dashCost: 50
+  singleAttackCost: 30
+  aoeAttackCost: 40
+  runCooldown: 1
   playerMovement: {fileID: 8815513340903793807}
 --- !u!114 &2484297383220927553
 MonoBehaviour:
@@ -325,8 +327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SingleAttackCollider: {fileID: 4969496931751264019}
   AOEAttackCollider: {fileID: 6535493302587584320}
-  singleAttackCooldown: 3
-  aoeAttackCooldown: 3
+  singleAttackCooldown: 0.45
+  aoeAttackCooldown: 0.75
   movementAnimator: {fileID: 1939948368372546758}
 --- !u!1 &3755177735325246327
 GameObject:

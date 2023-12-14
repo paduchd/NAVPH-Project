@@ -30,16 +30,16 @@ public class PlayerJump : MonoBehaviour
     private void Jump()
     {
         bool enoughStamina = playerStamina.CanJump();
-        
+
         if (Input.GetKey(jumpKey) && readyToJump && playerMovement.IsGrounded() && enoughStamina)
         {
             movementAnimator.AnimateJump();
-            
-            readyToJump = false;
+
+        readyToJump = false;
             rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
             rigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             
-            playerStamina.JumpDrain();
+            playerStamina.DrainStamina(PlayerStamina.MovementType.Jump);
             
             Invoke(nameof(ResetJumpCooldown), jumpCooldown);
         }
