@@ -7,11 +7,7 @@ public class SceneSoundManager : MonoBehaviour
     private AudioSource audioComponent;
     [SerializeField] private AudioClip bushSound;
     [SerializeField] private AudioClip boxFall;
-    [SerializeField] private AudioClip ratAttack;
-    [SerializeField] private AudioClip ratHit;
-    [SerializeField] private AudioClip ratIdle;
     [SerializeField] private AudioClip eagleAttack;
-    [SerializeField] private AudioClip eagleIdle;
     [SerializeField] private AudioClip gameOver;
     [SerializeField] private AudioClip fallInWater;
     [SerializeField] private AudioClip foodCollect;
@@ -20,17 +16,41 @@ public class SceneSoundManager : MonoBehaviour
     {
         audioComponent = GetComponent<AudioSource>();
         BushController.OnBushEnter += PlayBushSound;
+        PlayerEventManager.OnBoxFall += PlayBoxSound;
+        PlayerEventManager.OnFoodEaten += PlayFoodSound;
+        Eagle.EagleSound += PlayEagleSound;
     }
 
     private void OnDisable()
     {
         BushController.OnBushEnter -= PlayBushSound;
+        PlayerEventManager.OnBoxFall -= PlayBoxSound;
+        PlayerEventManager.OnFoodEaten -= PlayFoodSound;
+        Eagle.EagleSound -= PlayEagleSound;
     }
 
     private void PlayBushSound()
     {
-        audioComponent.clip = bushSound;
-        audioComponent.Play();
+        audioComponent.volume = 0.1f;
+        audioComponent.PlayOneShot(bushSound);
+    }
+
+    private void PlayBoxSound()
+    {
+        audioComponent.volume = 0.1f;
+        audioComponent.PlayOneShot(boxFall);
+    }
+
+    private void PlayEagleSound()
+    {
+        audioComponent.volume = 0.1f;
+        audioComponent.PlayOneShot(eagleAttack);
+    }
+
+    private void PlayFoodSound(bool b)
+    {
+        audioComponent.volume = 0.1f;
+        audioComponent.PlayOneShot(foodCollect);
     }
     
 }

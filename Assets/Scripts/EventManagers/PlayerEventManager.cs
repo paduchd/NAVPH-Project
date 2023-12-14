@@ -39,4 +39,12 @@ public class PlayerEventManager : MonoBehaviour
 
     public static event Action OnGameResume;
     public static void TriggerOnGameResume() => OnGameResume?.Invoke();
+
+
+    public static event Action OnMovement;
+    public static void TriggerOnMovement() => OnMovement?.Invoke();
+
+
+    public static event Action OnMovementStop;
+    public static void TriggerOnMovementStop() => OnMovementStop?.Invoke();
 }
