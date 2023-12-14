@@ -26,6 +26,10 @@ public class SceneIntroduction : MonoBehaviour
         
         GameOverScreenController.CurrentSceneName = scene;
         
+        PlayerEventManager.TriggerOnGamePause();
+
+        PauseMenu.canBePaused = false;
+        
         if (scene == "Garage")
         {
             garageIntroduction.SetActive(true);
@@ -44,6 +48,8 @@ public class SceneIntroduction : MonoBehaviour
 
     public void continueGame()
     {
+        PauseMenu.canBePaused = true;
+        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -51,5 +57,7 @@ public class SceneIntroduction : MonoBehaviour
         
         uiCanvas.gameObject.SetActive(true);
         introductionCanvas.gameObject.SetActive(false);
+        
+        PlayerEventManager.TriggerOnGameResume();
     }
 }
