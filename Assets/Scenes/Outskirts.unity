@@ -3201,6 +3201,7 @@ Transform:
   - {fileID: 70486985}
   - {fileID: 660344764}
   - {fileID: 1074847515}
+  - {fileID: 683474819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &494026392
@@ -4888,6 +4889,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2a1d8275bed287f4ab6cab011df86adc, type: 3}
   m_PrefabInstance: {fileID: 1699967281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &683474818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 683474819}
+  - component: {fileID: 683474820}
+  m_Layer: 0
+  m_Name: LevelEnd
+  m_TagString: OutskirtsEnd
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &683474819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683474818}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 40.348557, y: 0.81388664, z: 22.638351}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 493231602}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &683474820
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683474818}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 3.0490904, z: 3.0647812}
+  m_Center: {x: 0, y: 1.0245452, z: 0.07709885}
 --- !u!1001 &698667263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5451,7 +5505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771641021}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15331319, y: 0.000000008501481, z: -0.0000000013189826, w: 0.98817766}
+  m_LocalRotation: {x: 0.15331319, y: -0.000000008501481, z: 0.0000000013189826, w: 0.98817766}
   m_LocalPosition: {x: 0, y: -0.0000019073486, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5570,6 +5624,18 @@ PrefabInstance:
       propertyPath: boxFall
       value: 
       objectReference: {fileID: 8300000, guid: 408dcc1a780103047a93732c254336a2, type: 3}
+    - target: {fileID: 443467219696054962, guid: a3c16fe499406434cb15b7a126a52c24, type: 3}
+      propertyPath: bushSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 50eea12b4c8ff134aa661793bc99cca8, type: 3}
+    - target: {fileID: 443467219696054962, guid: a3c16fe499406434cb15b7a126a52c24, type: 3}
+      propertyPath: eagleAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d89f09c428466243803e1c0e0dc90f5, type: 3}
+    - target: {fileID: 443467219696054962, guid: a3c16fe499406434cb15b7a126a52c24, type: 3}
+      propertyPath: foodCollect
+      value: 
+      objectReference: {fileID: 8300000, guid: c5cd13fa2d40b94418c0310b7fe7edf6, type: 3}
     - target: {fileID: 1306550729971857417, guid: a3c16fe499406434cb15b7a126a52c24, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7120,6 +7186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2200258317708027580, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
+      propertyPath: raccoonHit
+      value: 
+      objectReference: {fileID: 8300000, guid: 08b567bd489eb5d4ab452251c5627998, type: 3}
     - target: {fileID: 2200258317708027580, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: raccoonRunGrass
       value: 
