@@ -24,6 +24,7 @@ public class PlayerSoundManager : MonoBehaviour
         PlayerEventManager.OnDamaged += PlayDamageSound;
         PlayerEventManager.OnAttack += PlayScream;
         PlayerEventManager.OnAoe += PlayWhoosh;
+        PlayerEventManager.OnDash += PlayWhoosh;
     }
 
     private void OnDisable()
@@ -33,6 +34,7 @@ public class PlayerSoundManager : MonoBehaviour
         PlayerEventManager.OnDamaged -= PlayDamageSound;
         PlayerEventManager.OnAttack -= PlayScream;
         PlayerEventManager.OnAoe -= PlayWhoosh;
+        PlayerEventManager.OnDash -= PlayWhoosh;
     }
 
     private void Update()
