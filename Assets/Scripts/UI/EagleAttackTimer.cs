@@ -28,7 +28,7 @@ public class EagleAttackTimer : MonoBehaviour
         {
             min = Mathf.FloorToInt((countdown - Time.deltaTime) / 60);
             sec = Mathf.FloorToInt((countdown - Time.deltaTime) % 60);
-            countdownUI.text = $"The eagle is attacking! Hide in a bush before the timer ends!\n{min:00}:{sec:00}";
+            countdownUI.text = $"The eagle is attacking! Hide in a bush until the eagle attacks you!\n{min:00}:{sec:00}";
             countdown -= Time.deltaTime;
 
             if (countdown <= 0)

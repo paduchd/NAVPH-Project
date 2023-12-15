@@ -28,8 +28,23 @@ public class PlayerEventManager : MonoBehaviour
     public static event Action OnStaminaUpdate;
     public static void TriggerOnStaminaUpdate() => OnStaminaUpdate?.Invoke();
 
+    
     public static event Action OnDeath;
     public static void TriggerOnDeath() => OnDeath?.Invoke();
 
 
+    public static event Action OnGamePause;
+    public static void TriggerOnGamePause() => OnGamePause?.Invoke();
+
+
+    public static event Action OnGameResume;
+    public static void TriggerOnGameResume() => OnGameResume?.Invoke();
+
+
+    public static event Action OnMovement;
+    public static void TriggerOnMovement() => OnMovement?.Invoke();
+
+
+    public static event Action OnMovementStop;
+    public static void TriggerOnMovementStop() => OnMovementStop?.Invoke();
 }

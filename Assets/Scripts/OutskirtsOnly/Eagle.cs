@@ -19,6 +19,9 @@ public class Eagle : MonoBehaviour
 
     public static event Action<float> OnEagleAttack;
     public static void TriggerOnEagleAttack(float timeToHide) => OnEagleAttack?.Invoke(timeToHide);
+    public static event Action EagleSound;
+    public static void TriggerEagleSound() => EagleSound?.Invoke();
+    
 
     private bool playerHidden = false;
     private bool canAttack = false;
@@ -80,6 +83,7 @@ public class Eagle : MonoBehaviour
         TriggerOnEagleAttack(hidingTime);
 
         yield return new WaitForSeconds(hidingTime);
+        TriggerEagleSound();
         attacking = true;
     }
 
@@ -87,11 +91,10 @@ public class Eagle : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Player") && playerHidden == false && canAttack)
         {
-            col.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(2,transform);
-            
-            canAttack = false;
+            col.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(damageToPlayer,transform);
         }
 
+        canAttack = false;
         attacking = false;
     }
 }

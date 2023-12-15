@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
             }
             playerMovementState = MovementState.Running;
             movementAnimator.AnimateRunning();
+            PlayerEventManager.TriggerOnMovement();
             
         //walking
         } else if (!isStationary)
@@ -85,12 +86,14 @@ public class PlayerMovement : MonoBehaviour
             }
             playerMovementState = MovementState.Walking;
             movementAnimator.AnimateWalking();
+            PlayerEventManager.TriggerOnMovement();
         }
         //idle
         else
         {
             playerMovementState = MovementState.Idle;
             movementAnimator.AnimateIdle();
+            PlayerEventManager.TriggerOnMovementStop();
         }
         
     }
