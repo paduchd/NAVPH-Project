@@ -37,18 +37,16 @@ public class PlayerSoundManager : MonoBehaviour
 
     private void Update()
     {
-        if (moving)
+        if (moving && !audioComponent.isPlaying && PlayerMovement.isGrounded)
         {
-            footstepsPlaying = true;
             audioComponent.clip = raccoonMove;
             audioComponent.loop = true;
             audioComponent.volume = 0.05f;
             audioComponent.Play();
         }
 
-        if (!moving)
+        else 
         {
-            footstepsPlaying = false;
             audioComponent.loop = false;
         }
     }

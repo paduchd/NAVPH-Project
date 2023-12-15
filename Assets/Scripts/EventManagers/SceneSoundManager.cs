@@ -36,7 +36,7 @@ public class SceneSoundManager : MonoBehaviour
 
     private void PlayBoxSound()
     {
-        audioComponent.volume = 0.1f;
+        audioComponent.volume = 0.01f;
         audioComponent.PlayOneShot(boxFall);
     }
 
