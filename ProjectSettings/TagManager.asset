@@ -22,9 +22,9 @@ TagManager:
   - solidObjects
   - Ground
   - postprocessing
-  - 
-  - 
-  - 
+  - attackColliders
+  - bushes
+  - eagle
   - 
   - 
   - 

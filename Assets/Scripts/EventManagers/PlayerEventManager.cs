@@ -47,4 +47,12 @@ public class PlayerEventManager : MonoBehaviour
 
     public static event Action OnMovementStop;
     public static void TriggerOnMovementStop() => OnMovementStop?.Invoke();
+
+
+    public static event Action OnAttack;
+    public static void TriggerOnAttack() => OnAttack?.Invoke();
+
+
+    public static event Action OnAoe;
+    public static void TriggerOnAoe() => OnAoe?.Invoke();
 }

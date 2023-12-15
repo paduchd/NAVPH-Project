@@ -38,6 +38,8 @@ public class PlayerDash : MonoBehaviour
 
         if (Input.GetKey(dashKey) && readyToDash && enoughStamina && playerMovement.IsGrounded())
         {
+            PlayerEventManager.TriggerOnAoe();
+            
             readyToDash = false; 
             Vector3 dashForceVector = -orientation.forward * dashForce + orientation.up * dashUpwardForce;
             rigidbody.AddForce(dashForceVector,ForceMode.Impulse);

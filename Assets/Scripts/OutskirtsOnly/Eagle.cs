@@ -42,6 +42,7 @@ public class Eagle : MonoBehaviour
 
     void Start()
     {
+        Physics.IgnoreLayerCollision(9, 11);
         scoutingPosition = transform.position;
     }
 

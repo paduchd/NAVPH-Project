@@ -82,6 +82,7 @@ public class PlayerAttack : MonoBehaviour
     
     IEnumerator SingleAttackStart()
     {
+        PlayerEventManager.TriggerOnAttack();
         inSingleAttack = true;
         movementAnimator.AnimateAttack();
         
@@ -92,6 +93,7 @@ public class PlayerAttack : MonoBehaviour
     
     IEnumerator AoeAttackStart()
     {
+        PlayerEventManager.TriggerOnAoe();
         inAoeAttack = true;
         movementAnimator.AnimateAoe();
         

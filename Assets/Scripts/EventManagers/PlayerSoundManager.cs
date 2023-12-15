@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random=UnityEngine.Random;
 
 public class PlayerSoundManager : MonoBehaviour
 {
@@ -9,14 +10,11 @@ public class PlayerSoundManager : MonoBehaviour
     private bool moving = false;
     private bool footstepsPlaying = false;
     
-    [SerializeField] private AudioClip raccoonMoveConcrete;
-    [SerializeField] private AudioClip raccoonMoveGrass;
-    [SerializeField] private AudioClip raccoonSingleAttack;
-    [SerializeField] private AudioClip raccoonAoeAttack;
+    [SerializeField] private AudioClip raccoonMove;
+    [SerializeField] private AudioClip[] raccoonScreams;
+    [SerializeField] private AudioClip[] raccoonWhooshes;
     [SerializeField] private AudioClip raccoonStunAttack;
     [SerializeField] private AudioClip raccoonHit;
-    [SerializeField] private AudioClip raccoonJump;
-    [SerializeField] private AudioClip raccoonDash;
 
     private void OnEnable()
     {
@@ -24,6 +22,8 @@ public class PlayerSoundManager : MonoBehaviour
         PlayerEventManager.OnMovement += PlayMovementSound;
         PlayerEventManager.OnMovementStop += StopMovementSound;
         PlayerEventManager.OnDamaged += PlayDamageSound;
+        PlayerEventManager.OnAttack += PlayScream;
+        PlayerEventManager.OnAoe += PlayWhoosh;
     }
 
     private void OnDisable()
@@ -31,20 +31,19 @@ public class PlayerSoundManager : MonoBehaviour
         PlayerEventManager.OnMovement -= PlayMovementSound;
         PlayerEventManager.OnMovementStop -= StopMovementSound;
         PlayerEventManager.OnDamaged -= PlayDamageSound;
+        PlayerEventManager.OnAttack -= PlayScream;
+        PlayerEventManager.OnAoe -= PlayWhoosh;
     }
 
     private void Update()
     {
         if (moving)
         {
-            if (GameOverScreenController.CurrentSceneName == "Outskirts" && !footstepsPlaying)
-            {
-                footstepsPlaying = true;
-                audioComponent.clip = raccoonMoveGrass;
-                audioComponent.loop = true;
-                audioComponent.volume = 0.02f;
-                audioComponent.Play();
-            }
+            footstepsPlaying = true;
+            audioComponent.clip = raccoonMove;
+            audioComponent.loop = true;
+            audioComponent.volume = 0.05f;
+            audioComponent.Play();
         }
 
         if (!moving)
@@ -66,7 +65,19 @@ public class PlayerSoundManager : MonoBehaviour
     
     private void PlayDamageSound()
     {
-        audioComponent.volume = 0.02f;
+        audioComponent.volume = 0.05f;
         audioComponent.PlayOneShot(raccoonHit);
+    }
+
+    private void PlayScream()
+    {
+        audioComponent.volume = 0.05f;
+        audioComponent.PlayOneShot(raccoonScreams[Random.Range(0, raccoonScreams.Length)]);
+    }
+
+    private void PlayWhoosh()
+    {
+        audioComponent.volume = 0.05f;
+        audioComponent.PlayOneShot(raccoonWhooshes[Random.Range(0, raccoonWhooshes.Length)]);
     }
 }
