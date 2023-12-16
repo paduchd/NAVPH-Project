@@ -62,7 +62,6 @@ public class Enemy : MonoBehaviour, IDamageable
     public void Update()
     {
         //Attack conditions
-        Debug.Log(isStunned);
         if (!isStunned && attackDetection.playerDetected && !inAttackCooldown && health > 0)
         {
             StartCoroutine(Attack());

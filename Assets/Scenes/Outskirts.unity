@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4022059, g: 0.3477844, b: 0.28113347, a: 1}
+  m_IndirectSpecularColor: {r: 0.40221348, g: 0.34778965, b: 0.28113553, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -749,7 +749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8836995525599543383, guid: a7bb72b134db042498239d69f3c9defe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.42
+      value: -16.413
       objectReference: {fileID: 0}
     - target: {fileID: 8836995525599543383, guid: a7bb72b134db042498239d69f3c9defe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -757,7 +757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8836995525599543383, guid: a7bb72b134db042498239d69f3c9defe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.512
+      value: 24.742
       objectReference: {fileID: 0}
     - target: {fileID: 8836995525599543383, guid: a7bb72b134db042498239d69f3c9defe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2376,7 +2376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344751114}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18910751, y: -0.000000008447955, z: 0.0000000016269276, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: 0.0000000084479606, z: -0.0000000016269286, w: 0.9819564}
   m_LocalPosition: {x: 0, y: -0.0000038146973, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4329,7 +4329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601683602}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17121495, y: -0, z: -0, w: 0.9852337}
+  m_LocalRotation: {x: 0.17121494, y: -0, z: -0, w: 0.9852337}
   m_LocalPosition: {x: 19.97, y: 17.473, z: 71.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5195,9 +5195,7 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.36270013
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3906522608520790024, guid: 42a2ad2215779e542b277f4e998b432c, type: 3}
-    - {fileID: 7329310140693849629, guid: 42a2ad2215779e542b277f4e998b432c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -7265,7 +7263,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Stun attack
+  m_text: 'Attack
 
     required'
   m_isRightToLeft: 0
@@ -7446,6 +7444,10 @@ PrefabInstance:
     - target: {fileID: 4030052064745805077, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081766731245097906, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttackBox
       objectReference: {fileID: 0}
     - target: {fileID: 5903038525732329441, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: aoeAttackDamage
@@ -13803,7 +13805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670318629}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17121495, y: -0, z: -0, w: 0.9852337}
+  m_LocalRotation: {x: 0.17121494, y: -0, z: -0, w: 0.9852337}
   m_LocalPosition: {x: 0, y: -0.0000019073486, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
