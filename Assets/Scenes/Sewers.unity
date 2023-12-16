@@ -5907,7 +5907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4030052064745805077, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -61.103
+      value: -60.529
       objectReference: {fileID: 0}
     - target: {fileID: 4030052064745805077, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5915,7 +5915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4030052064745805077, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.89
+      value: -37.867
       objectReference: {fileID: 0}
     - target: {fileID: 4030052064745805077, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12403,6 +12403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2730656687884552396, guid: 7d19af858bf0bb546b11286deba5cd0c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4048678301378971066, guid: 7d19af858bf0bb546b11286deba5cd0c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -15435,7 +15439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309887871885144, guid: 36cb5761cc4932c43b5724af3d7cb21e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -57.5
+      value: -54.639
       objectReference: {fileID: 0}
     - target: {fileID: 4309887871885144, guid: 36cb5761cc4932c43b5724af3d7cb21e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17980,7 +17984,7 @@ Transform:
   m_GameObject: {fileID: 580688122}
   serializedVersion: 2
   m_LocalRotation: {x: 0.17121495, y: -0, z: -0, w: 0.9852337}
-  m_LocalPosition: {x: -3.6829987, y: 6.473, z: -5.1239967}
+  m_LocalPosition: {x: -3.1089973, y: 6.473, z: -5.100998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21220,7 +21224,7 @@ Transform:
   m_GameObject: {fileID: 770448076}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6829987, y: 6.473, z: -5.1239967}
+  m_LocalPosition: {x: -3.1089973, y: 6.473, z: -5.100998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43188,6 +43192,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1994229597001147631, guid: 44b7044ef01fe7244b265af75846e947, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2096617740869242217, guid: 44b7044ef01fe7244b265af75846e947, type: 3}
       propertyPath: m_Name
       value: SceneIntroduction
@@ -43955,7 +43963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5687190634272310652, guid: b8eb3948a2a884e69bc9fd7fb2c781b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.327
+      value: -54.067
       objectReference: {fileID: 0}
     - target: {fileID: 5687190634272310652, guid: b8eb3948a2a884e69bc9fd7fb2c781b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44006,9 +44014,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3111984934062430866, guid: 085f7a465cd064731a67bd7b387662c1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5662786850691032023, guid: 085f7a465cd064731a67bd7b387662c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -59.112
+      value: -59.048
       objectReference: {fileID: 0}
     - target: {fileID: 5662786850691032023, guid: 085f7a465cd064731a67bd7b387662c1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44049,6 +44061,10 @@ PrefabInstance:
     - target: {fileID: 5664586578256010863, guid: 085f7a465cd064731a67bd7b387662c1, type: 3}
       propertyPath: m_Name
       value: Rat Khaki
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696394735674932359, guid: 085f7a465cd064731a67bd7b387662c1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
