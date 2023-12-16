@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,21 +30,23 @@ public class Abilities : MonoBehaviour
 
     private void OnEnable()
     {
-        // attackCooldown = PlayerAttack.SingleAttackCooldown;
-        // aoeCooldown = PlayerAttack.AoeAttackCooldown;
+        attackCooldown = PlayerAttack.singleAttackCooldown;
+        aoeCooldown = PlayerAttack.aoeAttackCooldown;
         dashCooldown = PlayerDash.dashCooldown;
+        stunCooldown = PlayerAttack.stunCooldown;
         
         PlayerEventManager.OnAttack += UpdateAttackCooldown;
         PlayerEventManager.OnAoe += UpdateAoeCooldown;
-        // PlayerEventManager.OnStun += UpdateStunCooldown;
+        PlayerEventManager.OnStun += UpdateStunCooldown;
         PlayerEventManager.OnDash += UpdateDashCooldown;
     }
+    
     
     private void OnDisable()
     {
         PlayerEventManager.OnAttack -= UpdateAttackCooldown;
         PlayerEventManager.OnAoe -= UpdateAoeCooldown;
-        // PlayerEventManager.OnStun -= UpdateStunCooldown;
+        PlayerEventManager.OnStun -= UpdateStunCooldown;
         PlayerEventManager.OnDash -= UpdateDashCooldown;
     }
 
@@ -90,6 +93,17 @@ public class Abilities : MonoBehaviour
                 dashIconBg.color = new Color(1.0f, 0.66f, 0.0f);
             }
         }
+        
+        if (stunOnCooldown)
+        {
+            stunIcon.fillAmount += 1 / stunCooldown * Time.deltaTime;
+
+            if (stunIcon.fillAmount >= 1)
+            {
+                stunOnCooldown = false;
+                stunIconBg.color = new Color(1.0f, 0.66f, 0.0f);
+            }
+        }
     }
 
     private void UpdateAttackCooldown()
@@ -111,5 +125,12 @@ public class Abilities : MonoBehaviour
         dashIconBg.color = Color.grey;
         dashIcon.fillAmount = 0;
         dashOnCooldown = true;
+    }
+    
+    private void UpdateStunCooldown()
+    {
+        stunIconBg.color = Color.grey;
+        stunIcon.fillAmount = 0;
+        stunOnCooldown = true;
     }
 }
