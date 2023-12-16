@@ -24,8 +24,11 @@ public class Enemy : MonoBehaviour, IDamageable
     private string DIE = "Die";
     
     public static event Action OnRatAttack;
+    public static void TriggerOnRatAttack() => OnRatAttack?.Invoke();
     public static event Action OnRatDeath;
+    public static void TriggerOnRatDeath() => OnRatDeath?.Invoke();
     public static event Action OnRatHit;
+    public static void TriggerOnRatHit() => OnRatHit?.Invoke();
     
     private void Start()
     {
