@@ -6539,6 +6539,7 @@ GameObject:
   - component: {fileID: 1095427909}
   - component: {fileID: 1095427908}
   - component: {fileID: 1095427911}
+  - component: {fileID: 1095427912}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -6616,13 +6617,108 @@ MonoBehaviour:
   loadingCanvas: {fileID: 1267481788}
   loadingBar: {fileID: 1267481793}
   background: {fileID: 60125760}
-  narrator: {fileID: 1905276648}
   garageImage: {fileID: 2800000, guid: daf1a74e53db34341875d0475e0ba872, type: 3}
   sewersImage: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}
   outskirtsImage: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}
   garageNarrator: {fileID: 8300000, guid: f223d880d2dbf7248baee1c4cda61401, type: 3}
   sewersNarrator: {fileID: 8300000, guid: b9335c5f11c8ca84d913853fbc7fefb2, type: 3}
   outskirtsNarrator: {fileID: 8300000, guid: d1f0c0d75f4a2c241ab894ff574c0e80, type: 3}
+--- !u!82 &1095427912
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095427907}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1099667198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000014004616774, guid: 4c9eeb66e4e34be43b04b66ff0e5bb5e, type: 3}
@@ -7535,10 +7631,6 @@ PrefabInstance:
     - target: {fileID: 9107290191184290405, guid: 4515ac4da80de874693ddde17be9f999, type: 3}
       propertyPath: m_Name
       value: LoadingCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107290191184290405, guid: 4515ac4da80de874693ddde17be9f999, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11409,11 +11501,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7512023185531021596, guid: 0f19a732006400947981c8a94548a823, type: 3}
   m_PrefabInstance: {fileID: 541216859}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1905276648 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4505527084990846615, guid: 4515ac4da80de874693ddde17be9f999, type: 3}
-  m_PrefabInstance: {fileID: 1267481787}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1918936881
 GameObject:

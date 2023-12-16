@@ -16,7 +16,7 @@ public class SceneSwitcher : MonoBehaviour
     public GameObject loadingCanvas;
     public Image loadingBar;
     public RawImage background;
-    public AudioSource narrator;
+    private AudioSource narrator;
     
     [Header("Backgrounds")]
     public Texture2D garageImage; 
@@ -32,6 +32,8 @@ public class SceneSwitcher : MonoBehaviour
     
     private void OnEnable()
     {
+        narrator = GetComponent<AudioSource>();
+        narrator.volume = 0.1f;
         SceneSwitchEventManager.GarageSwitch += SwitchToGarage;
         SceneSwitchEventManager.SewersSwitch += SwitchToSewers;
         SceneSwitchEventManager.OutskirtsSwitch += SwitchToOutskirts;
@@ -52,9 +54,10 @@ public class SceneSwitcher : MonoBehaviour
         objective.text = "Find a way out of the garage!";
         description.text = "You are a raccoon and have been kidnapped from your home - the junkyard. You wake up in a strange garage with only one way out. Use the environment and objects in the garage to reach the exit and to get closer to getting back home!";
         background.texture = garageImage;
-        narrator.clip = garageNarrator;
         uiCanvas.gameObject.SetActive(false);
         loadingCanvas.gameObject.SetActive(true);
+        narrator.clip = garageNarrator;
+        narrator.Play();
             
         StartCoroutine(Load());
     }
@@ -66,9 +69,9 @@ public class SceneSwitcher : MonoBehaviour
         objective.text = "Find a way out of the sewers maze!";
         description.text = "After escaping the garage you find yourself deep inside the town's sewer system. Find the sewer exit and get out. Watch out! The area is guarded by rats, attack them with newly unlocked attacks or try to evade them.";
         background.texture = sewersImage;
-        narrator.clip = sewersNarrator;
         uiCanvas.gameObject.SetActive(false);
         loadingCanvas.gameObject.SetActive(true);
+        narrator.PlayOneShot(sewersNarrator);
             
         StartCoroutine(Load());
     }
@@ -79,9 +82,10 @@ public class SceneSwitcher : MonoBehaviour
         objective.text = "Find food to replenish your energy!";
         description.text = "After running through sewers the whole night you became exhausted. You don't have any energy left and therefore you can't run, jump or attack. Search the area for pieces of food which slowly replenish your stamina. Beware! An angry eagle is scouting the area and will try to attack you from time to time. Hide in bushes to counter its attacks.";
         background.texture = outskirtsImage;
-        narrator.clip = outskirtsNarrator;
         uiCanvas.gameObject.SetActive(false);
         loadingCanvas.gameObject.SetActive(true);
+        narrator.clip = outskirtsNarrator;
+        narrator.Play();
             
         StartCoroutine(Load());
     }
