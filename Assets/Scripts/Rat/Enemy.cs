@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour, IDamageable
     
     public bool inAttackCooldown;
     public bool inAttackAnimation;
+
+    public bool isStunned = false;
     
     private string ATTACK = "Attack";
     private string DIE = "Die";
@@ -57,10 +59,24 @@ public class Enemy : MonoBehaviour, IDamageable
     public void Update()
     {
         //Attack conditions
-        if (attackDetection.playerDetected && !inAttackCooldown && health > 0)
+        Debug.Log(isStunned);
+        if (!isStunned && attackDetection.playerDetected && !inAttackCooldown && health > 0)
         {
             StartCoroutine(Attack());
         }
+    }
+
+    public void GetStun(float duration)
+    {
+        StartCoroutine(Stun(duration));
+    }
+
+    IEnumerator Stun(float duration)
+    {
+        isStunned = true;
+        yield return new WaitForSeconds(duration);
+
+        isStunned = false;
     }
     
     IEnumerator Attack()

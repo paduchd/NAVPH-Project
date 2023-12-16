@@ -242,6 +242,7 @@ MonoBehaviour:
   staminaRegenRate: 10
   jumpCost: 20
   dashCost: 50
+  stunCost: 50
   singleAttackCost: 30
   aoeAttackCost: 40
   runCooldown: 1
@@ -329,8 +330,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f1867953c44bd8bc59b484760ea3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SingleAttackCollider: {fileID: 4969496931751264019}
-  AOEAttackCollider: {fileID: 6535493302587584320}
+  singleAttackCollider: {fileID: 4969496931751264019}
+  singleAttackCooldown: 0.4
+  singleAttackDamage: 1
+  aoeAttackCollider: {fileID: 6535493302587584320}
+  aoeAttackCooldown: 1
+  aoeAttackDamage: 1
+  stunCollider: {fileID: 7754908968496376028}
+  stunCooldown: 1
+  stunDuration: 1
   movementAnimator: {fileID: 1939948368372546758}
 --- !u!114 &7080236411983743045
 MonoBehaviour:
@@ -428,6 +436,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4030052064745805077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5081766731245097906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770877244923010441}
+  - component: {fileID: 7754908968496376028}
+  m_Layer: 0
+  m_Name: Stun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &770877244923010441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081766731245097906}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7006666836003538196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7754908968496376028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081766731245097906}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12, y: 3, z: 15}
+  m_Center: {x: 0, y: 0, z: -10}
 --- !u!1 &8756718086040865199
 GameObject:
   m_ObjectHideFlags: 0
@@ -8282,6 +8343,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4118282527286260211}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 770877244923010441}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c52268574f9d7f141898e7e04f7aa3aa, type: 3}
       insertIndex: -1

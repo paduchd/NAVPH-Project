@@ -17,6 +17,7 @@ public class PlayerStamina : MonoBehaviour
     [Range(0, 50)] [SerializeField] private float staminaRegenRate = 10f;
     [SerializeField] private float jumpCost = 20;
     [SerializeField] private float dashCost = 50;
+    [SerializeField] private float stunCost = 50;
     [SerializeField] private float singleAttackCost = 30;
     [SerializeField] private float aoeAttackCost = 40;
     [SerializeField] private float runCooldown = 1f;
@@ -109,38 +110,27 @@ public class PlayerStamina : MonoBehaviour
     
     public bool CanJump()
     {
-        if (jumpCost <= currentStamina)
-        {
-            return true;
-        }
-        return false;
+        return jumpCost <= currentStamina;
     }
     
     public bool CanDash()
     {
-        if(dashCost <= currentStamina)
-        {
-            return true;
-        }
-        return false;
+        return dashCost <= currentStamina;
     }
     
     public bool CanSingleAttack()
     {
-        if(singleAttackCost <= currentStamina)
-        {
-            return true;
-        }
-        return false;
+        return singleAttackCost <= currentStamina;
     }
     
     public bool CanAoeAttack()
     {
-        if(aoeAttackCost <= currentStamina)
-        {
-            return true;
-        }
-        return false;
+        return aoeAttackCost <= currentStamina;
+    }
+
+    public bool CanStun()
+    {
+        return stunCost <= currentStamina;
     }
     
     public void DrainStamina(MovementType movementType)

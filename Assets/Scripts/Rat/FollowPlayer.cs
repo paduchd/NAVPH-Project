@@ -43,6 +43,15 @@ public class FollowPlayer : MonoBehaviour
         if (detection.isDetected && enemy.health > 0)
         {
             float distance = Vector3.Distance(enemyAgent.nextPosition, detection.detectedPlayer.transform.position);
+
+            if (enemy.isStunned)
+            {
+                Debug.Log("Stop cuz im stunned");
+                enemyAgent.isStopped = true;
+                enemyAgent.velocity = Vector3.zero;
+                enemyAgent.acceleration = 0;
+                return;
+            }
             
             if(distance > stopDistance && distance <= followDistance && !enemy.inAttackAnimation)
             {
@@ -52,12 +61,10 @@ public class FollowPlayer : MonoBehaviour
                 
                 RotateTowardsPlayer();
                 
-                Debug.Log("Chasing");
             }
             
             else if(distance > followDistance)
             {
-                Debug.Log("Far away");
                 enemyAgent.isStopped = true;
                 
                 // When player far await enemy still can have remaining velocity
