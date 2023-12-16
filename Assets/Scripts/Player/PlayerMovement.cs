@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
             }
             playerMovementState = MovementState.Running;
             movementAnimator.AnimateRunning();
+            Debug.Log("Moving");
             PlayerEventManager.TriggerOnMovement();
             
         //walking

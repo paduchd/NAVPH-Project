@@ -7,7 +7,6 @@ using UnityEngine.Animations;
 
 public class PlayerAttack : MonoBehaviour
 {
-    
     public Collider SingleAttackCollider;
     public Collider AOEAttackCollider;
 
@@ -37,44 +36,40 @@ public class PlayerAttack : MonoBehaviour
             currentSingleAttackTarget = other.GetComponent<Enemy>();
         }
 
+        
         if (other.CompareTag("Enemy") && AOEAttackCollider.bounds.Intersects(other.bounds))
         {
+            Debug.Log("Enemy in AOE!");
             Enemy enemy = other.GetComponent<Enemy>();
-            Debug.Log(currentAOETargets.Count);
+           
             if (!currentAOETargets.Contains(enemy))
             {
                 currentAOETargets.Add(other.GetComponent<Enemy>());
             }
         }
     }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            currentSingleAttackTarget = null;
+        }
+    }
+    
+    
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && !inSingleAttack && playerStamina.CanSingleAttack())
         {
-            if (currentSingleAttackTarget != null)
-            {
-                Debug.Log("Im single attacking");
-                currentSingleAttackTarget?.TakeDamage(5);
-            }
-            
             playerStamina.DrainStamina(PlayerStamina.MovementType.SingleAttack);
             StartCoroutine(SingleAttackStart());
-            
         }
         
         if (Input.GetMouseButtonDown(1) && !inAoeAttack && playerStamina.CanAoeAttack())
         {
-            
-            foreach (var target in currentAOETargets)
-            {
-                Debug.Log("Giving damage");
-                if (target != null)
-                {
-                    target.TakeDamage(5);
-                }
-            }
             playerStamina.DrainStamina(PlayerStamina.MovementType.AoeAttack);
             StartCoroutine(AoeAttackStart());
         }
@@ -85,15 +80,31 @@ public class PlayerAttack : MonoBehaviour
         inSingleAttack = true;
         movementAnimator.AnimateAttack();
         
+        if (currentSingleAttackTarget != null)
+        {
+            Debug.Log("Im single attacking");
+            currentSingleAttackTarget?.TakeDamage(5,transform);
+        }
+        
         yield return new WaitForSeconds(singleAttackCooldown);
         
         inSingleAttack = false;
     }
     
+    
     IEnumerator AoeAttackStart()
     {
         inAoeAttack = true;
         movementAnimator.AnimateAoe();
+        
+        foreach (var target in currentAOETargets)
+        {
+            Debug.Log("Giving damage");
+            if (target != null)
+            {
+                target.TakeDamage(5,transform);
+            }
+        }
         
         yield return new WaitForSeconds(aoeAttackCooldown);
         

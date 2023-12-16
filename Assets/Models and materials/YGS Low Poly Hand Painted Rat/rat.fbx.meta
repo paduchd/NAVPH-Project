@@ -1,133 +1,362 @@
 fileFormatVersion: 2
 guid: 15215e80563a7c348ae0876c00ce7fe1
-timeCreated: 1499048747
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Chest
-    100002: Chest_CTRL
-    100004: Front_Left_Leg_CTRL
-    100006: Front_Left_Leg_IK
-    100008: Front_Right_Leg_CTRL
-    100010: Front_Right_Leg_IK
-    100012: Head
-    100014: Head_CTRL
-    100016: Head_end
-    100018: IKs
-    100020: Left_Ear
-    100022: Left_Ear_CTRL
-    100024: Left_Ear_end
-    100026: Left_Front_LowerLeg
-    100028: Left_Front_Paw
-    100030: Left_Front_Paw_end
-    100032: Left_Front_UpperLeg
-    100034: Left_Rear_LowerLeg
-    100036: Left_Rear_Paw
-    100038: Left_Rear_Paw_end
-    100040: Left_Rear_UpperLeg
-    100042: Master_Controller
-    100044: //RootNode
-    100046: rat_mesh
-    100048: Rear_Left_Leg_CTRL
-    100050: Rear_Left_Leg_IK
-    100052: Rear_Right_Leg_CTRL
-    100054: Rear_Right_Leg_IK
-    100056: Right_Ear
-    100058: Right_Ear_CTRL
-    100060: Right_Ear_end
-    100062: Right_Front_LowerLeg
-    100064: Right_Front_Paw
-    100066: Right_Front_Paw_end
-    100068: Right_Front_UpperLeg
-    100070: Right_Rear_LowerLeg
-    100072: Right_Rear_Paw
-    100074: Right_Rear_Paw_end
-    100076: Right_Rear_UpperLeg
-    100078: Root
-    100080: Root_CTRL
-    100082: Spine
-    100084: Spine_CTRL
-    100086: Tail_0_CTRL
-    100088: Tail_1
-    100090: Tail_1_CTRL
-    100092: Tail_2
-    100094: Tail_2_CTRL
-    100096: Tail_3
-    100098: Tail_end
-    100100: Tail_Start
-    100102: Tail_Start_CTRL
-    400000: Chest
-    400002: Chest_CTRL
-    400004: Front_Left_Leg_CTRL
-    400006: Front_Left_Leg_IK
-    400008: Front_Right_Leg_CTRL
-    400010: Front_Right_Leg_IK
-    400012: Head
-    400014: Head_CTRL
-    400016: Head_end
-    400018: IKs
-    400020: Left_Ear
-    400022: Left_Ear_CTRL
-    400024: Left_Ear_end
-    400026: Left_Front_LowerLeg
-    400028: Left_Front_Paw
-    400030: Left_Front_Paw_end
-    400032: Left_Front_UpperLeg
-    400034: Left_Rear_LowerLeg
-    400036: Left_Rear_Paw
-    400038: Left_Rear_Paw_end
-    400040: Left_Rear_UpperLeg
-    400042: Master_Controller
-    400044: //RootNode
-    400046: rat_mesh
-    400048: Rear_Left_Leg_CTRL
-    400050: Rear_Left_Leg_IK
-    400052: Rear_Right_Leg_CTRL
-    400054: Rear_Right_Leg_IK
-    400056: Right_Ear
-    400058: Right_Ear_CTRL
-    400060: Right_Ear_end
-    400062: Right_Front_LowerLeg
-    400064: Right_Front_Paw
-    400066: Right_Front_Paw_end
-    400068: Right_Front_UpperLeg
-    400070: Right_Rear_LowerLeg
-    400072: Right_Rear_Paw
-    400074: Right_Rear_Paw_end
-    400076: Right_Rear_UpperLeg
-    400078: Root
-    400080: Root_CTRL
-    400082: Spine
-    400084: Spine_CTRL
-    400086: Tail_0_CTRL
-    400088: Tail_1
-    400090: Tail_1_CTRL
-    400092: Tail_2
-    400094: Tail_2_CTRL
-    400096: Tail_3
-    400098: Tail_end
-    400100: Tail_Start
-    400102: Tail_Start_CTRL
-    4300000: rat_mesh
-    7400000: Walk
-    7400002: Idle
-    7400004: Run
-    7400006: Idle Reaction
-    7400008: Die
-    7400010: Jump
-    7400012: Attack
-    9500000: //RootNode
-    13700000: rat_mesh
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Chest
+  - first:
+      1: 100002
+    second: Chest_CTRL
+  - first:
+      1: 100004
+    second: Front_Left_Leg_CTRL
+  - first:
+      1: 100006
+    second: Front_Left_Leg_IK
+  - first:
+      1: 100008
+    second: Front_Right_Leg_CTRL
+  - first:
+      1: 100010
+    second: Front_Right_Leg_IK
+  - first:
+      1: 100012
+    second: Head
+  - first:
+      1: 100014
+    second: Head_CTRL
+  - first:
+      1: 100016
+    second: Head_end
+  - first:
+      1: 100018
+    second: IKs
+  - first:
+      1: 100020
+    second: Left_Ear
+  - first:
+      1: 100022
+    second: Left_Ear_CTRL
+  - first:
+      1: 100024
+    second: Left_Ear_end
+  - first:
+      1: 100026
+    second: Left_Front_LowerLeg
+  - first:
+      1: 100028
+    second: Left_Front_Paw
+  - first:
+      1: 100030
+    second: Left_Front_Paw_end
+  - first:
+      1: 100032
+    second: Left_Front_UpperLeg
+  - first:
+      1: 100034
+    second: Left_Rear_LowerLeg
+  - first:
+      1: 100036
+    second: Left_Rear_Paw
+  - first:
+      1: 100038
+    second: Left_Rear_Paw_end
+  - first:
+      1: 100040
+    second: Left_Rear_UpperLeg
+  - first:
+      1: 100042
+    second: Master_Controller
+  - first:
+      1: 100044
+    second: //RootNode
+  - first:
+      1: 100046
+    second: rat_mesh
+  - first:
+      1: 100048
+    second: Rear_Left_Leg_CTRL
+  - first:
+      1: 100050
+    second: Rear_Left_Leg_IK
+  - first:
+      1: 100052
+    second: Rear_Right_Leg_CTRL
+  - first:
+      1: 100054
+    second: Rear_Right_Leg_IK
+  - first:
+      1: 100056
+    second: Right_Ear
+  - first:
+      1: 100058
+    second: Right_Ear_CTRL
+  - first:
+      1: 100060
+    second: Right_Ear_end
+  - first:
+      1: 100062
+    second: Right_Front_LowerLeg
+  - first:
+      1: 100064
+    second: Right_Front_Paw
+  - first:
+      1: 100066
+    second: Right_Front_Paw_end
+  - first:
+      1: 100068
+    second: Right_Front_UpperLeg
+  - first:
+      1: 100070
+    second: Right_Rear_LowerLeg
+  - first:
+      1: 100072
+    second: Right_Rear_Paw
+  - first:
+      1: 100074
+    second: Right_Rear_Paw_end
+  - first:
+      1: 100076
+    second: Right_Rear_UpperLeg
+  - first:
+      1: 100078
+    second: Root
+  - first:
+      1: 100080
+    second: Root_CTRL
+  - first:
+      1: 100082
+    second: Spine
+  - first:
+      1: 100084
+    second: Spine_CTRL
+  - first:
+      1: 100086
+    second: Tail_0_CTRL
+  - first:
+      1: 100088
+    second: Tail_1
+  - first:
+      1: 100090
+    second: Tail_1_CTRL
+  - first:
+      1: 100092
+    second: Tail_2
+  - first:
+      1: 100094
+    second: Tail_2_CTRL
+  - first:
+      1: 100096
+    second: Tail_3
+  - first:
+      1: 100098
+    second: Tail_end
+  - first:
+      1: 100100
+    second: Tail_Start
+  - first:
+      1: 100102
+    second: Tail_Start_CTRL
+  - first:
+      4: 400000
+    second: Chest
+  - first:
+      4: 400002
+    second: Chest_CTRL
+  - first:
+      4: 400004
+    second: Front_Left_Leg_CTRL
+  - first:
+      4: 400006
+    second: Front_Left_Leg_IK
+  - first:
+      4: 400008
+    second: Front_Right_Leg_CTRL
+  - first:
+      4: 400010
+    second: Front_Right_Leg_IK
+  - first:
+      4: 400012
+    second: Head
+  - first:
+      4: 400014
+    second: Head_CTRL
+  - first:
+      4: 400016
+    second: Head_end
+  - first:
+      4: 400018
+    second: IKs
+  - first:
+      4: 400020
+    second: Left_Ear
+  - first:
+      4: 400022
+    second: Left_Ear_CTRL
+  - first:
+      4: 400024
+    second: Left_Ear_end
+  - first:
+      4: 400026
+    second: Left_Front_LowerLeg
+  - first:
+      4: 400028
+    second: Left_Front_Paw
+  - first:
+      4: 400030
+    second: Left_Front_Paw_end
+  - first:
+      4: 400032
+    second: Left_Front_UpperLeg
+  - first:
+      4: 400034
+    second: Left_Rear_LowerLeg
+  - first:
+      4: 400036
+    second: Left_Rear_Paw
+  - first:
+      4: 400038
+    second: Left_Rear_Paw_end
+  - first:
+      4: 400040
+    second: Left_Rear_UpperLeg
+  - first:
+      4: 400042
+    second: Master_Controller
+  - first:
+      4: 400044
+    second: //RootNode
+  - first:
+      4: 400046
+    second: rat_mesh
+  - first:
+      4: 400048
+    second: Rear_Left_Leg_CTRL
+  - first:
+      4: 400050
+    second: Rear_Left_Leg_IK
+  - first:
+      4: 400052
+    second: Rear_Right_Leg_CTRL
+  - first:
+      4: 400054
+    second: Rear_Right_Leg_IK
+  - first:
+      4: 400056
+    second: Right_Ear
+  - first:
+      4: 400058
+    second: Right_Ear_CTRL
+  - first:
+      4: 400060
+    second: Right_Ear_end
+  - first:
+      4: 400062
+    second: Right_Front_LowerLeg
+  - first:
+      4: 400064
+    second: Right_Front_Paw
+  - first:
+      4: 400066
+    second: Right_Front_Paw_end
+  - first:
+      4: 400068
+    second: Right_Front_UpperLeg
+  - first:
+      4: 400070
+    second: Right_Rear_LowerLeg
+  - first:
+      4: 400072
+    second: Right_Rear_Paw
+  - first:
+      4: 400074
+    second: Right_Rear_Paw_end
+  - first:
+      4: 400076
+    second: Right_Rear_UpperLeg
+  - first:
+      4: 400078
+    second: Root
+  - first:
+      4: 400080
+    second: Root_CTRL
+  - first:
+      4: 400082
+    second: Spine
+  - first:
+      4: 400084
+    second: Spine_CTRL
+  - first:
+      4: 400086
+    second: Tail_0_CTRL
+  - first:
+      4: 400088
+    second: Tail_1
+  - first:
+      4: 400090
+    second: Tail_1_CTRL
+  - first:
+      4: 400092
+    second: Tail_2
+  - first:
+      4: 400094
+    second: Tail_2_CTRL
+  - first:
+      4: 400096
+    second: Tail_3
+  - first:
+      4: 400098
+    second: Tail_end
+  - first:
+      4: 400100
+    second: Tail_Start
+  - first:
+      4: 400102
+    second: Tail_Start_CTRL
+  - first:
+      43: 4300000
+    second: rat_mesh
+  - first:
+      74: 7400000
+    second: Walk
+  - first:
+      74: 7400002
+    second: Idle
+  - first:
+      74: 7400004
+    second: Run
+  - first:
+      74: 7400006
+    second: Idle Reaction
+  - first:
+      74: 7400008
+    second: Die
+  - first:
+      74: 7400010
+    second: Jump
+  - first:
+      74: 7400012
+    second: Attack
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: rat_mesh
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 1
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -135,16 +364,20 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Walk
       takeName: Take 001
+      internalID: 0
       firstFrame: 33
       lastFrame: 62
       wrapMode: 0
@@ -277,6 +510,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle
       takeName: Take 001
+      internalID: 0
       firstFrame: 65
       lastFrame: 94
       wrapMode: 0
@@ -409,6 +643,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Run
       takeName: Take 001
+      internalID: 0
       firstFrame: 97
       lastFrame: 126
       wrapMode: 0
@@ -541,6 +776,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle Reaction
       takeName: Take 001
+      internalID: 0
       firstFrame: 129
       lastFrame: 158
       wrapMode: 0
@@ -673,6 +909,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Die
       takeName: Take 001
+      internalID: 0
       firstFrame: 161
       lastFrame: 190
       wrapMode: 0
@@ -805,6 +1042,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Jump
       takeName: Take 001
+      internalID: 0
       firstFrame: 193
       lastFrame: 222
       wrapMode: 0
@@ -937,6 +1175,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Attack
       takeName: Take 001
+      internalID: 0
       firstFrame: 225
       lastFrame: 254
       wrapMode: 0
@@ -1072,26 +1311,49 @@ ModelImporter:
     globalScale: 0.3
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -1101,14 +1363,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 0.3
     rootMotionBoneName: Root
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
