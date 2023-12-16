@@ -269,6 +269,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000010096344706, guid: ffec9fe989614a74181de47ce40d9f33, type: 3}
   m_PrefabInstance: {fileID: 401448356}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &60125760 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1348019675219450790, guid: 4515ac4da80de874693ddde17be9f999, type: 3}
+  m_PrefabInstance: {fileID: 1267481787}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &73694579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6604,6 +6615,14 @@ MonoBehaviour:
   uiCanvas: {fileID: 661613627}
   loadingCanvas: {fileID: 1267481788}
   loadingBar: {fileID: 1267481793}
+  background: {fileID: 60125760}
+  narrator: {fileID: 1905276648}
+  garageImage: {fileID: 2800000, guid: daf1a74e53db34341875d0475e0ba872, type: 3}
+  sewersImage: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}
+  outskirtsImage: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}
+  garageNarrator: {fileID: 8300000, guid: f223d880d2dbf7248baee1c4cda61401, type: 3}
+  sewersNarrator: {fileID: 8300000, guid: b9335c5f11c8ca84d913853fbc7fefb2, type: 3}
+  outskirtsNarrator: {fileID: 8300000, guid: d1f0c0d75f4a2c241ab894ff574c0e80, type: 3}
 --- !u!4 &1099667198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000014004616774, guid: 4c9eeb66e4e34be43b04b66ff0e5bb5e, type: 3}
@@ -11390,6 +11409,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7512023185531021596, guid: 0f19a732006400947981c8a94548a823, type: 3}
   m_PrefabInstance: {fileID: 541216859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1905276648 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4505527084990846615, guid: 4515ac4da80de874693ddde17be9f999, type: 3}
+  m_PrefabInstance: {fileID: 1267481787}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1918936881
 GameObject:

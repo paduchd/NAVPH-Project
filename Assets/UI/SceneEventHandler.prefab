@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0bd7d2ba1eb0f47aa58c0238ea5755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundSound: {fileID: 0}
   isPaused: 0
   pauseMenu: {fileID: 0}
 --- !u!114 &8424065032582650881
@@ -164,6 +165,14 @@ MonoBehaviour:
   uiCanvas: {fileID: 0}
   loadingCanvas: {fileID: 0}
   loadingBar: {fileID: 0}
+  background: {fileID: 0}
+  narrator: {fileID: 0}
+  garageImage: {fileID: 2800000, guid: daf1a74e53db34341875d0475e0ba872, type: 3}
+  sewersImage: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}
+  outskirtsImage: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}
+  garageNarrator: {fileID: 8300000, guid: f223d880d2dbf7248baee1c4cda61401, type: 3}
+  sewersNarrator: {fileID: 8300000, guid: b9335c5f11c8ca84d913853fbc7fefb2, type: 3}
+  outskirtsNarrator: {fileID: 8300000, guid: d1f0c0d75f4a2c241ab894ff574c0e80, type: 3}
 --- !u!114 &443467219696054962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +193,4 @@ MonoBehaviour:
   eagleAttack: {fileID: 8300000, guid: 6d89f09c428466243803e1c0e0dc90f5, type: 3}
   fallInWater: {fileID: 0}
   foodCollect: {fileID: 8300000, guid: c5cd13fa2d40b94418c0310b7fe7edf6, type: 3}
+  valveTurn: {fileID: 0}
