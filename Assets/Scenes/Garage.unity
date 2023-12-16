@@ -5702,7 +5702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978928516}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17555818, y: -0.000000027970739, z: 0.00000000498796, w: 0.98446906}
+  m_LocalRotation: {x: 0.17555818, y: 0.0000000059075593, z: -0.0000000010534822, w: 0.98446906}
   m_LocalPosition: {x: 0, y: 0, z: 0.0000009536743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7053,7 +7053,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189261417}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15766959, y: 0.000000007931233, z: -0.0000000012663534, w: 0.98749197}
+  m_LocalRotation: {x: 0.15766959, y: -0.000000030062164, z: 0.0000000047999267, w: 0.98749197}
   m_LocalPosition: {x: 0, y: 0, z: 0.0000009536743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16821,7 +16821,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866831658}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17555818, y: -0.000000027970737, z: 0.00000000498796, w: 0.98446906}
+  m_LocalRotation: {x: 0.17555818, y: 0.000000005907559, z: -0.0000000010534822, w: 0.98446906}
   m_LocalPosition: {x: -3.34, y: 5.817253, z: -6.990702}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19270,7 +19270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2817361004569532616, guid: 7315845846a724fbbadcce122efbd340, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3232450523619237001, guid: 7315845846a724fbbadcce122efbd340, type: 3}
       propertyPath: playerStamina
@@ -19279,10 +19279,6 @@ PrefabInstance:
     - target: {fileID: 5553912652275799752, guid: 7315845846a724fbbadcce122efbd340, type: 3}
       propertyPath: m_Name
       value: UICanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5553912652275799752, guid: 7315845846a724fbbadcce122efbd340, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8993492804968358989, guid: 7315845846a724fbbadcce122efbd340, type: 3}
       propertyPath: playerHealth
@@ -20071,6 +20067,10 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1666221034}
+    - target: {fileID: 5840077262943514768, guid: a3c16fe499406434cb15b7a126a52c24, type: 3}
+      propertyPath: backgroundSound
+      value: 
+      objectReference: {fileID: 917939786}
     - target: {fileID: 8424065032582650881, guid: a3c16fe499406434cb15b7a126a52c24, type: 3}
       propertyPath: title
       value: 

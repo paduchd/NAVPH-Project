@@ -21,6 +21,10 @@ public class Enemy : MonoBehaviour, IDamageable
     private float currentAttackCooldown;
     private PlayerHealth enemyPlayerHealth;
 
+    public static event Action OnRatAttack;
+    public static event Action OnRatHit;
+    public static event Action OnRatDeath;
+
     private void Start()
     {
         currentAttackCooldown = attackCooldown;
@@ -30,9 +34,14 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         isAttacking = true;
         health -= incomingDamage;
-        
+
+        OnRatHit?.Invoke();
+
         if (health <= 0)
+        {
+            OnRatDeath?.Invoke();
             Destroy(this.GameObject());
+        }
     }
 
     private bool PlayerInAttackCollider()
@@ -48,6 +57,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if (isAttacking && currentAttackCooldown <= 0 && PlayerInAttackCollider())
         {
+            OnRatAttack?.Invoke();
             enemyPlayerHealth.TakeDamage(damage, transform);
             currentAttackCooldown = attackCooldown;
         }

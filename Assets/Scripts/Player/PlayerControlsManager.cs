@@ -36,7 +36,7 @@ public class PlayerControlsManager : MonoBehaviour
             GetComponent<PlayerAttack>().enabled = true;
         }
         
-        if (GameOverScreenController.CurrentSceneName == "Garage")
+        if (GameOverScreenController.CurrentSceneName == "Outskirts")
         {
             GetComponent<PlayerAttack>().enabled = true;
             GetComponent<PlayerDash>().enabled = true;

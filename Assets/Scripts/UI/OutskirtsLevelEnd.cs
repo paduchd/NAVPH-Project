@@ -17,7 +17,7 @@ public class OutskirtsLevelEnd : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("Player"))
+        if(col.gameObject.CompareTag("Player") && !canBeFinished)
         {
             urgentMessage.text = "Collect all food before escaping";
         }
