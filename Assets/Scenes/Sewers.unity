@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1882762, g: 0.19113821, b: 0.19109797, a: 1}
+  m_IndirectSpecularColor: {r: 0.18827617, g: 0.19113809, b: 0.19109794, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5907,7 +5907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4030052064745805077, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -60.529
+      value: -61.103
       objectReference: {fileID: 0}
     - target: {fileID: 4030052064745805077, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5915,7 +5915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4030052064745805077, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.867
+      value: -37.89
       objectReference: {fileID: 0}
     - target: {fileID: 4030052064745805077, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11607,7 +11607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207609195}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17121495, y: 1e-45, z: -0, w: 0.9852337}
+  m_LocalRotation: {x: 0.17121494, y: 1e-45, z: -0, w: 0.9852337}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12327,7 +12327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243370204}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15331319, y: -0.000000008501481, z: 0.0000000013189826, w: 0.98817766}
+  m_LocalRotation: {x: 0.15331319, y: 0.000000008501481, z: -0.0000000013189826, w: 0.98817766}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12402,10 +12402,6 @@ PrefabInstance:
     - target: {fileID: 2730656687884552396, guid: 7d19af858bf0bb546b11286deba5cd0c, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2730656687884552396, guid: 7d19af858bf0bb546b11286deba5cd0c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4048678301378971066, guid: 7d19af858bf0bb546b11286deba5cd0c, type: 3}
       propertyPath: m_Pivot.x
@@ -15439,7 +15435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309887871885144, guid: 36cb5761cc4932c43b5724af3d7cb21e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -54.639
+      value: -57.5
       objectReference: {fileID: 0}
     - target: {fileID: 4309887871885144, guid: 36cb5761cc4932c43b5724af3d7cb21e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17983,8 +17979,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580688122}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17121495, y: -0, z: -0, w: 0.9852337}
-  m_LocalPosition: {x: -3.1089973, y: 6.473, z: -5.100998}
+  m_LocalRotation: {x: 0.17121494, y: -0, z: -0, w: 0.9852337}
+  m_LocalPosition: {x: -3.6829987, y: 6.473, z: -5.1239967}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21224,7 +21220,7 @@ Transform:
   m_GameObject: {fileID: 770448076}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1089973, y: 6.473, z: -5.100998}
+  m_LocalPosition: {x: -3.6829987, y: 6.473, z: -5.1239967}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31797,7 +31793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367194113}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18910751, y: -0.0000000084479606, z: 0.0000000016269286, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: 0.000000008447955, z: -0.0000000016269276, w: 0.9819564}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -43192,10 +43188,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1994229597001147631, guid: 44b7044ef01fe7244b265af75846e947, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2096617740869242217, guid: 44b7044ef01fe7244b265af75846e947, type: 3}
       propertyPath: m_Name
       value: SceneIntroduction
@@ -43963,7 +43955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5687190634272310652, guid: b8eb3948a2a884e69bc9fd7fb2c781b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -54.067
+      value: -58.327
       objectReference: {fileID: 0}
     - target: {fileID: 5687190634272310652, guid: b8eb3948a2a884e69bc9fd7fb2c781b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44014,13 +44006,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3111984934062430866, guid: 085f7a465cd064731a67bd7b387662c1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5662786850691032023, guid: 085f7a465cd064731a67bd7b387662c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -59.048
+      value: -59.112
       objectReference: {fileID: 0}
     - target: {fileID: 5662786850691032023, guid: 085f7a465cd064731a67bd7b387662c1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44061,10 +44049,6 @@ PrefabInstance:
     - target: {fileID: 5664586578256010863, guid: 085f7a465cd064731a67bd7b387662c1, type: 3}
       propertyPath: m_Name
       value: Rat Khaki
-      objectReference: {fileID: 0}
-    - target: {fileID: 8696394735674932359, guid: 085f7a465cd064731a67bd7b387662c1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

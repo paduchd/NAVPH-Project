@@ -57,7 +57,7 @@ public class PlayerSoundManager : MonoBehaviour
     {
         moving = true;
     }
-
+    
     private void StopMovementSound()
     {
         moving = false;
