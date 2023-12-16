@@ -176,13 +176,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dacb896ef73ef6459ebf42dfd1a6c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bushSound: {fileID: 8300000, guid: 50eea12b4c8ff134aa661793bc99cca8, type: 3}
-  boxFall: {fileID: 0}
-  ratAttack: {fileID: 0}
-  ratHit: {fileID: 0}
-  ratIdle: {fileID: 0}
-  eagleAttack: {fileID: 0}
-  eagleIdle: {fileID: 0}
-  gameOver: {fileID: 0}
+  bushSounds:
+  - {fileID: 8300000, guid: 50eea12b4c8ff134aa661793bc99cca8, type: 3}
+  - {fileID: 8300000, guid: cd221e77f31fe1b439a00246300c7efb, type: 3}
+  - {fileID: 8300000, guid: 6d3975bd99ed1b246a84e4660b3e5c63, type: 3}
+  boxFall: {fileID: 8300000, guid: 408dcc1a780103047a93732c254336a2, type: 3}
+  eagleAttack: {fileID: 8300000, guid: 6d89f09c428466243803e1c0e0dc90f5, type: 3}
   fallInWater: {fileID: 0}
-  foodCollect: {fileID: 0}
+  foodCollect: {fileID: 8300000, guid: c5cd13fa2d40b94418c0310b7fe7edf6, type: 3}

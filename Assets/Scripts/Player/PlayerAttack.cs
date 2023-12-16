@@ -13,8 +13,8 @@ public class PlayerAttack : MonoBehaviour
     private List<Enemy> currentAOETargets;
     private Enemy currentSingleAttackTarget;
 
-    [SerializeField] private float singleAttackCooldown = 1f;
-    [SerializeField] private float aoeAttackCooldown = 1f;
+    public static float singleAttackCooldown = 1f;
+    public static float aoeAttackCooldown = 1f;
     [SerializeField] private MovementAnimations movementAnimator;
     
     private PlayerStamina playerStamina;
@@ -77,6 +77,7 @@ public class PlayerAttack : MonoBehaviour
     
     IEnumerator SingleAttackStart()
     {
+        PlayerEventManager.TriggerOnAttack();
         inSingleAttack = true;
         movementAnimator.AnimateAttack();
         
@@ -94,6 +95,7 @@ public class PlayerAttack : MonoBehaviour
     
     IEnumerator AoeAttackStart()
     {
+        PlayerEventManager.TriggerOnAoe();
         inAoeAttack = true;
         movementAnimator.AnimateAoe();
         

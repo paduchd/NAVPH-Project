@@ -9,7 +9,12 @@ public class BushController : MonoBehaviour
 
     public static event Action OnBushEnter;
     public static void TriggerOnBushEnter() => OnBushEnter?.Invoke();
-    
+
+    private void Start()
+    {
+        Physics.IgnoreLayerCollision(9, 10);
+    }
+
     private void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.CompareTag("Player"))

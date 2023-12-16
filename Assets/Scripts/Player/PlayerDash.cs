@@ -10,7 +10,7 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private Transform orientation;
     [SerializeField] private float dashForce = 20;
     [SerializeField] private float dashUpwardForce = 0;
-    [SerializeField] private float dashCooldown = 0.25f;
+    public static float dashCooldown = 3f;
 
     [Header("Components")]
     [SerializeField] private PlayerStamina playerStamina;
@@ -38,6 +38,8 @@ public class PlayerDash : MonoBehaviour
 
         if (Input.GetKey(dashKey) && readyToDash && enoughStamina && playerMovement.IsGrounded())
         {
+            PlayerEventManager.TriggerOnDash();
+            
             readyToDash = false; 
             Vector3 dashForceVector = -orientation.forward * dashForce + orientation.up * dashUpwardForce;
             rigidbody.AddForce(dashForceVector,ForceMode.Impulse);

@@ -65,7 +65,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.15486717
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444895891735599053}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 543260590dfc44232ac05442a482fb0a, type: 3}
   m_Name: 
@@ -296,12 +296,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e04a1ab9f9c6546932bae6797adf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raccoonSingleAttack: {fileID: 0}
-  raccoonAoeAttack: {fileID: 0}
+  raccoonMove: {fileID: 8300000, guid: 96490cbcfe17f0c4aba6e8c7048b5c47, type: 3}
+  raccoonScreams:
+  - {fileID: 8300000, guid: ca9dfa76eb4b22247b49dc1335b0315b, type: 3}
+  - {fileID: 8300000, guid: f727fd35b54c77f418954af7664e652b, type: 3}
+  raccoonWhooshes:
+  - {fileID: 8300000, guid: c16a755e9474f5147a9cd4660ddb5fb3, type: 3}
+  - {fileID: 8300000, guid: a8a4f9553464db545a105040437588eb, type: 3}
+  - {fileID: 8300000, guid: 0f80cc10a1dbaf44399532571c7c49ea, type: 3}
   raccoonStunAttack: {fileID: 0}
-  raccoonHit: {fileID: 0}
-  raccoonJump: {fileID: 0}
-  raccoonDash: {fileID: 0}
+  raccoonHit: {fileID: 8300000, guid: 08b567bd489eb5d4ab452251c5627998, type: 3}
 --- !u!114 &8299425071847981257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,8 +332,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SingleAttackCollider: {fileID: 4969496931751264019}
   AOEAttackCollider: {fileID: 6535493302587584320}
-  singleAttackCooldown: 0.45
-  aoeAttackCooldown: 0.75
   movementAnimator: {fileID: 1939948368372546758}
 --- !u!114 &7080236411983743045
 MonoBehaviour:
@@ -353,9 +355,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2995500897773331838}
   - component: {fileID: 4969496931751264019}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SingleAttack
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -437,9 +439,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4118282527286260211}
   - component: {fileID: 6535493302587584320}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AOEAttack
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -635,7 +637,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

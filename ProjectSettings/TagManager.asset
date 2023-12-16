@@ -12,9 +12,6 @@ TagManager:
   - SewersEnd
   - OutskirtsEnd
   - JunkyardEnd
-  - PlayerAttackBox
-  - PlayerHitBox
-  - Other
   layers:
   - Default
   - TransparentFX
@@ -25,9 +22,9 @@ TagManager:
   - solidObjects
   - Ground
   - postprocessing
-  - attack
-  - 
-  - 
+  - attackColliders
+  - bushes
+  - eagle
   - 
   - 
   - 

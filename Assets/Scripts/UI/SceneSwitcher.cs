@@ -21,7 +21,7 @@ public class SceneSwitcher : MonoBehaviour
         SceneSwitchEventManager.GarageSwitch += SwitchToGarage;
         SceneSwitchEventManager.SewersSwitch += SwitchToSewers;
         SceneSwitchEventManager.OutskirtsSwitch += SwitchToOutskirts;
-        //SceneSwitchEventManager.JunkyardSwitch += SwitchToJunkyard;
+        SceneSwitchEventManager.JunkyardSwitch += SwitchToJunkyard;
     }
     
     private void OnDisable()
@@ -29,7 +29,7 @@ public class SceneSwitcher : MonoBehaviour
         SceneSwitchEventManager.GarageSwitch -= SwitchToGarage;
         SceneSwitchEventManager.SewersSwitch -= SwitchToSewers;
         SceneSwitchEventManager.OutskirtsSwitch -= SwitchToOutskirts;
-        //SceneSwitchEventManager.JunkyardSwitch += SwitchToJunkyard;
+        SceneSwitchEventManager.JunkyardSwitch += SwitchToJunkyard;
     }
 
     private void SwitchToGarage()
@@ -66,6 +66,11 @@ public class SceneSwitcher : MonoBehaviour
         loadingCanvas.gameObject.SetActive(true);
             
         StartCoroutine(Load());
+    }
+
+    private void SwitchToJunkyard()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
     IEnumerator Load()

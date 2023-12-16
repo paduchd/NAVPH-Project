@@ -5,10 +5,9 @@ using UnityEngine;
 public class SceneSoundManager : MonoBehaviour
 {
     private AudioSource audioComponent;
-    [SerializeField] private AudioClip bushSound;
+    [SerializeField] private AudioClip[] bushSounds;
     [SerializeField] private AudioClip boxFall;
     [SerializeField] private AudioClip eagleAttack;
-    [SerializeField] private AudioClip gameOver;
     [SerializeField] private AudioClip fallInWater;
     [SerializeField] private AudioClip foodCollect;
     [SerializeField] private AudioClip valveTurn;
@@ -35,12 +34,12 @@ public class SceneSoundManager : MonoBehaviour
     private void PlayBushSound()
     {
         audioComponent.volume = 0.1f;
-        audioComponent.PlayOneShot(bushSound);
+        audioComponent.PlayOneShot(bushSounds[Random.Range(0, bushSounds.Length)]);
     }
 
     private void PlayBoxSound()
     {
-        audioComponent.volume = 0.1f;
+        audioComponent.volume = 0.01f;
         audioComponent.PlayOneShot(boxFall);
     }
 

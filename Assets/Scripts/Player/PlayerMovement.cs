@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     
     private Rigidbody rigitbody;
     private MovementState playerMovementState;
-    private bool isGrounded;
+    public static bool isGrounded;
     private bool speedBoosted = false;
     
     public enum MovementState
