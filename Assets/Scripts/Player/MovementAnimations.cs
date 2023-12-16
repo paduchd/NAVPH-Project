@@ -67,4 +67,20 @@ public class MovementAnimations : MonoBehaviour
         movementAnimator.SetBool(RUNNING, running);
         movementAnimator.SetBool(IDLE, idle);
     }
+    
+    public float GetAnimationClipLength(string clipName)
+    {
+        RuntimeAnimatorController ac = movementAnimator.runtimeAnimatorController;
+
+        foreach (AnimationClip clip in ac.animationClips)
+        {
+            if (clip.name == clipName)
+            {
+                return clip.length;
+            }
+        }
+        return 0f; 
+    }
+    
+    
 }
