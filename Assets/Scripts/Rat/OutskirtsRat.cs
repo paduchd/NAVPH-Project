@@ -22,6 +22,13 @@ public class OutskirtsRat : MonoBehaviour, IDamageable
     {
         Enemy.OnRatDeath += SpawnReward;
     }
+    
+    private void OnDisable()
+    {
+        Enemy.OnRatDeath -= SpawnReward;
+    }
+    
+    
 
     private void Update()
     {
