@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000022888, y: -0.000015378}
+  m_AnchoredPosition: {x: 0.000022888, y: 30}
   m_SizeDelta: {x: 208.897, y: 37.584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84191084
@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4eec70c1d85a5489b9a12780eef1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 1254738418}
 --- !u!1 &1000863901
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4eec70c1d85a5489b9a12780eef1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 0}
 --- !u!1 &1148117405
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,8 +770,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284177325
-  m_fontColor: {r: 0.6792453, g: 0.3556426, b: 0.3556426, a: 1}
+    rgba: 4281677229
+  m_fontColor: {r: 0.6792453, g: 0.20825918, b: 0.20825918, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1603,7 +1605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: -200}
+  m_AnchoredPosition: {x: 0.000015259, y: -230}
   m_SizeDelta: {x: 103.8975, y: 37.2656}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110921921
