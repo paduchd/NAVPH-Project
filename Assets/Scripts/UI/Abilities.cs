@@ -29,8 +29,8 @@ public class Abilities : MonoBehaviour
 
     private void OnEnable()
     {
-        attackCooldown = PlayerAttack.singleAttackCooldown;
-        aoeCooldown = PlayerAttack.aoeAttackCooldown;
+        // attackCooldown = PlayerAttack.SingleAttackCooldown;
+        // aoeCooldown = PlayerAttack.AoeAttackCooldown;
         dashCooldown = PlayerDash.dashCooldown;
         
         PlayerEventManager.OnAttack += UpdateAttackCooldown;
