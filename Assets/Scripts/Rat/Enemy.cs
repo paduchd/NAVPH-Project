@@ -23,6 +23,10 @@ public class Enemy : MonoBehaviour, IDamageable
     private string ATTACK = "Attack";
     private string DIE = "Die";
     
+    public static event Action OnRatAttack;
+    public static event Action OnRatDeath;
+    public static event Action OnRatHit;
+    
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -31,6 +35,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(int incomingDamage,Transform playerTransform)
     {
+        OnRatHit?.Invoke();
         if (health > 0)
         {
             health -= incomingDamage;
@@ -45,6 +50,7 @@ public class Enemy : MonoBehaviour, IDamageable
     
     IEnumerator Death()
     {
+        OnRatDeath?.Invoke();
         animator.SetTrigger(DIE);
         yield return new WaitForSeconds(deathCooldown);
         Destroy(this.GameObject());
@@ -84,6 +90,7 @@ public class Enemy : MonoBehaviour, IDamageable
         
         //Player can run away in the beginning of attack animation and dont get hit
         yield return new WaitForSeconds(timeOfImpact);
+        OnRatAttack?.Invoke();
         if(attackDetection.playerDetected)
             attackDetection.enemyPlayerHealth.TakeDamage(damage, transform);
         

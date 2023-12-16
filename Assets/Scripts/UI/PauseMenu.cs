@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool canBePaused = true;
+    public AudioSource backgroundSound;
     
     public bool isPaused = false;
     public GameObject pauseMenu;
@@ -34,6 +35,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         isPaused = false;
         
+        backgroundSound.Play();
         PlayerEventManager.TriggerOnGameResume();
     }
 
@@ -46,6 +48,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         isPaused = true;
         
+        backgroundSound.Pause();
         PlayerEventManager.TriggerOnGamePause();
     }
 
