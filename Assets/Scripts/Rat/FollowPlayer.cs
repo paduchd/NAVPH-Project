@@ -50,10 +50,9 @@ public class FollowPlayer : MonoBehaviour
                 enemyAgent.isStopped = true;
                 enemyAgent.velocity = Vector3.zero;
                 enemyAgent.acceleration = 0;
-                return;
             }
             
-            if(distance > stopDistance && distance <= followDistance && !enemy.inAttackAnimation)
+            else if(distance > stopDistance && distance <= followDistance && !enemy.inAttackAnimation)
             {
                 enemyAgent.isStopped = false;
                 enemyAgent.acceleration = acceleration;
