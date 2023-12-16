@@ -7265,7 +7265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Stun attack
+  m_text: 'Attack
 
     required'
   m_isRightToLeft: 0
