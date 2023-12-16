@@ -10,6 +10,7 @@ public class SceneSoundManager : MonoBehaviour
     [SerializeField] private AudioClip eagleAttack;
     [SerializeField] private AudioClip fallInWater;
     [SerializeField] private AudioClip foodCollect;
+    [SerializeField] private AudioClip valveTurn;
     
     private void OnEnable()
     {
@@ -18,6 +19,7 @@ public class SceneSoundManager : MonoBehaviour
         PlayerEventManager.OnBoxFall += PlayBoxSound;
         PlayerEventManager.OnFoodEaten += PlayFoodSound;
         Eagle.EagleSound += PlayEagleSound;
+        ValveInteraction.OnValveInteraction += PlayValveSound;
     }
 
     private void OnDisable()
@@ -26,6 +28,7 @@ public class SceneSoundManager : MonoBehaviour
         PlayerEventManager.OnBoxFall -= PlayBoxSound;
         PlayerEventManager.OnFoodEaten -= PlayFoodSound;
         Eagle.EagleSound -= PlayEagleSound;
+        ValveInteraction.OnValveInteraction -= PlayValveSound;
     }
 
     private void PlayBushSound()
@@ -50,6 +53,12 @@ public class SceneSoundManager : MonoBehaviour
     {
         audioComponent.volume = 0.1f;
         audioComponent.PlayOneShot(foodCollect);
+    }
+
+    private void PlayValveSound()
+    {
+        audioComponent.volume = 0.1f;
+        audioComponent.PlayOneShot(valveTurn);
     }
     
 }
