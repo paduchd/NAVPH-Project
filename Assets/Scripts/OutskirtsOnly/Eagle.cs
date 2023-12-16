@@ -90,8 +90,9 @@ public class Eagle : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("Player") && playerHidden == false && canAttack)
+        if((col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("PlayerAttackBox")) && playerHidden == false && canAttack)
         {
+            Debug.Log("Hittol som hrača");
             col.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(damageToPlayer,transform);
         }
 

@@ -10,17 +10,21 @@ public class PlayerAttack : MonoBehaviour
 {
     [Header("Single Attack")]
     public Collider singleAttackCollider;
-    public float singleAttackCooldown = 1f;
+    public static float singleAttackCooldown;
+    public float singleAttackCooldownHelper = 1f;
+
     public int singleAttackDamage = 5;
     
     [Header("AOE Attack")]
     public Collider aoeAttackCollider;
-    public float aoeAttackCooldown = 1f;
+    public static float aoeAttackCooldown;
+    public float aoeAttackCooldownHelper = 1f;
     public int aoeAttackDamage = 3;
     
     [Header("Stun Attack")]
     public Collider stunCollider;
-    public float stunCooldown = 1f;
+    public static float stunCooldown;
+    public float stunCooldownHelper = 1f;
     public float stunDuration = 1f;
     
     [Header("Player")]
@@ -37,19 +41,26 @@ public class PlayerAttack : MonoBehaviour
     private bool inAoeAttack;
     private bool inStun;
 
-    
+
+    private void OnEnable()
+    {
+        singleAttackCooldown = singleAttackCooldownHelper;
+        aoeAttackCooldown = aoeAttackCooldownHelper;
+        stunCooldown = stunCooldownHelper;
+    }
+
     private void Start()
     {
         currentAoeTargets = new List<Enemy>();
         currentStunTargets = new List<Enemy>();
         playerStamina = GetComponent<PlayerStamina>();
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy") && singleAttackCollider.bounds.Intersects(other.bounds))
         {
-            Debug.Log("Enemy in Single attack");
             Enemy enemy = other.GetComponent<Enemy>();
             if (currentSingleAttackTarget != enemy)
             {
@@ -60,7 +71,6 @@ public class PlayerAttack : MonoBehaviour
         
         if (other.CompareTag("Enemy") && aoeAttackCollider.bounds.Intersects(other.bounds))
         {
-            Debug.Log("Enemy in AOE!");
             Enemy enemy = other.GetComponent<Enemy>();
            
             if (!currentAoeTargets.Contains(enemy))
@@ -71,7 +81,6 @@ public class PlayerAttack : MonoBehaviour
 
         if (other.CompareTag("Enemy") && stunCollider.bounds.Intersects(other.bounds))
         {
-            Debug.Log("Enemy in Stun");
             Enemy enemy = other.GetComponent<Enemy>();
 
             if (!currentStunTargets.Contains(enemy))
@@ -122,7 +131,6 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && !inStun && playerStamina.CanStun())
         {
-            Debug.Log("Starting stun");
             StartCoroutine(StunStart());
         }
     }
@@ -135,7 +143,6 @@ public class PlayerAttack : MonoBehaviour
         
         if (currentSingleAttackTarget != null)
         {
-            Debug.Log("Im single attacking");
             currentSingleAttackTarget?.TakeDamage(singleAttackDamage, transform);
         }
         
@@ -153,7 +160,6 @@ public class PlayerAttack : MonoBehaviour
         
         foreach (var target in currentAoeTargets)
         {
-            Debug.Log("Giving damage");
             if (target != null)
             {
                 target.TakeDamage(aoeAttackDamage,transform);
@@ -173,7 +179,6 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (var target in currentStunTargets)
         {
-            Debug.Log("Stunning");
             if (target != null)
             {
                 target.GetStun(stunDuration);
