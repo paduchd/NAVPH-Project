@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(int incomingDamage,Transform playerTransform)
     {
-        OnRatDeath?.Invoke();
+        OnRatHit?.Invoke();
         if (health > 0)
         {
             health -= incomingDamage;

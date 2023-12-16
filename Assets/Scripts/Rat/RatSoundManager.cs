@@ -30,19 +30,19 @@ public class RatSoundManager : MonoBehaviour
 
     private void PlayAttackSound()
     {
-        audioComponent.volume = 0.1f;
+        audioComponent.volume = 0.05f;
         audioComponent.PlayOneShot(ratAttack);
     }
 
     private void PlayDeathSound()
     {
-        audioComponent.volume = 0.1f;
+        audioComponent.volume = 0.05f;
         audioComponent.PlayOneShot(ratDeath);
     }
     
     private void PlayHitSound()
     {
-        audioComponent.volume = 0.1f;
+        audioComponent.volume = 0.05f;
         audioComponent.PlayOneShot(ratSqueaks[Random.Range(0, ratSqueaks.Length)]);
     }
 }
