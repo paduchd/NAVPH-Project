@@ -5,8 +5,13 @@ using System;
 
 public class EndTimer : MonoBehaviour
 {
+    private bool playerDetected;
     private void OnTriggerEnter(Collider other)
     {
-        PlayerEventManager.TriggerOnPlayerTimerEscape();
+        if (other.CompareTag("Player") && !playerDetected)
+        {
+            PlayerEventManager.TriggerOnPlayerTimerEscape();
+            playerDetected = true;
+        }
     }
 }

@@ -23,13 +23,15 @@ public class SceneSwitcher : MonoBehaviour
     [Header("Backgrounds")]
     public Texture2D garageImage; 
     public Texture2D sewersImage; 
-    public Texture2D outskirtsImage; 
+    public Texture2D outskirtsImage;
+    public Texture2D finalImage;
     
     
     [Header("Sounds")]
     public AudioClip garageNarrator;
     public AudioClip sewersNarrator;
     public AudioClip outskirtsNarrator;
+    public AudioClip finalNarrator;
 
     
     // Event listeners for scene switch events
@@ -60,10 +62,11 @@ public class SceneSwitcher : MonoBehaviour
         sceneName = "Garage";
         title.text = sceneName;
         objective.text = "Find a way out of the garage!";
-        description.text = "You are a raccoon and have been kidnapped from your home - the junkyard. You wake up in a strange garage with only one way out. Use the environment and objects in the garage to reach the exit and to get closer to getting back home!";
+        description.text = "Poor raccoon! You have been kidnapped from your home - the junkyard. Now you wake up in a strange garage with only one way out. Use the environment and objects in the garage to reach the exit and to get closer to getting back home!";
         background.texture = garageImage;
         uiCanvas.gameObject.SetActive(false);
         loadingCanvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
         narrator.clip = garageNarrator;
         narrator.Play();
             
@@ -77,10 +80,11 @@ public class SceneSwitcher : MonoBehaviour
         sceneName = "Sewers";
         title.text = sceneName;
         objective.text = "Find a way out of the sewers maze!";
-        description.text = "After escaping the garage you find yourself deep inside the town's sewer system. Find the sewer exit and get out. Watch out! The area is guarded by rats, attack them with newly unlocked attacks or try to evade them.";
+        description.text = "After escaping the garage you find yourself deep inside the town's sewer system. Find the sewer exit and get out. Watch out! The area is guarded by rats, attack them with newly unlocked attacks or try to evade them. The choice is yours.";
         background.texture = sewersImage;
         uiCanvas.gameObject.SetActive(false);
         loadingCanvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
         narrator.PlayOneShot(sewersNarrator);
             
         StartCoroutine(Load());
@@ -93,10 +97,11 @@ public class SceneSwitcher : MonoBehaviour
         sceneName = "Outskirts";
         title.text = sceneName;
         objective.text = "Find food to replenish your energy!";
-        description.text = "After running through sewers the whole night you became exhausted. You don't have any energy left and therefore you can't run, jump or attack. Search the area for pieces of food which slowly replenish your stamina. Beware! An angry eagle is scouting the area and will try to attack you from time to time. Hide in bushes to counter its attacks.";
+        description.text = "After running through sewers the whole night you became exhausted. You don't have any energy left and therefore you can't run, jump or attack. Search the area for pieces of food which slowly replenish your stamina. Beware! An angry eagle is scouting the outskirts and will try to attack you from time to time. Maybe bushes can help you with hiding.";
         background.texture = outskirtsImage;
         uiCanvas.gameObject.SetActive(false);
         loadingCanvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
         narrator.clip = outskirtsNarrator;
         narrator.Play();
             
@@ -110,12 +115,13 @@ public class SceneSwitcher : MonoBehaviour
         sceneName = "MainMenu";
         title.text = "The End";
         objective.text = "";
-        description.text = "Congratulations! You successfully escaped your kidnappers, found you way around the sewers maze, evaded the eagle's attacks and safely managed to get back home.";
-        background.texture = outskirtsImage;
+        description.text = "Congratulations! You have successfully escaped your kidnappers, found you way around the sewers maze, evaded the eagle's attacks and safely managed to get back home. Now rest, little adventurer.";
+        background.texture = finalImage;
         uiCanvas.gameObject.SetActive(false);
         loadingCanvas.gameObject.SetActive(true);
-        // narrator.clip = outskirtsNarrator;
-        // narrator.Play();
+        Time.timeScale = 0;
+        narrator.clip = finalNarrator;
+        narrator.Play();
             
         StartCoroutine(Load());
     }

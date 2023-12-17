@@ -1556,7 +1556,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9082824881012551867}
         m_TargetAssemblyTypeName: SceneIntroduction, Assembly-CSharp
-        m_MethodName: continueGame
+        m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

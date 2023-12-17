@@ -92,7 +92,6 @@ public class Eagle : MonoBehaviour
     {
         if((col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("PlayerAttackBox")) && playerHidden == false && canAttack)
         {
-            Debug.Log("Hittol som hrača");
             col.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(damageToPlayer,transform);
         }
 

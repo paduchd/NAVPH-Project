@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Racoons jump mechanic
 public class PlayerJump : MonoBehaviour
 {
     [Header("Parameters")]
@@ -10,8 +10,8 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float jumpCooldown;
 
     [Header("Components")]
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerStamina playerStamina;
+    private PlayerMovement playerMovement;
+    private PlayerStamina playerStamina;
     [SerializeField] private MovementAnimations movementAnimator;
     
     private bool readyToJump = true;
@@ -20,6 +20,8 @@ public class PlayerJump : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerStamina = GetComponent<PlayerStamina>();
     }
     
     private void Update()
@@ -33,21 +35,24 @@ public class PlayerJump : MonoBehaviour
 
         if (Input.GetKey(jumpKey) && readyToJump && playerMovement.IsGrounded() && enoughStamina)
         {
-            movementAnimator.AnimateJump();
-
-        readyToJump = false;
-            rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
-            rigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            
-            playerStamina.DrainStamina(PlayerStamina.MovementType.Jump);
-            
-            Invoke(nameof(ResetJumpCooldown), jumpCooldown);
+            StartCoroutine(JumpStart());
         }
+    }
+    
+    IEnumerator JumpStart()
+    {
+        readyToJump = false;
+        movementAnimator.AnimateJump();
+        
+        // Force added for jump
+        rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
+        rigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        
+        playerStamina.DrainStamina(PlayerStamina.MovementType.Jump);
+        
+        yield return new WaitForSeconds(jumpCooldown);
+        readyToJump = true;
         
     }
-
-    private void ResetJumpCooldown()
-    {
-        readyToJump = true;
-    }
+    
 }

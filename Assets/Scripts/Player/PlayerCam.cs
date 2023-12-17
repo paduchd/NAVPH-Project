@@ -1,22 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
+// Racoon forward direction based on mouse direction + death camera grayscale overlay
 public class PlayerCam : MonoBehaviour
 {
     [Header("References")]
-    public Transform orientation;
-    public Transform player;
-    public Transform playerObject;
-    public Rigidbody rb;
-    public float rotationSpeed;
-    public Transform lookAt;
-    public GameObject thirdPersonCam;
-	public float horizontal;
-	public float vertical;
+    [SerializeField] private Transform orientation;
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform playerObject;
+    [SerializeField] private float rotationSpeed;
+	private float horizontal;
+	private float vertical;
 	
 	[Header("Camera death mode")]
 	[SerializeField] private CinemachineFreeLook freeCameraLook;
@@ -41,6 +36,7 @@ public class PlayerCam : MonoBehaviour
 	    PlayerEventManager.OnDeath -= ShowDeathCameraMode;
     }
 
+    // Handles mouse rotation for adjusting racoons forward direction
     private void Update()
     {
         Vector3 orientationDirection = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
@@ -57,6 +53,7 @@ public class PlayerCam : MonoBehaviour
 		}
     }
     
+    // When racoon dead, shows black/white overlay
     private void ShowDeathCameraMode()
     {
 	    //show scene in greyscale
