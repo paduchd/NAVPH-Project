@@ -205,8 +205,6 @@ MonoBehaviour:
   jumpKey: 32
   jumpForce: 4
   jumpCooldown: 0.8
-  playerMovement: {fileID: 8815513340903793807}
-  playerStamina: {fileID: 6993085260329888222}
   movementAnimator: {fileID: 1939948368372546758}
 --- !u!114 &8686761990311389763
 MonoBehaviour:
@@ -263,9 +261,6 @@ MonoBehaviour:
   orientation: {fileID: 7006666836003538196}
   dashForce: 250
   dashUpwardForce: 2.5
-  playerStamina: {fileID: 6993085260329888222}
-  movementAnimator: {fileID: 1939948368372546758}
-  playerMovement: {fileID: 8815513340903793807}
 --- !u!114 &6396586336188200979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +299,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c16a755e9474f5147a9cd4660ddb5fb3, type: 3}
   - {fileID: 8300000, guid: a8a4f9553464db545a105040437588eb, type: 3}
   - {fileID: 8300000, guid: 0f80cc10a1dbaf44399532571c7c49ea, type: 3}
-  raccoonStunAttack: {fileID: 0}
+  raccoonStunAttack: {fileID: 8300000, guid: ca9dfa76eb4b22247b49dc1335b0315b, type: 3}
   raccoonHit: {fileID: 8300000, guid: 08b567bd489eb5d4ab452251c5627998, type: 3}
 --- !u!114 &8299425071847981257
 MonoBehaviour:
