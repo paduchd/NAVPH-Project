@@ -980,7 +980,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Medium stamina cost\nSmaller damage\nAOE \n"
+  m_text: "Medium stamina cost\nHigher damage\nAOE \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33cf82dd7431e2a4f9d8c5a048e93da7, type: 2}
   m_sharedMaterial: {fileID: -8367073476686788258, guid: 33cf82dd7431e2a4f9d8c5a048e93da7, type: 2}
@@ -2690,13 +2690,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Large stamina cost
-
-    No damage
+  m_text: 'No damage
 
     Stuns hit targets
 
-'
+    High cooldown'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33cf82dd7431e2a4f9d8c5a048e93da7, type: 2}
   m_sharedMaterial: {fileID: -8367073476686788258, guid: 33cf82dd7431e2a4f9d8c5a048e93da7, type: 2}
@@ -2832,7 +2830,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Small stamina cost
 
-    Higher damage
+    Smaller damage
 
     Short range
 

@@ -54,6 +54,7 @@ namespace UI
         private void OnPlayerEscape()
         {
             ObjectiveManager.Instance.UpdateTaskObjectiveProgress();
+            countdownUI.text = "";
             PlayerEventManager.OnPlayerTimerEscape -= OnPlayerEscape;
 
             playerEscaped = true;
