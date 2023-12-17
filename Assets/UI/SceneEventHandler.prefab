@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5840077262943514768}
   - component: {fileID: 8424065032582650881}
   - component: {fileID: 443467219696054962}
+  - component: {fileID: 4381115392898134641}
   m_Layer: 0
   m_Name: SceneEventHandler
   m_TagString: Untagged
@@ -166,7 +167,6 @@ MonoBehaviour:
   loadingCanvas: {fileID: 0}
   loadingBar: {fileID: 0}
   background: {fileID: 0}
-  narrator: {fileID: 0}
   garageImage: {fileID: 2800000, guid: daf1a74e53db34341875d0475e0ba872, type: 3}
   sewersImage: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}
   outskirtsImage: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}
@@ -191,6 +191,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6d3975bd99ed1b246a84e4660b3e5c63, type: 3}
   boxFall: {fileID: 8300000, guid: 408dcc1a780103047a93732c254336a2, type: 3}
   eagleAttack: {fileID: 8300000, guid: 6d89f09c428466243803e1c0e0dc90f5, type: 3}
-  fallInWater: {fileID: 0}
   foodCollect: {fileID: 8300000, guid: c5cd13fa2d40b94418c0310b7fe7edf6, type: 3}
-  valveTurn: {fileID: 0}
+  valveTurn: {fileID: 8300000, guid: ea441389fbd07495d87f3322bc82312f, type: 3}
+  containerSearch: {fileID: 8300000, guid: 91dfa5da6d1461044be1190a8907dcac, type: 3}
+--- !u!114 &4381115392898134641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3194850338954470497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526601f1b0ccf694bb3b11fa358c4202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: {fileID: 0}
+  uiInteractionText: {fileID: 0}
+  playerStamina: {fileID: 0}
+  staminaReplenishAmount: 15

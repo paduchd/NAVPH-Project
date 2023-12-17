@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FoodSearchQuest : MonoBehaviour
 {
-    public TextMeshProUGUI message;
-    public TextMeshProUGUI UIInteractionText;
+    [SerializeField] private TextMeshProUGUI message;
+    [SerializeField] private TextMeshProUGUI uiInteractionText;
+    [SerializeField] private PlayerStamina playerStamina;
+    [Range(0, 100)] [SerializeField] private float staminaReplenishAmount = 10f;
     
     private int totalSearchPlaces = 5;
     private int searched = 0;
@@ -37,21 +40,22 @@ public class FoodSearchQuest : MonoBehaviour
         {
             PlayerEventManager.TriggerOnFoodEaten(true);
             ObjectiveManager.Instance.UpdateTaskObjectiveProgress();
+            playerStamina.IncreaseMax(staminaReplenishAmount);
             message.text = "You found a fish!";
         }
 
-        UIInteractionText.gameObject.SetActive(false);
+        uiInteractionText.gameObject.SetActive(false);
         StartCoroutine(DisableText());
     }
 
     private void InSearchRange()
     {
-        UIInteractionText.gameObject.SetActive(true);
+        uiInteractionText.gameObject.SetActive(true);
     }
 
     private void OutOfSearchRange()
     {
-        UIInteractionText.gameObject.SetActive(false);
+        uiInteractionText.gameObject.SetActive(false);
     }
 
     private IEnumerator DisableText()

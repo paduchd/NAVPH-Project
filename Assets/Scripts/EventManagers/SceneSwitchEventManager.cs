@@ -5,6 +5,7 @@ using System;
 
 public class SceneSwitchEventManager : MonoBehaviour
 {
+    // Events used for scene switching
     public static event Action GarageSwitch;
     public static void TriggerGarageSwitch() => GarageSwitch?.Invoke();
     

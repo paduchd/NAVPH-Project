@@ -1,9 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void StartGame()
+	private void Start()
+	{
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+	}
+
+	public void StartGame()
 	{
 		SceneSwitchEventManager.TriggerGarageSwitch();
 	}
