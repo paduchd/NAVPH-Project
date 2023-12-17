@@ -13,6 +13,7 @@ public class FoodController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player") && !eaten)
         {
+            ObjectiveManager.Instance.UpdateTaskObjectiveProgress();
             playerStamina.IncreaseMax(staminaReplishAmount);
             eaten = true;
             Destroy(gameObject);
