@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random=UnityEngine.Random;
 
+// Class responsible for playing player sounds
 public class PlayerSoundManager : MonoBehaviour
 {
     private AudioSource audioComponent;
@@ -16,7 +14,7 @@ public class PlayerSoundManager : MonoBehaviour
     [SerializeField] private AudioClip raccoonStunAttack;
     [SerializeField] private AudioClip raccoonHit;
 
-    // Event 
+    // Event listeners for players action
     private void OnEnable()
     {
         audioComponent = GetComponent<AudioSource>();
@@ -45,6 +43,7 @@ public class PlayerSoundManager : MonoBehaviour
         PlayerEventManager.OnStun -= PlayStun;
     }
 
+    // Footsteps playing when walking
     private void Update()
     {
         if (moving && !audioComponent.isPlaying && PlayerMovement.isGrounded)
@@ -60,6 +59,7 @@ public class PlayerSoundManager : MonoBehaviour
         }
     }
 
+    // Functions for individual sounds based on events
     private void PlayMovementSound()
     {
         moving = true;

@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
+// Class for the mini quest on outskirts - searching 5 containers
 public class FoodSearchQuest : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI message;
@@ -28,14 +27,17 @@ public class FoodSearchQuest : MonoBehaviour
         SearchContainer.OnLeaveSearchRange -= OutOfSearchRange;
     }
 
+    // When a container is searched print a message
     private void ContainerSearched()
     {
         searched += 1;
-
+        
+        // If the player didn't search all containers
         if (searched < totalSearchPlaces)
         {
             message.text = "Nothing found!\n" + searched + "/" + totalSearchPlaces + " searched";
         }
+        // Give the player food on the last container
         else
         {
             PlayerEventManager.TriggerOnFoodEaten(true);
@@ -47,17 +49,20 @@ public class FoodSearchQuest : MonoBehaviour
         uiInteractionText.gameObject.SetActive(false);
         StartCoroutine(DisableText());
     }
-
+    
+    // Checks if the player is in interaction range
     private void InSearchRange()
     {
         uiInteractionText.gameObject.SetActive(true);
     }
-
+    
+    // Checks if the player leaves interaction range
     private void OutOfSearchRange()
     {
         uiInteractionText.gameObject.SetActive(false);
     }
 
+    // Disables the message after 3 seconds
     private IEnumerator DisableText()
     {
         yield return new WaitForSeconds(3);
