@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using System;
 using UnityEngine;
+using System.Collections;
 
+// Racoons dash mechanic
 public class PlayerDash : MonoBehaviour
 {
     [Header("Parameters")]
@@ -11,23 +10,21 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private float dashForce = 20;
     [SerializeField] private float dashUpwardForce = 0;
     public static float dashCooldown = 3f;
-
-    [Header("Components")]
-    [SerializeField] private PlayerStamina playerStamina;
-    [SerializeField] private MovementAnimations movementAnimator;
-    [SerializeField] private PlayerMovement playerMovement;
+    
+    private PlayerStamina playerStamina;
+    private PlayerMovement playerMovement;
     private Rigidbody rigidbody;
 
     private bool readyToDash = true;
     
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        playerStamina = GetComponent<PlayerStamina>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
         Dash();
     }
@@ -35,24 +32,26 @@ public class PlayerDash : MonoBehaviour
     private void Dash()
     {
         bool enoughStamina = playerStamina.CanDash();
-
+        
         if (Input.GetKey(dashKey) && readyToDash && enoughStamina && playerMovement.IsGrounded())
         {
-            PlayerEventManager.TriggerOnDash();
-            
-            readyToDash = false; 
-            Vector3 dashForceVector = -orientation.forward * dashForce + orientation.up * dashUpwardForce;
-            rigidbody.AddForce(dashForceVector,ForceMode.Impulse);
-
-            playerStamina.DrainStamina(PlayerStamina.MovementType.Dash);
-        
-            Invoke(nameof(ResetDash),dashCooldown);
+            StartCoroutine(DashStart());
         }
         
     }
-
-    private void ResetDash()
+    IEnumerator DashStart()
     {
+        PlayerEventManager.TriggerOnDash();
+        readyToDash = false; 
+        
+        Vector3 dashForceVector = -orientation.forward * dashForce + orientation.up * dashUpwardForce;
+        rigidbody.AddForce(dashForceVector,ForceMode.Impulse);
+        
+        playerStamina.DrainStamina(PlayerStamina.MovementType.Dash);
+        
+        yield return new WaitForSeconds(dashCooldown);
         readyToDash = true;
+        
     }
+    
 }

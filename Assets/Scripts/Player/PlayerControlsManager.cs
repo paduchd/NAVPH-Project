@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Script that enables/disables racoons mechanics based on scene. Used when game is paused to not trigger inputs.
 public class PlayerControlsManager : MonoBehaviour
 {
     private void OnEnable()

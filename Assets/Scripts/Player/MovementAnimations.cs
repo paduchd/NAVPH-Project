@@ -1,16 +1,20 @@
 using UnityEngine;
-using System;
 
+// Animator for all racoon movements, attack included
 public class MovementAnimations : MonoBehaviour
 {
     private Animator movementAnimator;
-    private bool walking = false;
-    private bool running = false;
+    private bool walking ;
+    private bool running;
     private bool idle = true;
 
     private string WALKING = "walking";
     private string RUNNING = "running";
     private string IDLE = "idle";
+    private string JUMP = "jump";
+    private string ATTACK = "attack";
+    private string AOE = "aoe";
+    private string DEATH = "death";
     
     void Start()
     {
@@ -43,22 +47,22 @@ public class MovementAnimations : MonoBehaviour
     
     public void AnimateJump()
     {
-        movementAnimator.SetTrigger("jump");
+        movementAnimator.SetTrigger(JUMP);
     }
 
     public void AnimateAttack()
     {
-        movementAnimator.SetTrigger("attack");
+        movementAnimator.SetTrigger(ATTACK);
     }
     
     public void AnimateAoe()
     {
-        movementAnimator.SetTrigger("aoe");
+        movementAnimator.SetTrigger(AOE);
     }
 
     public void AnimateDeath()
     {
-        movementAnimator.SetTrigger("death");
+        movementAnimator.SetTrigger(DEATH);
     }
 
     private void SetAnimations()
@@ -67,20 +71,4 @@ public class MovementAnimations : MonoBehaviour
         movementAnimator.SetBool(RUNNING, running);
         movementAnimator.SetBool(IDLE, idle);
     }
-    
-    public float GetAnimationClipLength(string clipName)
-    {
-        RuntimeAnimatorController ac = movementAnimator.runtimeAnimatorController;
-
-        foreach (AnimationClip clip in ac.animationClips)
-        {
-            if (clip.name == clipName)
-            {
-                return clip.length;
-            }
-        }
-        return 0f; 
-    }
-    
-    
 }

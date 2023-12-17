@@ -74,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
             }
             playerMovementState = MovementState.Running;
             movementAnimator.AnimateRunning();
-            Debug.Log("Moving");
             PlayerEventManager.TriggerOnMovement();
             
         //walking
@@ -112,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
         return orientation.forward * Input.GetAxisRaw("Vertical") + orientation.right * Input.GetAxisRaw("Horizontal");
     }
     
+    // Racoon movement and direction based
     private void MovePlayer()
     {
         Vector3 moveDirection = GetMovementDirection();
@@ -121,7 +121,8 @@ public class PlayerMovement : MonoBehaviour
         else
             rigitbody.AddForce(moveDirection.normalized * (movementSpeed * 10f * airMultiplier), ForceMode.Force);
     }
-
+    
+    // Controls speed so racoon is not too fast when continuously adding force
     private void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rigitbody.velocity.x, 0f, rigitbody.velocity.z);

@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Animations;
 
+// Racoons attacks script - single, AOE, stun
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Single Attack")]
@@ -59,6 +56,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // If enemy in range for single attack
         if (other.CompareTag("Enemy") && singleAttackCollider.bounds.Intersects(other.bounds))
         {
             Enemy enemy = other.GetComponent<Enemy>();
@@ -68,7 +66,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        
+        // If enemy in range for AOE attack
         if (other.CompareTag("Enemy") && aoeAttackCollider.bounds.Intersects(other.bounds))
         {
             Enemy enemy = other.GetComponent<Enemy>();
@@ -78,7 +76,8 @@ public class PlayerAttack : MonoBehaviour
                 currentAoeTargets.Add(enemy);
             }
         }
-
+        
+        // If enemy in range for stun attack
         if (other.CompareTag("Enemy") && stunCollider.bounds.Intersects(other.bounds))
         {
             Enemy enemy = other.GetComponent<Enemy>();
@@ -90,6 +89,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
     
+    // When enemy out of range, remove their reference
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -113,8 +113,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
     
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && !inSingleAttack && playerStamina.CanSingleAttack())

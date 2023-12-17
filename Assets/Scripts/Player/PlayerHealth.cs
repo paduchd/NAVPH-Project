@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
@@ -97,6 +94,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         //time to normal
         Time.timeScale = StartTimeScale;
         Time.fixedDeltaTime = StartFixedDeltaTime;
+        
+        //Load gameover scene
         SceneManager.LoadScene("GameOver");
     }
     
