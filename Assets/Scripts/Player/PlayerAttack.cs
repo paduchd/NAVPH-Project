@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
     private bool inStun;
 
 
-    private void OnEnable()
+    private void Awake()
     {
         singleAttackCooldown = singleAttackCooldownHelper;
         aoeAttackCooldown = aoeAttackCooldownHelper;
