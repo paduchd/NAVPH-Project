@@ -19,12 +19,15 @@ public class PlayerSoundManager : MonoBehaviour
     private void OnEnable()
     {
         audioComponent = GetComponent<AudioSource>();
+        audioComponent.volume = 0.05f;
         PlayerEventManager.OnMovement += PlayMovementSound;
         PlayerEventManager.OnMovementStop += StopMovementSound;
         PlayerEventManager.OnDamaged += PlayDamageSound;
         PlayerEventManager.OnAttack += PlayScream;
         PlayerEventManager.OnAoe += PlayWhoosh;
         PlayerEventManager.OnDash += PlayWhoosh;
+        PlayerEventManager.OnGamePause += StopSounds;
+        PlayerEventManager.OnGameResume += ResumeSounds;
     }
 
     private void OnDisable()
@@ -35,6 +38,8 @@ public class PlayerSoundManager : MonoBehaviour
         PlayerEventManager.OnAttack -= PlayScream;
         PlayerEventManager.OnAoe -= PlayWhoosh;
         PlayerEventManager.OnDash -= PlayWhoosh;
+        PlayerEventManager.OnGamePause -= StopSounds;
+        PlayerEventManager.OnGameResume -= ResumeSounds;
     }
 
     private void Update()
@@ -43,7 +48,6 @@ public class PlayerSoundManager : MonoBehaviour
         {
             audioComponent.clip = raccoonMove;
             audioComponent.loop = true;
-            audioComponent.volume = 0.05f;
             audioComponent.Play();
         }
 
@@ -65,19 +69,26 @@ public class PlayerSoundManager : MonoBehaviour
     
     private void PlayDamageSound()
     {
-        audioComponent.volume = 0.05f;
         audioComponent.PlayOneShot(raccoonHit);
     }
 
     private void PlayScream()
     {
-        audioComponent.volume = 0.05f;
         audioComponent.PlayOneShot(raccoonScreams[Random.Range(0, raccoonScreams.Length)]);
     }
 
     private void PlayWhoosh()
     {
-        audioComponent.volume = 0.05f;
         audioComponent.PlayOneShot(raccoonWhooshes[Random.Range(0, raccoonWhooshes.Length)]);
+    }
+
+    private void StopSounds()
+    {
+        audioComponent.volume = 0f;
+    }
+
+    private void ResumeSounds()
+    {
+        audioComponent.volume = 0.05f;
     }
 }

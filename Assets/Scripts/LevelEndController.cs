@@ -1,28 +1,28 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelEndController : MonoBehaviour
 {
+    private bool isLoading = false;
+    
+    // Trigger scene switching event when colliding with level end object
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.CompareTag("GarageEnd"))
+        if (col.gameObject.CompareTag("GarageEnd") && !isLoading)
         {
-            Debug.Log("Player escaped the garage");
+            isLoading = true;
             SceneSwitchEventManager.TriggerSewersSwitch();
         }
 
-        if (col.gameObject.CompareTag("SewersEnd"))
+        if (col.gameObject.CompareTag("SewersEnd") && !isLoading)
         {
-            Debug.Log("Player escaped the sewers");
+            isLoading = true;
             SceneSwitchEventManager.TriggerOutskirtsSwitch();
         }
 
-        if (col.gameObject.CompareTag("OutskirtsEnd"))
+        if (col.gameObject.CompareTag("OutskirtsEnd") && !isLoading)
         {
-            Debug.Log("Player escaped the outskirts");
+            Debug.Log("Finished outskirts");
+            isLoading = true;
             SceneSwitchEventManager.TriggerJunkyardSwitch();
         }
     }
