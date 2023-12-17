@@ -6617,6 +6617,7 @@ MonoBehaviour:
   loadingCanvas: {fileID: 1267481788}
   loadingBar: {fileID: 1267481793}
   background: {fileID: 60125760}
+  backgroundSound: {fileID: 2027899951}
   garageImage: {fileID: 2800000, guid: daf1a74e53db34341875d0475e0ba872, type: 3}
   sewersImage: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}
   outskirtsImage: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}

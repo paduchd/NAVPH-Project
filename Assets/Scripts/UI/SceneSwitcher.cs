@@ -16,7 +16,9 @@ public class SceneSwitcher : MonoBehaviour
     public GameObject loadingCanvas;
     public Image loadingBar;
     public RawImage background;
+    public AudioSource backgroundSound;
     private AudioSource narrator;
+    private String sceneName;
     
     [Header("Backgrounds")]
     public Texture2D garageImage; 
@@ -30,6 +32,7 @@ public class SceneSwitcher : MonoBehaviour
     public AudioClip outskirtsNarrator;
 
     
+    // Event listeners for scene switch events
     private void OnEnable()
     {
         narrator = GetComponent<AudioSource>();
@@ -48,9 +51,14 @@ public class SceneSwitcher : MonoBehaviour
         SceneSwitchEventManager.JunkyardSwitch -= SwitchToJunkyard;
     }
 
+    
+    // Functions for switching scenes and showing loading screens
     private void SwitchToGarage()
     {
-        title.text = "Garage";
+        backgroundSound.Stop();
+        PlayerEventManager.TriggerOnGamePause();
+        sceneName = "Garage";
+        title.text = sceneName;
         objective.text = "Find a way out of the garage!";
         description.text = "You are a raccoon and have been kidnapped from your home - the junkyard. You wake up in a strange garage with only one way out. Use the environment and objects in the garage to reach the exit and to get closer to getting back home!";
         background.texture = garageImage;
@@ -62,10 +70,12 @@ public class SceneSwitcher : MonoBehaviour
         StartCoroutine(Load());
     }
     
-
     private void SwitchToSewers()
     {
-        title.text = "Sewers";
+        backgroundSound.Stop();
+        PlayerEventManager.TriggerOnGamePause();
+        sceneName = "Sewers";
+        title.text = sceneName;
         objective.text = "Find a way out of the sewers maze!";
         description.text = "After escaping the garage you find yourself deep inside the town's sewer system. Find the sewer exit and get out. Watch out! The area is guarded by rats, attack them with newly unlocked attacks or try to evade them.";
         background.texture = sewersImage;
@@ -78,7 +88,10 @@ public class SceneSwitcher : MonoBehaviour
     
     private void SwitchToOutskirts()
     {
-        title.text = "Outskirts";
+        backgroundSound.Stop();
+        PlayerEventManager.TriggerOnGamePause();
+        sceneName = "Outskirts";
+        title.text = sceneName;
         objective.text = "Find food to replenish your energy!";
         description.text = "After running through sewers the whole night you became exhausted. You don't have any energy left and therefore you can't run, jump or attack. Search the area for pieces of food which slowly replenish your stamina. Beware! An angry eagle is scouting the area and will try to attack you from time to time. Hide in bushes to counter its attacks.";
         background.texture = outskirtsImage;
@@ -92,12 +105,25 @@ public class SceneSwitcher : MonoBehaviour
 
     private void SwitchToJunkyard()
     {
-        SceneManager.LoadSceneAsync("MainMenu");
+        backgroundSound.Stop();
+        PlayerEventManager.TriggerOnGamePause();
+        sceneName = "MainMenu";
+        title.text = "The End";
+        objective.text = "";
+        description.text = "Congratulations! You successfully escaped your kidnappers, found you way around the sewers maze, evaded the eagle's attacks and safely managed to get back home.";
+        background.texture = outskirtsImage;
+        uiCanvas.gameObject.SetActive(false);
+        loadingCanvas.gameObject.SetActive(true);
+        // narrator.clip = outskirtsNarrator;
+        // narrator.Play();
+            
+        StartCoroutine(Load());
     }
 
+    // Coroutine which loads the next scene in the background and shows progress on the loading screen
     IEnumerator Load()
     {
-        AsyncOperation sceneLoader = SceneManager.LoadSceneAsync(title.text);
+        AsyncOperation sceneLoader = SceneManager.LoadSceneAsync(sceneName);
         sceneLoader.allowSceneActivation = false;
 
         while (!sceneLoader.isDone)
@@ -109,7 +135,6 @@ public class SceneSwitcher : MonoBehaviour
                 loadIndicator.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    //GameOverScreenController.CurrentSceneName = title.text;
                     sceneLoader.allowSceneActivation = true;
                 }
             }
