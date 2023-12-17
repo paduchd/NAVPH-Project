@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Manages pause menu of the game
 public class PauseMenu : MonoBehaviour
 {
     public static bool canBePaused = true;
@@ -26,6 +27,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // Sets back time and deactivates the menu UI
     public void ResumeGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -39,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         PlayerEventManager.TriggerOnGameResume();
     }
 
+    // Stops the time and activates the menu UI
     public void PauseGame()
     {
         Cursor.lockState = CursorLockMode.None;

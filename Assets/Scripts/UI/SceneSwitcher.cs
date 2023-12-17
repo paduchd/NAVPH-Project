@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// Manages loading screens between the scenes
 public class SceneSwitcher : MonoBehaviour
 {
     [Header("Components")]
@@ -45,6 +46,7 @@ public class SceneSwitcher : MonoBehaviour
         SceneSwitchEventManager.JunkyardSwitch += SwitchToJunkyard;
     }
     
+    // Unsubscribing to events
     private void OnDisable()
     {
         SceneSwitchEventManager.GarageSwitch -= SwitchToGarage;
@@ -54,7 +56,7 @@ public class SceneSwitcher : MonoBehaviour
     }
 
     
-    // Functions for switching scenes and showing loading screens
+    // Garage loading screen
     private void SwitchToGarage()
     {
         backgroundSound.Stop();
@@ -73,6 +75,7 @@ public class SceneSwitcher : MonoBehaviour
         StartCoroutine(Load());
     }
     
+    // Sewers loading screen
     private void SwitchToSewers()
     {
         backgroundSound.Stop();
@@ -90,6 +93,7 @@ public class SceneSwitcher : MonoBehaviour
         StartCoroutine(Load());
     }
     
+    // Outskirts loading screen
     private void SwitchToOutskirts()
     {
         backgroundSound.Stop();
@@ -108,6 +112,7 @@ public class SceneSwitcher : MonoBehaviour
         StartCoroutine(Load());
     }
 
+    // Final loading screen - had to be junkyard but the game finishes after outskirts
     private void SwitchToJunkyard()
     {
         backgroundSound.Stop();

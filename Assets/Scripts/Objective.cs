@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Class representing one objective (quest)
 [System.Serializable]
 public class Objective
 {
@@ -9,7 +11,7 @@ public class Objective
     public string description;
     public bool completed;
 
-    // Additional properties for task objectives
+    // task objective progress
     public int targetCount;
     public int currentCount;
 

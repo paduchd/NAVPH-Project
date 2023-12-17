@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+// Manages the state of single heart in the health bar, which is either full or damaged
 public class HeartStateController : MonoBehaviour
 {
     [SerializeField] private Sprite fullHeart;
@@ -20,6 +21,7 @@ public class HeartStateController : MonoBehaviour
         heartAnimator = GetComponent<Animator>();
     }
 
+    // Creates appropriate heart
     public void SetHeartState(HeartState state)
     {
         if (state == HeartState.Empty)

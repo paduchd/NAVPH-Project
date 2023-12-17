@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+// Manages the after-death screen (GameOver)
 public class GameOverScreenController : MonoBehaviour
 {
     // Store current scene for restart

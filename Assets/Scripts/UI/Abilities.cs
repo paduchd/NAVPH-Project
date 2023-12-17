@@ -5,14 +5,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Class which manages the abilities UI part
 public class Abilities : MonoBehaviour
 {
     [SerializeField] private Image attackIcon;
     [SerializeField] private Image attackIconBg;
+    
     [SerializeField] private Image aoeIcon;
     [SerializeField] private Image aoeIconBg;
+    
     [SerializeField] private Image stunIcon;
     [SerializeField] private Image stunIconBg;
+    
     [SerializeField] private Image dashIcon;
     [SerializeField] private Image dashIconBg;
 
@@ -28,6 +32,7 @@ public class Abilities : MonoBehaviour
     private bool dashOnCooldown = false;
     private float dashCooldown;
 
+    // On enabling needs to get the separate cooldowns and add event listener
     private void OnEnable()
     {
         attackCooldown = PlayerAttack.singleAttackCooldown;
@@ -41,7 +46,7 @@ public class Abilities : MonoBehaviour
         PlayerEventManager.OnDash += UpdateDashCooldown;
     }
     
-    
+    // Unsubscribing from event
     private void OnDisable()
     {
         PlayerEventManager.OnAttack -= UpdateAttackCooldown;
@@ -50,6 +55,7 @@ public class Abilities : MonoBehaviour
         PlayerEventManager.OnDash -= UpdateDashCooldown;
     }
 
+    // Initialization of ability UI
     void Start()
     {
         attackIcon.fillAmount = 1;
@@ -58,9 +64,10 @@ public class Abilities : MonoBehaviour
         dashIcon.fillAmount = 1;
     }
 
-    
+    // Manages showcasing the current cooldowns on abilities
     void Update()
     {
+        // single attack cooldown
         if (attackOnCooldown)
         {
             attackIcon.fillAmount += 1 / attackCooldown * Time.deltaTime;
@@ -72,6 +79,7 @@ public class Abilities : MonoBehaviour
             }
         }
         
+        // aoe attack cooldown
         if (aoeOnCooldown)
         {
             aoeIcon.fillAmount += 1 / aoeCooldown * Time.deltaTime;
@@ -83,6 +91,7 @@ public class Abilities : MonoBehaviour
             }
         }
         
+        // dash cooldown
         if (dashOnCooldown)
         {
             dashIcon.fillAmount += 1 / dashCooldown * Time.deltaTime;
@@ -94,6 +103,7 @@ public class Abilities : MonoBehaviour
             }
         }
         
+        // stun cooldown
         if (stunOnCooldown)
         {
             stunIcon.fillAmount += 1 / stunCooldown * Time.deltaTime;
@@ -105,7 +115,7 @@ public class Abilities : MonoBehaviour
             }
         }
     }
-
+    
     private void UpdateAttackCooldown()
     {
         attackIconBg.color = Color.grey;

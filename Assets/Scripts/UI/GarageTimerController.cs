@@ -2,8 +2,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
+
 namespace UI
 {
+    // Manages the UI parts where timer in garage is shown
     public class GarageTimerController : MonoBehaviour
     {
         [SerializeField] public float escapeTime = 90;
@@ -15,12 +17,14 @@ namespace UI
         private bool isBoxDown = false;
         private bool playerEscaped = false;
 
+        // Subcribing to events
         void Start()
         {
             PlayerEventManager.OnBoxFall += OnBoxFallEvent;
             PlayerEventManager.OnPlayerTimerEscape += OnPlayerEscape;
         }
 
+        // Refreshing the timer
         void Update()
         {
             if (playerEscaped)
@@ -44,6 +48,7 @@ namespace UI
             }
         }
 
+        // We dont need the event listener after first occurence
         private void OnBoxFallEvent()
         {
             countdown = escapeTime;
@@ -51,6 +56,7 @@ namespace UI
             PlayerEventManager.OnBoxFall -= OnBoxFallEvent;
         }
 
+        // End the timer after the player escaped
         private void OnPlayerEscape()
         {
             PlayerEventManager.OnPlayerTimerEscape -= OnPlayerEscape;

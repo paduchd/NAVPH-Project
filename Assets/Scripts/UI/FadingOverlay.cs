@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Fading overlays for UI after eating food and getting damage
 public class FadingOverlay : MonoBehaviour
 {
     [SerializeField] private float fadeTime = 3.0f;
@@ -12,12 +13,14 @@ public class FadingOverlay : MonoBehaviour
     private float currentFadeTime;
     [SerializeField] private OverlayMode overlayMode;
     
+    // The overlay is either for stamina or damage
     private enum OverlayMode
     {
         Stamina = 0,
         Damage = 1,
     }
     
+    // Subscribing to events
     private void OnEnable()
     {
         if (overlayMode == OverlayMode.Stamina)
@@ -31,6 +34,7 @@ public class FadingOverlay : MonoBehaviour
         }
     }
     
+    // Unsubscribing to events
     private void OnDisable()
     {
         if (overlayMode == OverlayMode.Stamina)

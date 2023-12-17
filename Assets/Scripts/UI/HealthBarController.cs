@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+// Manages the health bar of the player
 public class HealthBarController : MonoBehaviour
 {
     [SerializeField] private GameObject heartPrefab;
@@ -11,24 +11,28 @@ public class HealthBarController : MonoBehaviour
     private List<HeartStateController> hearts;
     private int oldCurrentHealth;
 
+    // Initialization of the health bar
     private void Start()
     {
         CreateHearts();
         UpdateHeartStates();
     }
 
+    // Subscribing to events
     private void OnEnable()
     {
         PlayerEventManager.OnHealthIncrease += UpdateHeartStates;
         PlayerEventManager.OnDamaged += UpdateHeartStates;
     }
 
+    // Unsubscribing to events
     private void OnDisable()
     {
         PlayerEventManager.OnHealthIncrease -= UpdateHeartStates;
         PlayerEventManager.OnDamaged -= UpdateHeartStates;
     }
     
+    // Creates health bar based on the player's max health
     private void CreateHearts()
     {
         ClearBar();
@@ -42,6 +46,7 @@ public class HealthBarController : MonoBehaviour
         
     }
     
+    // Deletes the health bar
     private void ClearBar()
     {
         hearts = new List<HeartStateController>();
@@ -51,6 +56,7 @@ public class HealthBarController : MonoBehaviour
         }
     }
 
+    // Keeps the healthbar accurate with player's current health
     public void UpdateHeartStates()
     
     {

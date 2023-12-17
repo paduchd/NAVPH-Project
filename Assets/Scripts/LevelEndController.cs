@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Manages the setting up of loading screens after the scene is finished
 public class LevelEndController : MonoBehaviour
 {
     private bool isLoading = false;
@@ -21,7 +22,6 @@ public class LevelEndController : MonoBehaviour
 
         if (col.gameObject.CompareTag("OutskirtsEnd") && !isLoading)
         {
-            Debug.Log("Finished outskirts");
             isLoading = true;
             SceneSwitchEventManager.TriggerJunkyardSwitch();
         }

@@ -2,6 +2,7 @@ using System;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+// Manages the UI part where new abilities are introduced
 public class SceneIntroduction : MonoBehaviour
 {
     [SerializeField] private GameObject uiCanvas;

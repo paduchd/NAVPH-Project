@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Manages the main menu
 public class MainMenu : MonoBehaviour
 {
 	private void Start()

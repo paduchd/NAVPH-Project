@@ -4,21 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
+// Responsible for objective display on UI
 public class ObjectiveController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI objectiveBar;
-    // Start is called before the first frame update
     
+    // Subscribing to events
     private void OnEnable()
     {
         ObjectiveManager.OnObjectiveUpdate += UpdateObjective;
     }
 
+    // Unsubscribing to events
     private void OnDisable()
     {
         ObjectiveManager.OnObjectiveUpdate -= UpdateObjective;
     }
 
+    // Updates the objectives text with current status
     private void UpdateObjective(Objective objective)
     {
         if (objective.type == ObjectiveManager.ObjectiveType.Simple)
