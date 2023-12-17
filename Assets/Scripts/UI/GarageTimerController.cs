@@ -27,18 +27,11 @@ namespace UI
         // Refreshing the timer
         void Update()
         {
-            if (playerEscaped)
-            {
-                countdownUI.text = "";
-                objective.text = "Enter the sewers!";
-            }
-            
             if (isBoxDown && playerEscaped == false)
             {
                 min = Mathf.FloorToInt((countdown - Time.deltaTime) / 60);
                 sec = Mathf.FloorToInt((countdown - Time.deltaTime) % 60);
                 countdownUI.text = $"{min:00}:{sec:00}";
-                objective.text = "Use the box to escape before the timer runs out!";
                 countdown -= Time.deltaTime;
             }
             
@@ -51,6 +44,7 @@ namespace UI
         // We dont need the event listener after first occurence
         private void OnBoxFallEvent()
         {
+            ObjectiveManager.Instance.UpdateTaskObjectiveProgress();
             countdown = escapeTime;
             isBoxDown = true;
             PlayerEventManager.OnBoxFall -= OnBoxFallEvent;
@@ -59,6 +53,7 @@ namespace UI
         // End the timer after the player escaped
         private void OnPlayerEscape()
         {
+            ObjectiveManager.Instance.UpdateTaskObjectiveProgress();
             PlayerEventManager.OnPlayerTimerEscape -= OnPlayerEscape;
 
             playerEscaped = true;
