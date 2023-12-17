@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+// Class for managing objectives
 public class ObjectiveManager : MonoBehaviour
 {
     public static ObjectiveManager Instance;
@@ -11,12 +10,14 @@ public class ObjectiveManager : MonoBehaviour
     public static event Action<Objective> OnObjectiveUpdate;
     public static void TriggerOnObjectiveUpdate(Objective objective) => OnObjectiveUpdate?.Invoke(objective);
 
+    // Two objective types (simple - 1 quest, task - multiple stages)
     public enum ObjectiveType
     {
         Simple,
         Task
     }
     
+    // List for objectives (different on each scene)
     public List<Objective> objectives = new List<Objective>();
     
     void Awake()
@@ -32,6 +33,7 @@ public class ObjectiveManager : MonoBehaviour
         }
     }
     
+    // Shows the first objective
     void Start()
     {
         // Initialize objectives for the current scene
@@ -43,14 +45,6 @@ public class ObjectiveManager : MonoBehaviour
             TriggerOnObjectiveUpdate(objectives[0]);
             Debug.Log("First quest on screen");
             Debug.Log(objectives[0].description);
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            UpdateTaskObjectiveProgress();
         }
     }
     

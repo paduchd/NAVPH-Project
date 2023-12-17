@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+// Class defining all events the player can trigger
 public class PlayerEventManager : MonoBehaviour
 {
     public static event Action OnDamaged;
