@@ -15,7 +15,6 @@ public class SceneSoundManager : MonoBehaviour
     private void OnEnable()
     {
         audioComponent = GetComponent<AudioSource>();
-        audioComponent.volume = 0.1f;
         BushController.OnBushEnter += PlayBushSound;
         PlayerEventManager.OnBoxFall += PlayBoxSound;
         PlayerEventManager.OnFoodEaten += PlayFoodSound;
@@ -41,26 +40,31 @@ public class SceneSoundManager : MonoBehaviour
 
     private void PlayBoxSound()
     {
+        audioComponent.volume = 0.02f;
         audioComponent.PlayOneShot(boxFall);
     }
 
     private void PlayEagleSound()
     {
+        audioComponent.volume = 0.1f;
         audioComponent.PlayOneShot(eagleAttack);
     }
 
     private void PlayFoodSound(bool b)
     {
+        audioComponent.volume = 0.1f;
         audioComponent.PlayOneShot(foodCollect);
     }
 
     private void PlayValveSound()
     {
+        audioComponent.volume = 0.1f;
         audioComponent.PlayOneShot(valveTurn);
     }
 
     private void PlaySearchSound()
     {
+        audioComponent.volume = 0.1f;
         audioComponent.PlayOneShot(containerSearch);
     }
 }
