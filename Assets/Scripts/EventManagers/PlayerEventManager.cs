@@ -63,4 +63,10 @@ public class PlayerEventManager : MonoBehaviour
 
     public static event Action OnDash;
     public static void TriggerOnDash() => OnDash?.Invoke();
+
+    public static event Action OnInteractionEnter;
+    public static void TriggerOnInteractionEnter() => OnInteractionEnter?.Invoke();
+
+    public static event Action OnInteractionExit;
+    public static void TriggerOnInteractionExit() => OnInteractionExit?.Invoke();
 }
