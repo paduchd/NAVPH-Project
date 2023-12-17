@@ -311,6 +311,7 @@ MonoBehaviour:
   deathCooldown: 10
   inAttackCooldown: 0
   inAttackAnimation: 0
+  isStunned: 0
 --- !u!114 &3906522608520790024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 0
   acceleration: 3.5
-  followDistance: 5
+  followDistance: 8
   stopDistance: 0.8
   rotationSpeed: 5
 --- !u!136 &6478594676530186353
@@ -369,6 +370,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c3881fb75e1fc5c4fb0a9c08ebec440d, type: 3}
   ratDeath: {fileID: 8300000, guid: d584b9df775f22543ba7cae96103d667, type: 3}
   ratAttack: {fileID: 8300000, guid: 43f6195d92d2609498b42f1a42a54f53, type: 3}
+  volume: 0.005
 --- !u!1 &210415254724813210
 GameObject:
   m_ObjectHideFlags: 0

@@ -280,7 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 5
-  healTime: 5
+  healTime: 10
   knockbackForce: 8
   slowMotionTimeScale: 0.1
   movementAnimator: {fileID: 1939948368372546758}
@@ -331,14 +331,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   singleAttackCollider: {fileID: 4969496931751264019}
-  singleAttackCooldown: 0.4
-  singleAttackDamage: 1
+  singleAttackDamage: 5
   aoeAttackCollider: {fileID: 6535493302587584320}
-  aoeAttackCooldown: 1
-  aoeAttackDamage: 1
+  aoeAttackDamage: 8
   stunCollider: {fileID: 7754908968496376028}
-  stunCooldown: 1
-  stunDuration: 1
+  stunDuration: 5
   movementAnimator: {fileID: 1939948368372546758}
 --- !u!114 &7080236411983743045
 MonoBehaviour:
