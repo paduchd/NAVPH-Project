@@ -334,7 +334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22794519}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19459581, y: -0.000000008438728, z: 0.000000001674145, w: 0.98088354}
+  m_LocalRotation: {x: 0.19459581, y: 0.000000008438728, z: -0.000000001674145, w: 0.98088354}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1669,6 +1669,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4255878897615592, guid: 6c59ef0028580ac429571adf93ff0a16, type: 3}
   m_PrefabInstance: {fileID: 961357590}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &218563129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218563131}
+  - component: {fileID: 218563130}
+  m_Layer: 0
+  m_Name: Objectives
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &218563130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218563129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e89970bd867089441b7b858f0457bcce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectives:
+  - type: 0
+    description: Find a way out of the garage
+    completed: 0
+    targetCount: 0
+    currentCount: 0
+  - type: 0
+    description: Use the box to escape before you get caught
+    completed: 0
+    targetCount: 0
+    currentCount: 0
+  - type: 0
+    description: Enter the sewers
+    completed: 0
+    targetCount: 0
+    currentCount: 0
+--- !u!4 &218563131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218563129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.898718, y: 1.1474073, z: -2.6405602}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &232017354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6983,7 +7043,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978928516}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17672184, y: -0.000000023950507, z: 0.0000000043002597, w: 0.98426086}
+  m_LocalRotation: {x: 0.17672184, y: 0.000000023950511, z: -0.00000000430026, w: 0.98426086}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19417,7 +19477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866831658}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17672184, y: -0.000000023950507, z: 0.0000000043002597, w: 0.98426086}
+  m_LocalRotation: {x: 0.17672184, y: 0.000000023950511, z: -0.00000000430026, w: 0.98426086}
   m_LocalPosition: {x: -2.191, y: 5.6969094, z: -6.990702}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23073,3 +23133,4 @@ SceneRoots:
   - {fileID: 3242495514827163827}
   - {fileID: 743893205}
   - {fileID: 4346412434008764107}
+  - {fileID: 218563131}
