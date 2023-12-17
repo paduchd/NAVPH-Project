@@ -10,22 +10,22 @@ public class PlayerAttack : MonoBehaviour
 {
     [Header("Single Attack")]
     public Collider singleAttackCollider;
-    public static float singleAttackCooldown;
-    public float singleAttackCooldownHelper = 1f;
+    public static float singleAttackCooldown = 1.0f;
+    //public float singleAttackCooldownHelper = 1f;
 
     public int singleAttackDamage = 5;
     
     [Header("AOE Attack")]
     public Collider aoeAttackCollider;
-    public static float aoeAttackCooldown;
-    public float aoeAttackCooldownHelper = 1f;
+    public static float aoeAttackCooldown = 1.0f;
+    //public float aoeAttackCooldownHelper = 1f;
     public int aoeAttackDamage = 3;
     
     [Header("Stun Attack")]
     public Collider stunCollider;
-    public static float stunCooldown;
-    public float stunCooldownHelper = 1f;
-    public float stunDuration = 1f;
+    public static float stunCooldown = 1.0f;
+    //public float stunCooldownHelper = 1f;
+    public float stunDuration = 10f;
     
     [Header("Player")]
     [SerializeField] private MovementAnimations movementAnimator;
@@ -42,12 +42,12 @@ public class PlayerAttack : MonoBehaviour
     private bool inStun;
 
 
-    private void Awake()
-    {
-        singleAttackCooldown = singleAttackCooldownHelper;
-        aoeAttackCooldown = aoeAttackCooldownHelper;
-        stunCooldown = stunCooldownHelper;
-    }
+    // private void Awake()
+    // {
+    //     singleAttackCooldown = singleAttackCooldownHelper;
+    //     aoeAttackCooldown = aoeAttackCooldownHelper;
+    //     stunCooldown = stunCooldownHelper;
+    // }
 
     private void Start()
     {
