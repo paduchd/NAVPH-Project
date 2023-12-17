@@ -25,8 +25,6 @@ public class SceneIntroduction : MonoBehaviour
         scene = SceneManager.GetActiveScene().name;
         
         GameOverScreenController.CurrentSceneName = scene;
-        
-        PlayerEventManager.TriggerOnGamePause();
 
         PauseMenu.canBePaused = false;
         
@@ -44,9 +42,11 @@ public class SceneIntroduction : MonoBehaviour
         {
             outskirtsIntroduction.SetActive(true);
         }
+        
+        PlayerEventManager.TriggerOnGamePause();
     }
 
-    public void continueGame()
+    public void ContinueGame()
     {
         PauseMenu.canBePaused = true;
         

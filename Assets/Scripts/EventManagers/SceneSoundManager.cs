@@ -31,6 +31,7 @@ public class SceneSoundManager : MonoBehaviour
         PlayerEventManager.OnFoodEaten -= PlayFoodSound;
         Eagle.EagleSound -= PlayEagleSound;
         ValveInteraction.OnValveInteraction -= PlayValveSound;
+        SearchContainer.OnContainerSearch -= PlaySearchSound;
     }
 
     private void PlayBushSound()

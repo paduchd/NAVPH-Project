@@ -23,13 +23,15 @@ public class SceneSwitcher : MonoBehaviour
     [Header("Backgrounds")]
     public Texture2D garageImage; 
     public Texture2D sewersImage; 
-    public Texture2D outskirtsImage; 
+    public Texture2D outskirtsImage;
+    public Texture2D finalImage;
     
     
     [Header("Sounds")]
     public AudioClip garageNarrator;
     public AudioClip sewersNarrator;
     public AudioClip outskirtsNarrator;
+    public AudioClip finalNarrator;
 
     
     // Event listeners for scene switch events
@@ -110,12 +112,12 @@ public class SceneSwitcher : MonoBehaviour
         sceneName = "MainMenu";
         title.text = "The End";
         objective.text = "";
-        description.text = "Congratulations! You successfully escaped your kidnappers, found you way around the sewers maze, evaded the eagle's attacks and safely managed to get back home.";
-        background.texture = outskirtsImage;
+        description.text = "Congratulations! You have successfully escaped your kidnappers, found you way around the sewers maze, evaded the eagle's attacks and safely managed to get back home.";
+        background.texture = finalImage;
         uiCanvas.gameObject.SetActive(false);
         loadingCanvas.gameObject.SetActive(true);
-        // narrator.clip = outskirtsNarrator;
-        // narrator.Play();
+        narrator.clip = finalNarrator;
+        narrator.Play();
             
         StartCoroutine(Load());
     }

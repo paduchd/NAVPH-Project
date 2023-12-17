@@ -944,7 +944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 546932866669180585, guid: a7bb72b134db042498239d69f3c9defe, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3140567476137826076, guid: a7bb72b134db042498239d69f3c9defe, type: 3}
       propertyPath: playerStamina
@@ -2316,11 +2316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b728dab63a59c4595a655720060d699b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &206034082 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 5700072788108800017, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
-  m_PrefabInstance: {fileID: 945865753}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &206034083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4030052064745805077, guid: 33aa1483e834b498095a22552fa3eae7, type: 3}
@@ -6228,12 +6223,7 @@ MonoBehaviour:
   orientation: {fileID: 2068392665}
   player: {fileID: 206034083}
   playerObject: {fileID: 1997633072}
-  rb: {fileID: 206034082}
   rotationSpeed: 10
-  lookAt: {fileID: 206034083}
-  thirdPersonCam: {fileID: 0}
-  horizontal: 0
-  vertical: 0
   freeCameraLook: {fileID: 1388386376}
   amplitude: 1
   frequency: 1
@@ -8095,7 +8085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771641021}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15690604, y: 0.011300105, z: -0.0017954124, w: 0.9875473}
+  m_LocalRotation: {x: 0.15690604, y: 0.0113000665, z: -0.0017954063, w: 0.9875473}
   m_LocalPosition: {x: 0, y: -0.0000019073486, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8309,6 +8299,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1741870280}
     - target: {fileID: 8424065032582650881, guid: a3c16fe499406434cb15b7a126a52c24, type: 3}
+      propertyPath: finalImage
+      value: 
+      objectReference: {fileID: 2800000, guid: d6659f711b6cb204b9726e8fb044fab6, type: 3}
+    - target: {fileID: 8424065032582650881, guid: a3c16fe499406434cb15b7a126a52c24, type: 3}
       propertyPath: loadingBar
       value: 
       objectReference: {fileID: 734245652}
@@ -8316,6 +8310,10 @@ PrefabInstance:
       propertyPath: description
       value: 
       objectReference: {fileID: 595420352}
+    - target: {fileID: 8424065032582650881, guid: a3c16fe499406434cb15b7a126a52c24, type: 3}
+      propertyPath: finalNarrator
+      value: 
+      objectReference: {fileID: 8300000, guid: 251ebf0051790c948b90df41c16e1960, type: 3}
     - target: {fileID: 8424065032582650881, guid: a3c16fe499406434cb15b7a126a52c24, type: 3}
       propertyPath: loadIndicator
       value: 
