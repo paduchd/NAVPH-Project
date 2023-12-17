@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using Random=UnityEngine.Random;
 using UnityEngine;
 using System;
@@ -30,6 +28,7 @@ public class Eagle : MonoBehaviour
     private Vector3 scoutingPosition;
     private float countdown;
 
+    // Functions for showing and hiding player from the eagle (eagle cant attack hidden player)
     public void HidePlayer()
     {
         playerHidden = true;
@@ -39,13 +38,13 @@ public class Eagle : MonoBehaviour
     {
         playerHidden = false;
     }
-
+    
     void Start()
     {
         Physics.IgnoreLayerCollision(9, 11);
         scoutingPosition = transform.position;
     }
-
+    
     void Update()
     {
         if (attacking)
@@ -59,6 +58,7 @@ public class Eagle : MonoBehaviour
         }
     }
 
+    // Moves eagle towards player
     private void AttackPlayer()
     {
         playerPosition = player.position;
@@ -66,6 +66,7 @@ public class Eagle : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, attackSpeed * Time.deltaTime);
     }
 
+    // Returns to starting position after attack
     private void ReturnToScouting()
     {
         transform.LookAt(scoutingPosition);
@@ -78,6 +79,7 @@ public class Eagle : MonoBehaviour
         }
     }
 
+    // Random time between attacks
     private IEnumerator WaitForAttack()
     {
         yield return new WaitForSeconds(Random.Range(minAttackTime,maxAttackTime));
@@ -88,6 +90,7 @@ public class Eagle : MonoBehaviour
         attacking = true;
     }
 
+    // Attacks player on collision if player is not hidden
     private void OnTriggerEnter(Collider col)
     {
         if((col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("PlayerAttackBox")) && playerHidden == false && canAttack)

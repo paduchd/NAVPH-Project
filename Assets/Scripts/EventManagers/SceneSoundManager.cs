@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SceneSoundManager : MonoBehaviour
 {
+    // All sounds which can be triggered in scenes
     private AudioSource audioComponent;
     [SerializeField] private AudioClip[] bushSounds;
     [SerializeField] private AudioClip boxFall;
@@ -12,6 +11,7 @@ public class SceneSoundManager : MonoBehaviour
     [SerializeField] private AudioClip valveTurn;
     [SerializeField] private AudioClip containerSearch;
     
+    // Event listeners
     private void OnEnable()
     {
         audioComponent = GetComponent<AudioSource>();
@@ -33,6 +33,7 @@ public class SceneSoundManager : MonoBehaviour
         SearchContainer.OnContainerSearch -= PlaySearchSound;
     }
 
+    // Functions fo individual sounds based on events
     private void PlayBushSound()
     {
         audioComponent.PlayOneShot(bushSounds[Random.Range(0, bushSounds.Length)]);

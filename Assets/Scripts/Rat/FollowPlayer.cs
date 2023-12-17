@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+// Rat logic for following player and its animations with navmesh agent
 public class FollowPlayer : MonoBehaviour
 {
     [SerializeField] private float velocity;
@@ -36,24 +34,25 @@ public class FollowPlayer : MonoBehaviour
         enemyAgent.transform.rotation = Quaternion.Slerp(enemyAgent.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
     
-    
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        // If rat not dead and detects player in range to follow
         if (detection.isDetected && enemy.health > 0)
         {
             float distance = Vector3.Distance(enemyAgent.nextPosition, detection.detectedPlayer.transform.position);
-
+            
+            // If rat is stunned the he stops
             if (enemy.isStunned)
             {
-                Debug.Log("Stop cuz im stunned");
                 enemyAgent.isStopped = true;
                 enemyAgent.velocity = Vector3.zero;
                 enemyAgent.acceleration = 0;
             }
             
+            //If rat is not too close for attacking and not too far to stop follow him and is not attacking the player
             else if(distance > stopDistance && distance <= followDistance && !enemy.inAttackAnimation)
             {
+                //Follow player
                 enemyAgent.isStopped = false;
                 enemyAgent.acceleration = acceleration;
                 enemyAgent.SetDestination(detection.detectedPlayer.transform.position);
@@ -62,6 +61,7 @@ public class FollowPlayer : MonoBehaviour
                 
             }
             
+            //If rat too far to keep following the player than he stops
             else if(distance > followDistance)
             {
                 enemyAgent.isStopped = true;
@@ -86,11 +86,12 @@ public class FollowPlayer : MonoBehaviour
         
     }
     
+    //How rat animation looks can be set with this faction based on nav mash agent velocity
     private void AnimateSpeed()
     {
         // Calculate the normalized speed (assuming maximum speed is the agent's speed when fully accelerated)
         float normalizedSpeed = enemyAgent.velocity.magnitude / enemyAgent.speed; // enemy.speed is the maximum speed
-        normalizedSpeed = Mathf.Clamp(normalizedSpeed * 10, 0, 10); // Scale and clamp to fit between 0 and 10
+        normalizedSpeed = Mathf.Clamp(normalizedSpeed * 10, 0, 10); // Scale and clamp to fit between 0 and 10 because of animation
                 
         animator.SetFloat("Speed", normalizedSpeed);
     }

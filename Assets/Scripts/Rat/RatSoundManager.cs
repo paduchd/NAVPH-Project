@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random=UnityEngine.Random;
 
+// Sound manager for all rat sounds
 public class RatSoundManager : MonoBehaviour
 {
     private AudioSource audioComponent;

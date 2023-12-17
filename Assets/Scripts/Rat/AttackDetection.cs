@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+// For detecting player if he is in range to attack him
+// Sits on rats child object AttackDetection with collider for that
+// by this attack detection and enemy detection dont trigger for player at the same time
 
 public class AttackDetection : MonoBehaviour
 {
+    // Enemy script have access to player health to take damage
     public PlayerHealth enemyPlayerHealth;
     public bool playerDetected;
     

@@ -32,11 +32,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            TakeDamage(1);
-        }
-        
         HealOverTime();
     }
     
