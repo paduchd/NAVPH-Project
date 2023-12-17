@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Outskirt big rat script as extension of enemy
+// Handles spawning food on death, performing idle reaction when 
 public class OutskirtsRat : MonoBehaviour, IDamageable
 {
     public Transform player;
@@ -28,8 +28,7 @@ public class OutskirtsRat : MonoBehaviour, IDamageable
         Enemy.OnRatDeath -= SpawnReward;
     }
     
-    
-
+    // Loooking at player
     private void Update()
     {
         if (isAlive)
@@ -42,6 +41,7 @@ public class OutskirtsRat : MonoBehaviour, IDamageable
         }
     }
     
+    // Coroutine for idle animation every 10s when player is not detected in attack range
     IEnumerator Idle()
     {
         idleCooldown = true;
@@ -53,7 +53,8 @@ public class OutskirtsRat : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(10);
         idleCooldown = false;
     }
-
+    
+    // Spawns food when rat dead
     private void SpawnReward()
     {
         isAlive = false;

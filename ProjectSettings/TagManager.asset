@@ -12,6 +12,8 @@ TagManager:
   - SewersEnd
   - OutskirtsEnd
   - JunkyardEnd
+  - PlayerAttackBox
+  - EnemyAttackDetection
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - attackColliders
   - bushes
   - eagle
-  - 
+  - enemyDetection
   - 
   - 
   - 

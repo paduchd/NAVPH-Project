@@ -5,6 +5,8 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
+// Base script for rat and outsckirts rat
+// Handles rats health, death, attacks, getting stunned and damage taking 
 public class Enemy : MonoBehaviour, IDamageable
 {
     public int health;
@@ -17,8 +19,7 @@ public class Enemy : MonoBehaviour, IDamageable
     
     public bool inAttackCooldown;
     public bool inAttackAnimation;
-
-    public bool isStunned = false;
+    public bool isStunned;
     
     private string ATTACK = "Attack";
     private string DIE = "Die";
@@ -35,7 +36,8 @@ public class Enemy : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
         attackDetection = GetComponentInChildren<AttackDetection>();
     }
-
+    
+    // Damage taking when player attacks and handles death
     public void TakeDamage(int incomingDamage,Transform playerTransform)
     {
         OnRatHit?.Invoke();
@@ -51,6 +53,7 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
     
+    //When rat dead triggers dead animation and deletes its self after 10s 
     IEnumerator Death()
     {
         OnRatDeath?.Invoke();
@@ -67,12 +70,13 @@ public class Enemy : MonoBehaviour, IDamageable
             StartCoroutine(Attack());
         }
     }
-
+    
     public void GetStun(float duration)
     {
         StartCoroutine(Stun(duration));
     }
-
+    
+    // Handles stun cooldown
     IEnumerator Stun(float duration)
     {
         isStunned = true;
@@ -81,13 +85,16 @@ public class Enemy : MonoBehaviour, IDamageable
         isStunned = false;
     }
     
+    // Rats attack
     IEnumerator Attack()
     {
+        //triggers animation
         inAttackCooldown = true;
         inAttackAnimation = true;
         animator.SetTrigger(ATTACK);
         
         float attackAnimationLength = GetAnimationClipLength("Attack");
+        //After 0.4s rat has front legs in the position of inpact
         float timeOfImpact = 0.4f;
         
         //Player can run away in the beginning of attack animation and dont get hit
@@ -99,10 +106,10 @@ public class Enemy : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(attackAnimationLength - timeOfImpact);
         inAttackAnimation = false;
         
+        //Start cooldown
         yield return new WaitForSeconds(attackCooldown - attackAnimationLength);
         inAttackCooldown = false;
     }
-    
     
     float GetAnimationClipLength(string clipName)
     {

@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random=UnityEngine.Random;
 
+// Sound manager for all rat sounds
 public class RatSoundManager : MonoBehaviour
 {
     private AudioSource audioComponent;
@@ -12,6 +10,7 @@ public class RatSoundManager : MonoBehaviour
     [SerializeField] private AudioClip ratDeath;
     [SerializeField] private AudioClip ratAttack;
 
+    [SerializeField] private float volume = 0.005f;
     private void OnEnable()
     {
         audioComponent = GetComponent<AudioSource>();
@@ -30,19 +29,19 @@ public class RatSoundManager : MonoBehaviour
 
     private void PlayAttackSound()
     {
-        audioComponent.volume = 0.05f;
+        audioComponent.volume = volume;
         audioComponent.PlayOneShot(ratAttack);
     }
 
     private void PlayDeathSound()
     {
-        audioComponent.volume = 0.05f;
+        audioComponent.volume = volume;
         audioComponent.PlayOneShot(ratDeath);
     }
     
     private void PlayHitSound()
     {
-        audioComponent.volume = 0.05f;
+        audioComponent.volume = volume;
         audioComponent.PlayOneShot(ratSqueaks[Random.Range(0, ratSqueaks.Length)]);
     }
 }

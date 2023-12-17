@@ -7,13 +7,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [Header("Health parameters")]
     public int maxHealth = 5;
     public int currentHealth;
-    [SerializeField] private float healTime = 5.0f; //seconds it take to heal 1 hearth
+    [SerializeField] private float healTime = 10.0f; //seconds it take to heal 1 hearth
     private float  timeSinceLastHeal = 0.0f;
     private bool playerIsDead;
     
     [Header("Damage parameters")]
     [SerializeField] private float knockbackForce = 8f;
-    private Rigidbody playerRigitbody;
+    private Rigidbody playerRigidbody;
     
     
     [Header("Death parameters")]
@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     
     private void Start()
     {
-        playerRigitbody = GetComponent<Rigidbody>();
+        playerRigidbody = GetComponent<Rigidbody>();
         StartFixedDeltaTime = Time.fixedDeltaTime;
         StartTimeScale = Time.timeScale;
     }
@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         {
             Vector3 knockbackDirection = transform.position - attackerTransform.position;
             knockbackDirection.Normalize();
-            playerRigitbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+            playerRigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
         }
         
         if (currentHealth <= 0)

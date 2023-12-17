@@ -16,6 +16,7 @@ public class PlayerSoundManager : MonoBehaviour
     [SerializeField] private AudioClip raccoonStunAttack;
     [SerializeField] private AudioClip raccoonHit;
 
+    // Event 
     private void OnEnable()
     {
         audioComponent = GetComponent<AudioSource>();
@@ -28,6 +29,7 @@ public class PlayerSoundManager : MonoBehaviour
         PlayerEventManager.OnDash += PlayWhoosh;
         PlayerEventManager.OnGamePause += StopSounds;
         PlayerEventManager.OnGameResume += ResumeSounds;
+        PlayerEventManager.OnStun += PlayStun;
     }
 
     private void OnDisable()
@@ -40,6 +42,7 @@ public class PlayerSoundManager : MonoBehaviour
         PlayerEventManager.OnDash -= PlayWhoosh;
         PlayerEventManager.OnGamePause -= StopSounds;
         PlayerEventManager.OnGameResume -= ResumeSounds;
+        PlayerEventManager.OnStun -= PlayStun;
     }
 
     private void Update()
@@ -90,5 +93,10 @@ public class PlayerSoundManager : MonoBehaviour
     private void ResumeSounds()
     {
         audioComponent.volume = 0.05f;
+    }
+    
+    private void PlayStun()
+    {
+        audioComponent.PlayOneShot(raccoonStunAttack);
     }
 }

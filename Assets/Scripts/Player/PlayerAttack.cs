@@ -14,15 +14,15 @@ public class PlayerAttack : MonoBehaviour
     
     [Header("AOE Attack")]
     public Collider aoeAttackCollider;
-    public static float aoeAttackCooldown = 1.0f;
+    public static float aoeAttackCooldown = 2.0f;
     //public float aoeAttackCooldownHelper = 1f;
-    public int aoeAttackDamage = 3;
+    public int aoeAttackDamage = 8;
     
     [Header("Stun Attack")]
     public Collider stunCollider;
-    public static float stunCooldown = 1.0f;
+    public static float stunCooldown = 20.0f;
     //public float stunCooldownHelper = 1f;
-    public float stunDuration = 10f;
+    public float stunDuration = 5.0f;
     
     [Header("Player")]
     [SerializeField] private MovementAnimations movementAnimator;
