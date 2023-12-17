@@ -74,7 +74,7 @@ public class ValveInteraction : MonoBehaviour
     private void OnTriggerEnter(Collider collisionObject){
         
         // Check if its the player who entered the trigger
-        if (collisionObject.gameObject.CompareTag("Player")){
+        if (collisionObject.gameObject.CompareTag("Player") && !activated && !isDisabled){
             isInInteractionRange = true;
             
             // Triggers OnInteractionEnter event, which displays possible interaction in the UI
